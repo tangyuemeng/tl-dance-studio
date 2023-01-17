@@ -1,0 +1,24 @@
+/* miniprogram/pages/shop/shop.wxss */
+page {
+  background-color: white;
+ }
+ .bottom-img{
+  position: fixed;
+  bottom:0px;
+}
+
+.btn{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0%;
+  z-index: 99;
+}
+
+
+
+.bottom{
+  height: 120px;
+  width: 100%;
+}
+ 

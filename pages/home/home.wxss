@@ -1,0 +1,75 @@
+page {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.bottom-img{
+  position: fixed;
+  bottom:0px;
+}
+
+.btn{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0%;
+  z-index: 99;
+}
+
+.top-area{
+  height:22vh
+}
+
+.top-img{
+  width:100%;
+  scale:3.4;
+  position: absolute;
+  top:10vh;
+  left:1%
+}
+
+
+.bottom{
+  height: 120px;
+  width: 100%;
+}
+
+.blink-2 {
+	-webkit-animation: blink-2 0.9s both;
+	        animation: blink-2 0.9s both;
+}
+@-webkit-keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bottom-img{
+    position:fixed;
+    left:0;
+    bottom:0px;
+  }
+  
+  
+  .bottom_foot{
+    height: 300px;
+    width: 100%;
+    left:0;
+    bottom:0px;
+  }

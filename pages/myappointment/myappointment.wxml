@@ -1,0 +1,31 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">我的预约</view>
+</cu-custom>
+
+<!-- <text class="text-sl text-ppur margin-top-xs margin-bottom margin-left" >常规课预约</text> -->
+
+<view class="cu-card ">
+  <view class="cu-item shadow">
+<view class="cu-list menu-avatar" style='background-color: #333333;'>
+ <view class="cu-item solid-bottom" wx:for="{{array}}" wx:key >
+      <view class="cu-avatar round lg" style="background-image:url({{item.url}});"></view>
+  <view class="content">
+        <view class="text-white text-lg">{{item.style}}</view>
+        <text class="text-cut text-white">{{item.teacher}}  </text>
+        <text class="text-cut  text-white">{{item.date}}  </text>
+        <text class="text-cut  text-white">{{item.time}}</text>
+      </view>
+      <view class="action">
+        <view class="cu-btn round text-black bg-white text-xs" bindtap="deleteclass" data-id="{{item.classid}}" data-timestamp="{{item.timestamp}}" data-date="{{item.date}}">取消</view>
+          </view>
+    </view>
+</view>
+  </view>
+</view> 
+
+<view class="padding-xl">
+</view>
+
+<view class="bottom">
+<image class='bottom-img' src='../../images/bottom.png' mode='widthFix' style='width:100%;height:10%'></image>
+</view>

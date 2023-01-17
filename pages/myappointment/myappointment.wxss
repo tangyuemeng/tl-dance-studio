@@ -1,0 +1,71 @@
+/* miniprogram/pages/myappointment/myappointment.wxss */
+page {
+  background-color: white;
+ }
+ 
+.logo{
+  position: relative;
+  margin-bottom : 150rpx;
+}
+
+.logo_tl{
+  width: 400rpx; top: 30rpx; left: 30rpx;position: fixed; }
+
+.head{
+  margin-bottom: 100rpx;
+  margin-top: 30rpx;
+  }
+  
+  .headtitile{
+    font-size: 43rpx;
+    align-items: center;
+    text-align:center ;
+  }
+  
+ .nav{
+   align-items: center;
+   margin-top: 50rpx;
+   justify-content: center;
+   text-align:center
+
+ }
+
+  .time{
+    font-size: 29rpx;
+  }
+
+  .list{
+    margin: 40rpx;
+    border-radius: 5px;
+    border: 1px solid #f9f9f9;
+    background-color:#fbfbfb;
+  }
+
+  .weui-btn{
+    margin: 40rpx;
+    border-radius: 5px;
+    border: 1px solid #f9f9f9;
+    background-color:#fbfbfb;
+    justify-content: center;
+    align-items: center;
+    }
+
+  .instraction{
+    align-items: center;
+    text-align:center ;
+    justify-content: center;
+    }
+
+   .bottom-img{
+      position:fixed;
+      left:0;
+      bottom:0px;
+    }
+
+
+  .bottom{
+    height: 80px;
+    width: 100%;
+  }
+
+  

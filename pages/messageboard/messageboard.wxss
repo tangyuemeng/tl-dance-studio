@@ -1,0 +1,24 @@
+/* miniprogram/pages/Messageboard/messageboard.wxss */
+page {
+  background-color: white;
+ }
+
+.bottom-img{
+  position:fixed;
+  left:0;
+  bottom:0px;
+}
+
+.btn{
+  position: fixed;
+  bottom: 120px;
+  left:30px;
+  width: 100px;
+  height: 24px;
+  z-index: 99;
+}
+
+.bottom{
+  height: 120px;
+  width: 100%;
+}

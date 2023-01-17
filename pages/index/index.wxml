@@ -1,0 +1,83 @@
+<!-- <cu-custom bgColor="bg-gradual-blue" >
+  <view slot="content">BUZZ TL DANCE STUDIO</view>
+</cu-custom> -->
+
+<!-- <view class="bg-gradual-blue  UCenter-bg">
+<text class="text-xl center text-white blur">BUZZ TL DANCE STUDIO</text>
+  <image class="gif-wave" src="/images/wave.gif"></image>
+</view> -->
+
+<!--波片-->
+<!-- <swiper class="card-swiper square-dot " indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#f3f3f3" indicator-active-color="#ffffff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item shadow-warp">
+      <image src="{{item.url}}" mode="widthFix" ></image>
+    </view>
+  </swiper-item>
+</swiper> -->
+
+<!--按钮列表-->
+<!-- <view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <image src='/images/logo.png'  mode='widthFix'></image>
+</view> -->
+<!--按钮列表-->
+
+
+<!-- 
+  <view class="cu-list radius shadow-blur margin-right margin-left grid col-{{gridCol}} {{gridBorder?'':'no-border'}} bg-gradual-blue">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}" data-id='{{index}}' bindtap='navigate'>
+    <text class="cuIcon-{{item.icon}} lg text-{{item.color}}"></text>
+    <text  class= "text-{{item.color}}">{{item.name}}</text>
+  </view>
+</view>
+
+<view class='solidView'><view class='solid'></view></view> -->
+
+<!--卡片-->
+<!-- <view class="cu-bar bg-gray">
+  <view class='action'>
+    <text class='cuIcon-titles text-darkGray'></text> 为您推荐
+  </view>
+</view> -->
+
+<!-- <view class="cu-card case {{isCard?'no-card':''}} margin-top-xs shadow-blur" bindtap="gotopage">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="{{showinfo[index].img}}" mode="widthFix"></image>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{showinfo[index].title}}</text>
+      </view>
+    </view>
+    <view class="cu-list bg-gradual-blue menu-avatar  shadow-blur">
+      <view class="cu-item ">
+        <view class="cu-avatar round lg" style="background-image:url({{showinfo[index].url}});"></view>
+        <view class="content flex-sub">
+          <view class="text-white">{{showinfo[index].name}}</view>
+          <view class="text-white text-sm flex justify-between">
+            {{showinfo[index].content}}
+            <view class="text-white text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{seenum}}
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{likenum}}
+              <text class="cuIcon-messagefill margin-lr-xs"></text> {{cmnum}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view> -->
+
+<!-- <view class="home-bg">
+    <image src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/首页.gif" class="bg-image" mode="scaleToFill" bindload="imgloading"></image>
+    <image src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/正方形素材 (3).png" class="home-button" bindtap="Onlogin"></image>
+</view> -->
+<view class="home-bg bg-pan-top color-change-2x">
+  <image class="focus-in-contract-bck bg-image" src="/images/1.svg" />
+  <view class="btn-login" bindtap="Onlogin">
+    <image class="btn-enter tracking-in-expand" src="/images/2.svg" />
+  </view>
+  <view class="btn-signup" bindtap="Onsignup">
+    <image class="btn-enter tracking-in-expand" src="/images/3.svg" />
+  </view>
+</view>

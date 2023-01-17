@@ -1,0 +1,40 @@
+/* miniprogram/pages/shop/shop.wxss */
+page {
+  background-color: white;
+ }
+ .bottom-img{
+  position: fixed;
+  bottom:0px;
+}
+
+
+.btn{
+  position: fixed;
+  bottom: 130px;
+  left:40px;
+  width: 120rpx;
+  height: 120rpx;
+  z-index: 99;
+  border: 0rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  overflow: visible;
+  margin-left: initial;
+  transform: translate(0rpx, 0rpx);
+  margin-right: initial;
+  background-color: #000000;
+}
+
+.bottom{
+  height: 120px;
+  width: 100%;
+}
+ 

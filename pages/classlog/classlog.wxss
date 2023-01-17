@@ -1,0 +1,19 @@
+/* miniprogram/pages/classlog/classlog.wxss */
+
+.bottom-img{
+  position:fixed;
+  left:0;
+  bottom:0px;
+}
+
+.bottom{
+  height: 80px;
+  width: 100%;
+}
+
+page {
+  background-color: white;
+ }
+ .tapbar{
+  background-color: #333333;
+}

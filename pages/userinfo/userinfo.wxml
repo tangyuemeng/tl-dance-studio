@@ -1,0 +1,82 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText"></view>
+</cu-custom>
+
+<view class="cu-card" style="margin-bottom:0rpx;">
+ <view class="cu-item padding shadow" style='background-color: #ffffff;'>
+  <view class="flex justify-between">
+  <view class="flex justify-start">
+    <button class="cu-avatar round xl" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="cu-avatar round xl" src="{{avatarUrl}}"></image></button> 
+ <view class='padding-left-sm margin'>
+          <view class="text-black text-xl">{{nickName}}</view>
+          <view class="text-black flex justify-between">剩余次数:{{num}}</view>
+        </view>
+        </view>
+
+<view class="cu-capsule round animation-{{toggle ? 'fade' : ''}}" wx:if="{{!ischangeview}}"  bindtap="checkin">
+    <view class="cu-tag bg-black ">
+      <text class="cuIcon-likefill"></text>
+      </view>
+    <view class="cu-tag line-black">签到</view>
+  </view>
+  
+
+      </view>
+  </view>
+</view>
+
+<view class='tapbar'>
+<view class="padding flex text-center shadow-blur" style='margin-bottom:-60rpx'>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-df text-white" >{{cardtype}}</view>
+      <view class="margin-top-sm text-white">
+        <text class="cuIcon-vipcard text-white"></text> 本月套餐</view>
+        <view class="shadowbar"></view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xl text-white" >{{userID}}</view>
+      <view class="margin-top-sm text-white">
+        <text class="cuIcon-barcode text-white" ></text> 会员账户</view>
+        <view class="shadowbar"></view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xl text-white" >{{point}}</view>
+      <view class="margin-top-sm text-white">
+        <text class="cuIcon-refund text-white" ></text> 积分</view>
+        <view class="shadowbar"></view>
+    </view>
+  </view>
+
+    <!--卡片-->
+    <view class="cu-list menu card-menu shadow-lg radius bg-white">
+    <view class="cu-item" >
+        <text class="cuIcon-edit text-black margin-right-sm"></text>
+        <text class="text-black text-lg" wx:if="{{!ischangeview}}"> 昵称:{{nickName}}</text>
+        <input class="cu-item text-black text-lg" type="nickname" placeholder="昵称" bindinput="nicknameinput" wx:if="{{ischangeview}}"></input>
+        <view class='edit-icon'>
+          <text class="cuIcon-post text-black animation-shake" style="animation-delay:0.5s" wx:if="{{!ischangeview}}"  bindtap="changeview"> 编辑</text> 
+          <text class="cuIcon-send text-black animation-shake" style="animation-delay:0.5s" wx:if="{{ischangeview}}"  bindtap="updateinfo"> 保存</text>
+        </view>
+      </view>
+      <view class="cu-item">
+        <text class="cuIcon-friend text-black margin-right-sm"></text>
+        <text class="text-black text-lg" wx:if="{{!ischangeview}}"> 姓名:{{name}}</text>
+        <input class="cu-item text-black text-lg" placeholder="姓名" bindinput="nameinput" wx:if="{{ischangeview}}"></input>
+      </view>
+      <view class="cu-item">
+        <text class="cuIcon-phone text-black margin-right-sm"> </text>
+        <text class="text-black text-lg" wx:if="{{!ischangeview}}"> 电话:{{phonenum}}</text>
+        <input class="cu-item text-black text-lg" placeholder="电话" bindinput="phoneinput" wx:if="{{ischangeview}}"></input>
+      </view>
+    <view class="cu-item">
+        <text class="cuIcon-mail text-black margin-right-sm" > </text>
+        <text class="text-black text-lg" wx:if="{{!ischangeview}}"> 邮箱:{{email}}</text>
+        <input class="cu-item text-black text-lg" placeholder="邮件" bindinput="emailinput" wx:if="{{ischangeview}}"></input>
+      </view>
+      <view class="cu-item" bindtap="gotopage">
+        <text class="cuIcon-goods text-black margin-right-sm"> </text>
+        <text class="text-black text-lg">我的卡包</text>
+      </view>
+</view>
+</view>

@@ -1,0 +1,42 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/storageConsole/storageConsole",
+        "pages/databaseGuide/databaseGuide",
+        "pages/addFunction/addFunction",
+        "pages/deployFunctions/deployFunctions",
+        "pages/chooseLib/chooseLib",
+        "pages/openapi/openapi",
+        "pages/openapi/serverapi/serverapi",
+        "pages/openapi/callback/callback",
+        "pages/openapi/cloudid/cloudid",
+        "pages/logs/logs",
+        "pages/user_appointment/user_appointment",
+        "pages/appointment/appointment",
+        "pages/myappointment/myappointment",
+        "pages/userinfo/userinfo",
+        "pages/classlog/classlog",
+        "pages/messageboard/messageboard",
+        "pages/home/home",
+        "pages/shop/shop",
+        "pages/shop/mygoods",
+        "pages/signup/signup"
+    ],
+    "window": {
+        "backgroundColor": "#000000",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#9381ff",
+        "navigationBarTitleText": "BUZZ TL",
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom"
+    },
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    },
+    "sitemapLocation": "sitemap58.json",
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    }
+}
