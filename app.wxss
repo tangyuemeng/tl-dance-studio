@@ -1,7 +1,6 @@
 /**app.wxss**/
-@import "icon.wxss";
-@import "main.wxss";
-@import "animation.wxss";
+@import "/style/base.wxss";
+@import "/style/animation.wxss";
 
 .scrollPage {
   height: 100vh;

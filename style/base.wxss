@@ -1,0 +1,156 @@
+.logo {
+    position: absolute;
+    width: 60vw;
+    height: 7vh;
+    left: 20vw;
+    top: 20vh;
+
+    font-family: 'Prompt';
+    font-style: black;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    
+    /* PINKBLUE */
+    
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #FBC5FF;
+    transition: all .5s;
+    animation: clippath 1s infinite linear;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #FBC5FF;
+    transition: all .5s;
+    animation: clippath 3s infinite linear;
+}
+
+
+/**btn**/
+.round-btn-pink {
+    width: 80vw;
+    height: 8vh;
+    margin: auto;
+    top: 80vh;
+    background: linear-gradient(92.29deg, #FBC5FF 0.44%, rgba(187, 223, 241, 0.68) 131.66%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    padding: 17px 0;
+    color: #2B2B2B;
+}
+
+.round-btn-black{
+    width: 80vw;
+    height: 8vh;
+    margin-bottom: 4vh;
+    top: 5vh;
+    background: #2B2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    padding: 17px 0;
+    color: #FBC5FF;
+}
+
+/**bottomSheet**/
+.bottomSheet{
+    position: absolute;
+    width: 100vw;
+    height: 45vh;
+    left: 0px;
+    top: 55vh;
+
+    /* PINKBLUE */
+
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px 40px 0px 0px;
+}
+
+.showModal {
+    display: block;
+}
+
+.hideModal {
+    display: none;
+}
+
+.animation-slideContentUp {
+    animation: slideContentUp 0.5s ease-in both;
+/* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+  
+.animation-slideContentDown {
+    animation: slideContentDown 0.5s ease-in both;
+/* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
+}
+
+/**animation**/
+@keyframes clippath {
+    0%,
+    100% {
+        clip-path: inset(0 0 95% 0);
+    }
+    25% {
+        clip-path: inset(0 95% 0 0);
+    }
+    50% {
+        clip-path: inset(95% 0 0 0);
+    }
+    75% {
+        clip-path: inset(0 0 0 95%);
+    }
+}
+
+@keyframes slideContentUp {
+    from {
+      transform: translateY(100%); /*设置为正数则底部弹出来，负数则相反*/
+    }
+  
+    to {
+      transform: translateY(0%);
+    }
+  }
+  
+  @keyframes slideContentDown {
+    from {
+      transform: translateY(0%);
+    }
+  
+    to {
+      transform: translateY(100%);
+    }
+  }
+ 

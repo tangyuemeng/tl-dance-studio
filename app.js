@@ -10,7 +10,8 @@ App({
     point:0,
     islogin:false,
     day:0,
-    deadday:null
+    deadday:null,
+    school:""
 } , 
   onLaunch: function () {
     if (!wx.cloud) {
@@ -34,6 +35,16 @@ App({
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
       }
     })
+    wx.loadFontFace({
+        family: 'Prompt',
+        source: 'url("https://github.com/tangyuemeng/IOS-UI/blob/main/Prompt-Black.ttf")',
+        success: res => {
+            console.log('font load success', res)
+          },
+          fail: err => {
+            console.log('font load fail', err)
+          }
+      })
   },
 
 })

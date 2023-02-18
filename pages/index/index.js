@@ -3,8 +3,6 @@ const app = getApp()
 const db = wx.cloud.database()
 Page({
   data: {
-
-  
   },
   async onLoad() {
     var time = new Date()     // 获取当前时间日期
@@ -25,16 +23,7 @@ Page({
     app.globalData.phonenum = result.data[0].phonenum
     app.globalData.email = result.data[0].email
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
-    console.log(app.globalData.userID)
-    console.log(app.globalData.vip)
-    console.log(app.globalData.cardtype)
-    console.log(app.globalData.num)
-    console.log(app.globalData.nickName)
     }
-  },
-  imgloading(){
-    console.log("loading")
-
   },
 
   Onlogin(){
@@ -88,15 +77,23 @@ Page({
       }
   },
 
-  changestringlength (e){
-    var result 
-    if (e.length === 1){
-      result = "0" + e
-      return result
-    }
-    else {
-      return e 
-    }
+  loginApi(e){
+    app.globalData.school = e.currentTarget.dataset.target
+    wx.redirectTo({
+        url: '/pages/home/home', 
+    })
+  },
+
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+    })
+  },
+
+  hideModal() {
+    this.setData({
+      modalName: "",
+    })
   },
 })
 
