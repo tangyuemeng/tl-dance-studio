@@ -1,23 +1,45 @@
+/**base.wsxx**/
+/**btn**/
+.pink-blue-text{
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.huge-text{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.middle-text{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.small-text{
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
 .logo {
     position: absolute;
     width: 60vw;
     height: 7vh;
     left: 20vw;
     top: 20vh;
-
-    font-family: 'Prompt';
-    font-style: black;
-    font-weight: 900;
-    font-size: 40px;
-    line-height: 60px;
-    text-align: center;
-    
-    /* PINKBLUE */
-    
-    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .logo::before {

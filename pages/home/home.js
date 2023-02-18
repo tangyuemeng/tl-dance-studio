@@ -19,6 +19,7 @@ Page({
     let deadday = String(year) + '年' + String(month+1) + '月' + String(date) + '日'
     app.globalData.deadday = deadday
     this.setData({
+        userID : app.globalData.userID,
         school : app.globalData.school
     })
  

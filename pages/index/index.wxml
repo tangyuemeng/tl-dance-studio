@@ -1,4 +1,4 @@
-﻿<text class="logo" bindtap="hideModal">BUZZ TL</text>
+﻿<text class="logo pink-blue-text huge-text" bindtap="hideModal">BUZZ TL</text>
 <button class="round-btn-pink {{modalName=='bottomSheet'?'hideModal':'showModal'}}" bindtap="showModal" data-target="bottomSheet">Get start...</button>
 
 
