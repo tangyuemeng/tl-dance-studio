@@ -10,7 +10,7 @@
 .nav-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 60rpx 40rpx 0px;
+  padding: 66rpx 40rpx 0px;
   justify-content: space-between;
 }
 
