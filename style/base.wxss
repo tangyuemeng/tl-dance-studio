@@ -139,6 +139,80 @@
 /* animation-fill-mode: both 动画将会执行 forwards 和 backwards 执行的动作。 */
 }
 
+/**card**/
+.pink-blue-card{
+    position: absolute;
+    width: 90vw;
+    height: 27.8vh;
+    left: 5vw;
+    /* PINKBLUE */
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    border-radius: 20px;
+}
+
+.blue-card{
+    position: absolute;
+    width: 90vw;
+    height: 27.8vh;
+    left: 5.9vw;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.6) 0%, rgba(187, 223, 241, 0.48) 115.23%);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 20px;
+}
+
+.slide-bottom{
+    position: absolute;
+    width: 60vw;
+    height: 5vh;
+    left: 20vw;
+    top: 90vh;
+
+    /* SHADOW */
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.6) 0%, rgba(187, 223, 241, 0.48) 115.23%);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 20px;
+}
+
+.slide-home{
+    position: absolute;
+    width: 30vw;
+    height: 5vh;
+    top: 90vh;
+
+    /* PINKBLUE */
+
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 20px;
+}
+
+.home-icon{
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    left: 30.5vw;
+    top: 90.6vh;
+    filter: invert(12%) sepia(10%) saturate(0%) hue-rotate(206deg) brightness(101%) contrast(88%);
+}
+
+.setting-icon{
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    right: 30.5vw;
+    top: 90.6vh;
+    filter: invert(12%) sepia(10%) saturate(0%) hue-rotate(206deg) brightness(101%) contrast(88%);
+}
+
+
+
 /**animation**/
 @keyframes clippath {
     0%,

@@ -1,4 +1,14 @@
 <text class="small-text pink-blue-text small-text-home">Hi,{{userID}}!</text>
 <text class="middle-text pink-blue-text middle-text-home">Welcome back!</text>
-
-<image class="cu-avatar round xl" src="{{avatarUrl}}"></image>
+<image class="refresh-icon" src="/images/refresh.svg" />
+<view class="pink-blue-card" style="top:18vh"></view>
+<view class="blue-card" style="top:18.6vh"></view>
+<view class="pink-blue-card-left"></view>
+<view class="pink-blue-card-right"></view>
+<view class="pink-blue-card-bottom"></view>
+<text class="logo-home pink-blue-text middle-text">BUZZ TL</text>
+<view class="slide-bottom"></view>
+<view class="slide-home" style="left: 20vw;"></view>
+<image class="home-icon" src="/images/home.svg"/>
+<image class="setting-icon" src="/images/sliders.svg" bindtap="navi_setting"/>
+<!-- <image class="cu-avatar round xl" src="{{avatarUrl}}"></image> -->

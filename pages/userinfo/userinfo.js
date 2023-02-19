@@ -1,5 +1,4 @@
 // miniprogram/pages/userinfo/userinfo.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
@@ -14,7 +13,6 @@ Page({
     phonenum:null,
     nickname:null,
     ischangeview:false,
-    avatarUrl: defaultAvatarUrl,
   },
 
   /**
@@ -225,9 +223,10 @@ async onLoad () {
             })
     }
 },
-gotopage(){
-  wx.navigateTo({
-    url: '/pages/shop/mygoods',
+
+navi_home(){
+  wx.redirectTo({
+    url: '/pages/home/home',
   })
-}
+},
 })
