@@ -40,6 +40,7 @@ async onLoad () {
    var name = app.globalData.name
    var phonenum = app.globalData.phonenum
    var email = app.globalData.email
+   var school = app.globalData.school
    this.setData({
     userID : userID,
     num : num,
@@ -48,7 +49,8 @@ async onLoad () {
     point : point,
     email: email,
     phonenum:phonenum,
-    name:name
+    name:name,
+    school:school
    })
    console.log(num)
   },

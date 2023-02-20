@@ -24,5 +24,14 @@ Page({
         url: '/pages/userinfo/userinfo',
       })
   },
+  navi_class(){
+    // this.setData({
+    //     tap:"fade"
+    // })
+    wx.navigateTo({
+        url: '/pages/shop/shop',
+      })
+
+  },
 
 })

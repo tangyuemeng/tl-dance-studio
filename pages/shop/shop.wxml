@@ -1,38 +1,29 @@
 <cu-custom bgColor="bg-white" isBack="{{true}}">
-  <view slot="content">积分商城</view>
+  <view slot="content"></view>
 </cu-custom>
 
-<!-- <view class='animation-shake btn' style='animation-duration: 1.5s;animation-iteration-count: infinite;'>
-<view class="lg round" bindtap="gotopage">
-  <text class="cuIcon-goods text-sxl text-white"></text>
-  <text class="text-sm text-white">我的劵包</text>
-</view>
-</view> -->
+<text class="shop-title-shadow">Coupons</text>
+<text class="shop-title">Coupons</text>
 
-<view class="cu-card">
-  <view class="cu-item padding-sm shadow-blur" style="background-color:#333333" wx:for="{{list}}" wx:key>
-      <view class="flex align-center">
-        <view class="flex-sub">
-          <view class="text-xxl text-white margin-left">{{item.title}}</view>
-          <view class="bg-blue round margin-left-sm" style="width:120rpx">
-          <view class="text-xs" style="margin-left:10rpx">{{item.type}}</view>
-          </view>
-        </view>
-        <view class="flex-twice align-center margin-left">
-          <view class="text-white text-sm">{{item.text}}</view>
-          <view class="text-xs text-white">有效期至:{{item.deadtime}}</view>
-        </view>
-        <view class="flex-sub margin-left-sm justify-center padding-xs">
-          <view class="text-sm text-white margin-left-sm">{{item.price}}积分</view>
-          <view class="cu-btn bg-white round shadow animation-{{toggle==item.price ? 'fade' : ''}}" bindtap="pointtobuy" data-title="{{item.title}}" data-price="{{item.price}}" data-type="{{item.type}}" data-text="{{item.text}}" data-deadtime="{{item.deadtime}}">兑换</view>
-        </view>
-      </view>
-    </view>
-  </view>
-
-
-<view class="bottom">
-  <image class='bottom-img' src='../../images/bottom.png' mode='widthFix' style='width:100%;height:10%'></image>
-<image class='bottom-img' src='../../images/bottom.png' mode='widthFix' style='width:100%;height:10%'></image>
+<view class="pink-blue-card-left" style="top:22vh">
+    <text class="blue-text small-text coupon-text">舞房抵用劵</text>
+    <text class="blue-text small-text coupon-price">200P</text>
 </view>
 
+<view class="pink-blue-card-left" style="top:51vh">
+    <text class="blue-text small-text coupon-text">舞房抵用劵</text>
+    <text class="blue-text small-text coupon-price">360P</text>
+</view>
+
+<view class="pink-blue-card-right" style="top:12vh">
+    <text class="blue-text small-text coupon-text">课程抵用劵</text>
+    <text class="blue-text small-text coupon-price">120P</text>
+</view>
+<view class="pink-blue-card-right" style="top:41vh">
+    <text class="blue-text small-text coupon-text">课程抵用劵</text>
+    <text class="blue-text small-text coupon-price">400P</text>
+</view>
+<view class="pink-blue-card-right" style="top:70vh">
+    <text class="blue-text small-text coupon-text">课程抵用劵</text>
+    <text class="blue-text small-text coupon-price">900P</text>
+</view>

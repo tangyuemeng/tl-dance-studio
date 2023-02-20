@@ -5,3 +5,128 @@ page {
     background-color: #2B2B2B;
 }
 
+.card-userinfo{
+    position: absolute;
+    left: 5vw;
+    top:14vh;
+}
+
+.logo-home {
+    position: absolute;
+    width: 43vw;
+    height: 5vh;
+    left: 5vw;
+    top: 6vh;
+}
+
+.logo-home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #FBC5FF;
+    transition: all .5s;
+    animation: clippath 1s infinite linear;
+}
+
+.logo-home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #FBC5FF;
+    transition: all .5s;
+    animation: clippath 3s infinite linear;
+}
+
+.small-text-userinfo{
+    position: absolute;
+    left: 3vw;
+    top: 1.5vh;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #2B2B2B;
+}
+
+.middle-text-userinfo{
+    position: absolute;
+    left: 3vw;
+    top: 9.5vh;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    
+    color: #2B2B2B;
+}
+
+.huge-text-userinfo{
+    position: absolute;
+    left: 2vw;
+    top: 3vh;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    
+    color: #2B2B2B;
+}
+
+.text-userinfo{
+    position: absolute;
+    left: 6vw;
+    top: 44vh;
+
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    text-align: center;
+}
+
+.vip-icon{
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    right: 1.8vh;
+    top: 1.8vh;
+}
+
+.barcode-icon{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 1vh;
+    top: 11vh;
+}
+
+
+.slider{
+    animation: slider 0.6s;
+}
+@keyframes slider {
+    from {
+      transform: translateX(-100%); 
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+}
