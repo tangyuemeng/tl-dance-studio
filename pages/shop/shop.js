@@ -3,6 +3,7 @@ var util = require('../../utils/util.js');
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
+import lottie from 'lottie-miniprogram'
 Page({
 
   /**
@@ -180,5 +181,32 @@ async onLoad () {
         title: '积分不足',
         icon : 'error',})
     }
-  }
+  },
+  init() {
+    if (this.inited) {
+      return
+    }
+    wx.createSelectorQuery().selectAll('#lottie_demo').node(res => {
+      const canvas = res[0].node
+      const context = canvas.getContext('2d')
+      canvas.width = 300
+      canvas.height = 300
+      lottie.setup(canvas)
+      this.ani = lottie.loadAnimation({
+        loop: true,
+        autoplay: true,
+        animationData: require('/../../json/refresh.js'),
+        rendererSettings: {
+          context,
+        },
+      })
+      this.inited = true
+    }).exec()
+  },
+  play() {
+    this.ani.play()
+  },
+  pause() {
+    this.ani.pause()
+  },
 })

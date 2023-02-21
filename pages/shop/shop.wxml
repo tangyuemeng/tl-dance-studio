@@ -1,29 +1,29 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}">
-  <view slot="content"></view>
-</cu-custom>
+
+<canvas id="lottie_demo" type="2d"></canvas>
+
 
 <text class="shop-title-shadow">Coupons</text>
 <text class="shop-title">Coupons</text>
 
-<view class="pink-blue-card-left" style="top:22vh">
+<view class="pink-blue-card-left btn-active" style="top:22vh">
     <text class="blue-text small-text coupon-text">舞房抵用劵</text>
     <text class="blue-text small-text coupon-price">200P</text>
 </view>
 
-<view class="pink-blue-card-left" style="top:51vh">
+<view class="pink-blue-card-left btn-active" style="top:51vh">
     <text class="blue-text small-text coupon-text">舞房抵用劵</text>
     <text class="blue-text small-text coupon-price">360P</text>
 </view>
 
-<view class="pink-blue-card-right" style="top:12vh">
+<view class="pink-blue-card-right btn-active" style="top:12vh">
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text small-text coupon-price">120P</text>
 </view>
-<view class="pink-blue-card-right" style="top:41vh">
+<view class="pink-blue-card-right btn-active" style="top:41vh">
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text small-text coupon-price">400P</text>
 </view>
-<view class="pink-blue-card-right" style="top:70vh">
+<view class="pink-blue-card-right btn-active" style="top:70vh">
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text small-text coupon-price">900P</text>
 </view>
