@@ -2,7 +2,6 @@
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
-        "pages/user_appointment/user_appointment",
         "pages/appointment/appointment",
         "pages/myappointment/myappointment",
         "pages/userinfo/userinfo",
