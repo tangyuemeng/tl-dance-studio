@@ -4,6 +4,13 @@ page {
     background-color: #2B2B2B;
 }
 
+.title-home{
+    position: absolute;
+    left: 6.3vw;
+    top: 9vh;
+    color: #f5f5f5;
+}
+
 .small-text-home{
     position: absolute;
     left: 6.3vw;
@@ -101,13 +108,22 @@ page {
 
 .refresh-icon{
     position: absolute;
+    background-color: transparent;
     width: 8vw;
     height: 8vw;
     right: 5vw;
     top: 11.5vh;
-    transform: rotate(360deg);
-    transition: .5s;
     filter: invert(96%) sepia(54%) saturate(2940%) hue-rotate(202deg) brightness(100%) contrast(107%);
+}
+
+.refresh-icon:active{
+    transform: rotate(360deg);
+    transition: 0.5s;
+}
+
+.class-icon{
+    width: 25vw;
+    height: 25vw;
 }
 
 .slider{

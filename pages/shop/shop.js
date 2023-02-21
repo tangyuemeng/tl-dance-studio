@@ -3,7 +3,6 @@ var util = require('../../utils/util.js');
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
-import lottie from 'lottie-miniprogram'
 Page({
 
   /**
@@ -209,4 +208,9 @@ async onLoad () {
   pause() {
     this.ani.pause()
   },
+  backhome(){
+      wx.navigateBack({
+          delta:1
+      })
+  }
 })

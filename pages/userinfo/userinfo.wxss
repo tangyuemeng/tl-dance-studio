@@ -16,7 +16,7 @@ page {
     width: 43vw;
     height: 5vh;
     left: 5vw;
-    top: 6vh;
+    top: 7vh;
 }
 
 .logo-home::before {
@@ -106,7 +106,13 @@ page {
     width: 15vw;
     height: 15vw;
     right: 1.8vh;
+    border-radius: 50%;
     top: 1.8vh;
+    background: linear-gradient(120deg, transparent 30%, #f0f0f0 38%, #f0f0f0 
+  40%, transparent 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: shinning 2s infinite;
 }
 
 .barcode-icon{
@@ -115,6 +121,35 @@ page {
     height: 200px;
     right: 1vh;
     top: 11vh;
+}
+
+.info-circle{
+    position: absolute;
+    width: 18vw;
+    height: 18vw;
+    /* PINKBLUE */
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 36px;
+}
+
+
+.text-info{
+    position: absolute;
+    color: #f5f5f5;
+}
+
+.info-bar{
+    position: absolute;
+    width: 90vw;
+    height: 10vh;
+    top: 50vh;
+    left: 5vw;
+}
+
+.info-bar:active{
+    transform: translateY(1vw);
 }
 
 

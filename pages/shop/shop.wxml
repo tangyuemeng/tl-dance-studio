@@ -1,7 +1,4 @@
 
-<canvas id="lottie_demo" type="2d"></canvas>
-
-
 <text class="shop-title-shadow">Coupons</text>
 <text class="shop-title">Coupons</text>
 
@@ -27,3 +24,5 @@
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text small-text coupon-price">900P</text>
 </view>
+
+<image class="back-icon" src="/images/back.svg" bindtap="backhome"></image>

@@ -81,3 +81,17 @@ page {
     top: 19.5vh; 
     left: 3vw;
 }
+
+.back-icon{
+    position: absolute;
+    width: 16vw;
+    height: 16vw;
+    left: 15vw;
+    bottom: 10vh;
+    border-radius: 50%;
+    background: linear-gradient(120deg, transparent 30%, #9aadac 38%, #9aadac
+    40%, transparent 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: shinning 2s infinite;
+}

@@ -168,11 +168,11 @@
     position: absolute;
     width: 90vw;
     height: 27.8vh;
-    left: 5.9vw;
+    left: 5vw;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.6) 0%, rgba(187, 223, 241, 0.48) 115.23%);
     backdrop-filter: blur(2px);
     /* Note: backdrop-filter has minimal browser support */
-
+    box-shadow:  4rpx 4rpx 6rpx rgba(130, 147, 156, 0.48);
     border-radius: 20px;
 }
 
@@ -261,6 +261,12 @@
   
     to {
       transform: translateY(100%);
+    }
+  }
+
+  @keyframes shinning {
+    100% {
+      background-position: -100% 0;
     }
   }
  

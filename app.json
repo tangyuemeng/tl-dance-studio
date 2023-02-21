@@ -1,9 +1,6 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/openapi/serverapi/serverapi",
-        "pages/openapi/callback/callback",
-        "pages/openapi/cloudid/cloudid",
         "pages/logs/logs",
         "pages/user_appointment/user_appointment",
         "pages/appointment/appointment",
@@ -12,8 +9,7 @@
         "pages/classlog/classlog",
         "pages/home/home",
         "pages/shop/shop",
-        "pages/shop/mygoods",
-        "pages/signup/signup"
+        "pages/shop/mygoods"
     ],
     "window": {
         "backgroundColor": "#000000",

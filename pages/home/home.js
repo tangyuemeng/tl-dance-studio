@@ -25,13 +25,15 @@ Page({
       })
   },
   navi_class(){
-    // this.setData({
-    //     tap:"fade"
-    // })
     wx.navigateTo({
         url: '/pages/shop/shop',
       })
 
   },
+  navi_shop(){
+    wx.navigateTo({
+        url: '/pages/shop/shop',
+      })
+  }
 
 })

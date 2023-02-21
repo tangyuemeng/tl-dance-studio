@@ -1,14 +1,33 @@
 <text class="small-text pink-blue-text small-text-home">Hi,{{userID}}!</text>
 <text class="middle-text pink-blue-text middle-text-home">Welcome back!</text>
 <image class="refresh-icon" src="/images/refresh.svg" />
-<view class="pink-blue-card" style="top:18vh"></view>
-<view class="blue-card" style="top:18.6vh"></view>
-<view class="pink-blue-card-left animation-{{tap}}" bindtap="navi_class"></view>
-<view class="pink-blue-card-right"></view>
-<view class="pink-blue-card-bottom"></view>
+
+<!-- 显示拦 -->
+<view class="pink-blue-card" style="top:21vh;left:40vw;width: 40vw; height: 40vw;"></view>
+<view class="pink-blue-card" style="top:35vh;left:72vw; width: 20vw; height: 20vw;"></view>
+<view class="blue-card" style="top:18.6vh">
+    <text class="title-home huge-text" style="top:1vh;left:3vw">Popup Class</text>
+    <text class="title-home middle-text" style="top:10vh;left:3vw">HIPHOP</text>
+    <text class="title-home small-text" style="top:14vh;left:3vw">Time:  18:45-20:15</text>
+    <text class="title-home small-text" style="top:17vh;left:3vw">Instructor:  Rudy</text>
+</view>
+
+  
+  <!-- 模块 -->
+<view class="pink-blue-card-left btn-active" bindtap="navi_class">
+ <text class="blue-text huge-text" style="bottom:10vw;left:3vw">Class</text>
+ <text class="blue-text small-text" style="bottom:5vw;left:3vw">课程预约</text>
+</view>
+<view class="pink-blue-card-right btn-active">
+    <text class="blue-text huge-text" style="bottom:8vw;left:3vw">Book</text>
+    <text class="blue-text small-text" style="bottom:3vw;left:3vw">我的预约</text>
+</view>
+<view class="pink-blue-card-bottom btn-active" bindtap="navi_shop">
+    <text class="blue-text huge-text" style="bottom:8vw;right:3vw">Store</text>
+    <text class="blue-text small-text" style="bottom:3vw;right:3vw">积分商城</text>
+</view>
 <text class="logo-home pink-blue-text middle-text">BUZZ TL</text>
 <view class="slide-bottom"></view>
 <view class="slide-home slider" style="left: 20vw;"></view>
 <image class="home-icon" src="/images/home.svg"/>
 <image class="setting-icon" src="/images/sliders.svg" bindtap="navi_setting"/>
-<!-- <image class="cu-avatar round xl" src="{{avatarUrl}}"></image> -->

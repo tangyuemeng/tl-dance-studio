@@ -1,4 +1,4 @@
-<text class="logo-home pink-blue-text middle-text">BUZZ TL</text>
+<!-- <text class="logo-home pink-blue-text middle-text">BUZZ TL</text> -->
 <view class="pink-blue-card card-userinfo">
     <text class="small-text-userinfo">Hello!</text>
     <text class="huge-text-userinfo">{{userID}}</text>
@@ -8,8 +8,28 @@
     <image class="barcode-icon" src="/images/barcode.png" />
 </view>
 
-<text class="pink-blue-text text-userinfo">Info.</text>
+<text class="pink-blue-text text-userinfo">INFO.</text>
 
+<view class="info-bar">
+ <view class="info-circle"></view>
+ <text class="middle-text text-info" style="left: 26vw;">Logging</text>
+ <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">上课记录</text>
+</view>
+
+<view class="info-bar" style="top: 62vh;">
+ <view class="info-circle"></view>
+ <text class="middle-text text-info" style="left: 26vw;">Cards</text>
+ <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">我的卡包</text>
+</view>
+
+
+<view class="info-bar" style="top: 74vh;">
+ <view class="info-circle"></view>
+ <text class="middle-text text-info" style="left: 26vw;">Service</text>
+ <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">在线客服</text>
+</view>
+
+<button style="width: 90vw; height: 10vh; top: 74vh; background-color: transparent;" formType="submit" hoverClass="none" openType="contact"></button>
 
 
 
