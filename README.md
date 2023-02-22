@@ -1,5 +1,49 @@
-# tl-dance-studio
-Reservation system of TL DANCE STUDIO
-![IMG_4920](https://user-images.githubusercontent.com/45617934/212823415-923aafab-9e9b-4ca8-8064-f651143f3800.PNG)
-![IMG_4921](https://user-images.githubusercontent.com/45617934/212823397-eaccd58f-6788-4f4d-9b8a-cece161a925a.PNG)
+# BUZZ TL miniapp
+The reservation application of BUZZ TL 
 
+
+![image](https://github.com/tangyuemeng/goluck-music/blob/develop/screenshots/home.png)
+<br><br>
+
+
+## 1. Summary
+
+**Fully customized**mini app
+<br>
+<br>
+
+<br>
+
+<br><br>
+
+## 2. Techniques
+
+### Frontend
+
+-   WXML(HTML)
+-   WXSS(CSS)
+-   Canva
+-   Figma
+
+### Backend
+
+-   CloudBase
+
+
+### Infrastructure
+
+-   Firebase
+
+### Other
+
+-   GitHub
+
+<br><br>
+
+
+
+
+## Developer
+
+-   YUEMENG TANG
+-   tangyuemeng@toki.waseda.jp
