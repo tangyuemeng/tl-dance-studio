@@ -78,7 +78,21 @@ Page({
   },
 
   loginApi(e){
-    app.globalData.school = e.currentTarget.dataset.target
+      console.log(e.currentTarget.dataset.target)
+    switch(e.currentTarget.dataset.target){
+        case "ookubo":
+            app.globalData.school = "大久保店"
+            break
+        case "ikebukuro":
+            app.globalData.school = "池袋店"  
+            break    
+        case "shinkoiwako":
+            app.globalData.school = "新小岩店"    
+            break
+        default:
+            app.globalData.school = "error"
+           
+    }
     wx.redirectTo({
         url: '/pages/home/home', 
     })

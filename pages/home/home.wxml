@@ -6,7 +6,7 @@
 <view class="pink-blue-card" style="top:21vh;left:40vw;width: 40vw; height: 40vw;"></view>
 <view class="pink-blue-card" style="top:35vh;left:72vw; width: 20vw; height: 20vw;"></view>
 <view class="blue-card" style="top:18.6vh">
-    <text class="title-home huge-text" style="top:1vh;left:3vw">Popup Class</text>
+    <text class="title-home huge-text" style="top:0vh;left:3vw">Popup Class</text>
     <text class="title-home middle-text" style="top:10vh;left:3vw">HIPHOP</text>
     <text class="title-home small-text" style="top:14vh;left:3vw">Time:  18:45-20:15</text>
     <text class="title-home small-text" style="top:17vh;left:3vw">Instructor:  Rudy</text>

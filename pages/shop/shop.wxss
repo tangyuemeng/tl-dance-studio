@@ -6,36 +6,16 @@ page {
  }
 
  .shop-title{
-    position: absolute;
     left: 7vw;
-    top: 13vh;
-    
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 500;
-    font-size:32px;
-    line-height: 42px;
-    text-align: center;
-    
-    /* PINKBLUE */
-    
-    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+    top: 11vh;
+ }
+
 
 .shop-title-shadow{
     position: absolute;
     left: 7vw;
-    top: 14vh;
+    top: 12vh;
     
-    font-family: 'Prompt';
-    font-style: normal;
-    font-weight: 500;
-    font-size:32px;
-    line-height: 42px;
-    text-align: center;
     
     /* PINKBLUE */
     
@@ -73,8 +53,8 @@ page {
 }
 
 .coupon-text{
-    top: 16vh; 
-    left: 2vw;
+    top: 17.5vh; 
+    left: 3vw;
 }
 
 .coupon-price{

@@ -87,60 +87,7 @@ async onLoad () {
      })
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   pointtobuy(e){
-    var toggle 
-    this.setData({
-      toggle:e.currentTarget.dataset.price
-    })
     console.log(e.currentTarget.dataset.title)
     console.log(e.currentTarget.dataset.price)
     console.log(app.globalData.point)
@@ -180,33 +127,6 @@ async onLoad () {
         title: '积分不足',
         icon : 'error',})
     }
-  },
-  init() {
-    if (this.inited) {
-      return
-    }
-    wx.createSelectorQuery().selectAll('#lottie_demo').node(res => {
-      const canvas = res[0].node
-      const context = canvas.getContext('2d')
-      canvas.width = 300
-      canvas.height = 300
-      lottie.setup(canvas)
-      this.ani = lottie.loadAnimation({
-        loop: true,
-        autoplay: true,
-        animationData: require('/../../json/refresh.js'),
-        rendererSettings: {
-          context,
-        },
-      })
-      this.inited = true
-    }).exec()
-  },
-  play() {
-    this.ani.play()
-  },
-  pause() {
-    this.ani.pause()
   },
   backhome(){
       wx.navigateBack({

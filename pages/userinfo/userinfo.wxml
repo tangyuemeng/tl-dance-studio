@@ -1,37 +1,24 @@
-<!-- <text class="logo-home pink-blue-text middle-text">BUZZ TL</text> -->
+<!-- 头部卡片 -->
 <view class="pink-blue-card card-userinfo">
-    <text class="small-text-userinfo">Hello!</text>
-    <text class="huge-text-userinfo">{{userID}}</text>
-    <text class="middle-text-userinfo">{{cardtype}}-{{school}}</text>
-    <text class="middle-text-userinfo" style="top:11.5vh">{{school}}</text>
-    <image class="vip-icon" src="/images/vip.png" />
+    <text class="small-text-userinfo middle-text blue-text">Hello!</text>
+    <text class="huge-text-userinfo huge-text blue-text">{{userID}}</text>
+    <text class="middle-text-userinfo blue-text small-text">{{cardtype}}-{{school}}</text>
+    <text class="middle-text blue-text" style="top: 12vh; left: 3vw;">{{point}}P</text>
+    <image class="vip-icon" src="/images/vip.png" bindtap="checkin"/>
     <image class="barcode-icon" src="/images/barcode.png" />
 </view>
 
-<text class="pink-blue-text text-userinfo">INFO.</text>
+<text class="pink-blue-text text-userinfo huge-text">INFO.</text>
 
-<view class="info-bar">
- <view class="info-circle"></view>
- <text class="middle-text text-info" style="left: 26vw;">Logging</text>
- <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">上课记录</text>
+<!-- 内容栏目 -->
+<view class="info-bar-list">
+    <view class="info-bar" wx:for="{{list}}">
+    <view class="info-circle"></view>
+    <text class="middle-text text-info">{{item.en}}</text>
+    <text class="small-text text-ch">{{item.ch}}</text>
+    <button class="service-btn" style="width: 90vw; height: 10vh; top: 0vh; background-color: transparent;" formType="submit" hoverClass="none" openType="contact" wx:if="{{item.btn}}"></button>
+    </view>
 </view>
-
-<view class="info-bar" style="top: 62vh;">
- <view class="info-circle"></view>
- <text class="middle-text text-info" style="left: 26vw;">Cards</text>
- <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">我的卡包</text>
-</view>
-
-
-<view class="info-bar" style="top: 74vh;">
- <view class="info-circle"></view>
- <text class="middle-text text-info" style="left: 26vw;">Service</text>
- <text class="small-text text-info" style="left: 26vw; top: 4.8vh;">在线客服</text>
-</view>
-
-<button style="width: 90vw; height: 10vh; top: 74vh; background-color: transparent;" formType="submit" hoverClass="none" openType="contact"></button>
-
-
 
 <!-- 底部滑块 -->
 <view class="slide-bottom"></view>

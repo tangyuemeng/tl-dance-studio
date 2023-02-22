@@ -14,8 +14,6 @@
     transform: translateY(1vw);
 }
 
-
-
 .blue-text{
     position: absolute;
     color: #2B2B2B;
@@ -25,7 +23,7 @@
     font-family: 'Prompt';
     font-style: normal;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 36px;
     line-height: 60px;
     text-align: center;
 }
@@ -34,7 +32,7 @@
     font-family: 'Prompt';
     font-style: normal;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 42px;
     text-align: center;
 }
@@ -43,7 +41,7 @@
     font-family: 'Prompt';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
     text-align: center;
 }
