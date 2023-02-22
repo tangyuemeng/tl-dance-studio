@@ -1,74 +1,20 @@
-<cu-custom bgColor="bg-white" isBack="{{true}}">
-  <view slot="content">在线约课</view>
-</cu-custom>
-
-<view  class="padding margin text-center text-white shadow radius animation-{{toggle1 ? 'fade' : ''}}" style='background-color:#333333' bindtap="showModal" data-target="viewModal">
-  日期选择
-</view>
-
-<view  class="padding margin text-center text-white shadow radius animation-{{toggle1 ? 'fade' : ''}}" style='background-color:#333333' bindtap="showModal" data-target="Modal">
-  代讲/休讲通知
-</view>
-<view class="cu-modal {{modalName=='Modal'?'show':''}}">
-  <view class="cu-dialog">
-    <view class="cu-bar bg-white justify-end">
-      <view class="content">代讲/休讲通知</view>
-      <view class="action" bindtap="hideModal">
-        <text class="cuIcon-close text-black"></text>
-      </view>
+<view class="pink-card-top">
+ <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+    <view class="blue-bar-top">
+        <text class="week-title">水</text>
+        <text class="date-title">12-1</text>
     </view>
-    <view class="padding-xl">
-      {{text}}
+
+    <view class="blue-bar-top">
+        <text class="week-title">水</text>
+        <text class="date-title">12-1</text>
     </view>
-  </view>
+
+    <view class="blue-bar-top">
+        <text class="week-title">水</text>
+        <text class="date-title">12-1</text>
+    </view>
+
+ 
+ </scroll-view>
 </view>
-
-<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
-<view class="cu-card">
- <view class="cu-item padding shadow-blur" wx:for="{{classlist}}"  style='background-color:#333333'>
-<view class="flex justify-between">
-  <view class="flex justify-start">
-      <image class="bg-white" src="{{item.url}}" style="width:150rpx;height:150rpx"></image>
-      <view class="padding-left-sm">
-      <view class="text-white text-shadow text-xl">{{item.style}}</view>
-      <text class="text-white text-sm padding-bottom">{{item.time}}</text>
-      <view class="text-white padding-top">{{item.teacher}}</view>
-    </view>
-          </view>  
-  <view class="grid col-2 flex justify-end">
-  <view class="cu-btn bg-white round shadow animation-{{toggle==item.id? 'fade':''}}" bindtap="check_flag" data-id="{{item.id}}" data-url="{{item.url}}"
-data-style="{{item.style}}" data-teacher="{{item.teacher}}" data-time="{{item.time}}" data-timestamp="{{item.timestamp}}">预约</view>
-  <text class=" text-shadow text-white">已预约{{item.num}}/16</text>
-</view>
-        </view>
-    </view>
-</view> 
-
-<view class="bottom_foot">
-<image class='bottom-img' src='../../images/bottom.png' mode='widthFix' style='width:100%;height:10%'></image>
-</view>
-</scroll-view>
-
-
-
-<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
-			<text class="cuIcon-pullright"></text>
-		</view>
-		<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
-    <view class="cu-bar bg-black search" style='margin-top:{{CustomBar}}px'>
-    <view class="content">
-      日期
-    </view>
-    </view>
-			<view class="cu-list menu card-menu margin-bottom-xl shadow-lg">
-				<view class="cu-item" wx:for="{{aWeek}}" wx:key="index" bindtap="tabSelect" data-week ="{{index}}" data-id="{{item.id}}">
-					<view class="content">
-						<text class="text-white">{{item.newday}} </text>
-            <text class="text-white">({{item.day}})</text>
-					</view>
-				</view>
-			</view>
-      <view class="bottom_foot">
-<image class='bottom-img' src='../../images/bottom.png' mode='widthFix' style='width:100%;height:10%'></image>
-</view>
-		</scroll-view>

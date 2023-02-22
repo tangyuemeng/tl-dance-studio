@@ -127,15 +127,8 @@ Page({
         }
     }
     console.log(classlist)
-    // let class_count = await db.collection('classlist').where({xqj:TabCur}).count()
-     this.data.date= this.data.aWeek[e.currentTarget.dataset.week].newday
-    // this.hideModal()
-    // let result = await db.collection('classlist').where({xqj:TabCur}).get()
-    // classlist = result.data
-    // for (i=0, i< class_count.total, i++){
-    //   let class_result = 
-    // }
-    this.data.loadflag = true
+    this.data.date= this.data.aWeek[e.currentTarget.dataset.week].newday
+ 
     this.setData({
       classlist : classlist
     })
@@ -265,32 +258,7 @@ Page({
         modalName: null
       })
     },
-    loadProgress(){
-      this.setData({
-        loadProgress: this.data.loadProgress+3
-      })
-      if (!this.data.loadflag){
-        setTimeout(() => {
-          this.loadProgress();
-        }, 100)
-      }else{
-        this.setData({
-          loadProgress: 0
-        })
-      }
-    },
-    toggle(e) {
-      var toggle = e.currentTarget.dataset.id
-      var that = this;
-      that.setData({
-        toggle: toggle
-      })
-      setTimeout(function() {
-        that.setData({
-          toggle: ''
-        })
-      }, 1000)
-    },
+
 
 
 })

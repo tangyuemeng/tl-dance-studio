@@ -26,7 +26,7 @@ Page({
   },
   navi_class(){
     wx.navigateTo({
-        url: '/pages/shop/shop',
+        url: '/pages/appointment/appointment',
       })
 
   },
