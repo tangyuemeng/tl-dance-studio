@@ -2,7 +2,7 @@
 The reservation application of BUZZ TL 
 
 
-![image](https://github.com/tangyuemeng/goluck-music/blob/develop/screenshots/home.png)
+![image]([https://github.com/tangyuemeng/goluck-music/blob/develop/screenshots/home.png](https://github.com/tangyuemeng/tl-dance-studio/blob/develop/screenshots/TL%20DANCE%20STUDIO.png))
 <br><br>
 
 
