@@ -49,13 +49,7 @@ Page({
 
 
 async onLoad () {
-  var that = this
-  for ( var i = 0 ; i < that.data.list.length ; i++) {
-      that.data.list[i].deadtime = app.globalData.deadday
-      that.setData({
-      list : that.data.list
-      })
-    }
+    var that = this
     let result = await db.collection('User').get()
     app.globalData.islogin = true
     app.globalData.userID = result.data[0].userID

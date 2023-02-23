@@ -5,23 +5,20 @@ const app = getApp()
 const _ = db.command
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom,
     num:app.globalData.num,
     userID : app.globalData.userID,
     TabCount: app.globalData.day,
     cardtype:app.globalData.cardtype,
     date:null,
     check:true,
-    week:[{"w1":"日","w2":""},{"w1":"一","w2":""},{"w1":"二","w2":""},{"w1":"三","w2":""},{"w1":"四","w2":""},{"w1":"五","w2":""},{"w1":"六","w2":""}],
-    classweek:[{'xqj':'0','id':'15'},{'xqj':'0','id':'16'},{'xqj':'0','id':'17'},{'xqj':'0','id':'18'},{'xqj':'2','id':'1'},{'xqj':'2','id':'2'},{'xqj':'3','id':'3'},{'xqj':'3','id':'4'},{'xqj':'4','id':'5'},{'xqj':'4','id':'6'},{'xqj':'4','id':'7'},{'xqj':'5','id':'0'},{'xqj':'5','id':'8'},{'xqj':'5','id':'9'},{'xqj':'6','id':'10'},{'xqj':'6','id':'11'},{'xqj':'6','id':'12'},{'xqj':'6','id':'13'},{'xqj':'6','id':'14'}],
-    aWeek:[],
-    loadProgress:0,
     loadflag:false
   },
 
   async onLoad () {
+    this.calculateWeek()
+    this.setData({
+        isshowloading : "none"
+    })
     let result = await db.collection('User').get()
     let num = result.data[0].num
     if (app.globalData.cardtype != "受け放題"){
@@ -42,19 +39,6 @@ Page({
       })
       }
     }
-    var arr = []
-    for (let i = 0; i < 7; i++) {
-      arr.push(this.dealTime(i))
-    }
-    this.setData({
-      aWeek: arr            // 赋值给data
-    },()=>{
-    })
-    let res = await db.collection('Info').get()
-    let text = res.data[0].text
-    this.setData({
-      text:text
-    })
   },
 
   dealTime: function (num) {     // num：未来天数
@@ -64,19 +48,19 @@ Page({
     var day = time.getDay()   //  获取星期
     var id 
     switch (day) {             //  格式化
-      case 0: day = "周日", id  = 0
+      case 0: day = "Sun", id  = 0
         break
-      case 1: day = "周一", id  = 1
+      case 1: day = "Mon", id  = 1
         break
-      case 2: day = "周二", id  = 2
+      case 2: day = "Tues", id  = 2
         break
-      case 3: day = "周三", id  = 3
+      case 3: day = "Wed", id  = 3
         break
-      case 4: day = "周四", id  = 4
+      case 4: day = "Thu", id  = 4
         break
-      case 5: day = "周五", id  = 5
+      case 5: day = "Fri", id  = 5
         break
-      case 6: day = "周六", id  = 6
+      case 6: day = "Sat", id  = 6
         break
     }
     var obj = {
@@ -88,62 +72,64 @@ Page({
     }
     return obj      // 返回对象
   },
-  takeclass : function(e){
-   
+
+  calculateWeek(){
+    var arr = []
+    for (let i = 0; i < 7; i++) {
+      arr.push(this.dealTime(i))
+    }
+    this.setData({
+      arr:arr
+    })
   },
 
   check_flag:function(e){
-    this.toggle(e)
+    this.toggle()
     this.openAppointment(e)
     this.setData({
       check:false
     })
   },
+
+  toggle(){
+    this.setData({
+        check:true
+      })
+  },
   
   async tabSelect(e) {
-    this.data.loadflag = false
-    console.log(this.data.classweek)
-    this.loadProgress()
+    var isshowloading
     var classlist
-    var index = 0
-    var xqj = String(e.currentTarget.dataset.id)
     this.setData({
-      TabCount: e.currentTarget.dataset.id
+        isshowloading : "block"
     })
-    // this.setData({
-    //   TabCur: e.currentTarget.dataset.week,
-    // })
-    this.hideModal()
+    var xqj = String(e.currentTarget.dataset.id)
+    this.data.date = e.currentTarget.dataset.date
+    // this.hideModal()
     let result = await db.collection('classlist').where({xqj:xqj}).get()
     classlist = result.data
-    for ( var i = 0 ; i < this.data.classweek.length ; i++) {
-        if (this.data.classweek[i].xqj == xqj){
-            console.log(this.data.classweek[i].id)
-            let classcount = await db.collection('class').where({
-                 classid:this.data.classweek[i].id, 
-               }).count()
-            classlist[index].num = classcount.total
-            index += 1 
-        }
-    }
-    console.log(classlist)
-    this.data.date= this.data.aWeek[e.currentTarget.dataset.week].newday
- 
+    for ( var i = 0 ; i < classlist.length ; i++) {
+        let classcount = await db.collection('class').where({
+                classid:classlist[i].id, 
+            }).count()
+        classlist[i].num = classcount.total
+    }    
     this.setData({
+      isshowloading : "none",
       classlist : classlist
     })
   },
 
   async openAppointment(e) {
-    var date = this.data.date
-    let that = this
+    let date = this.data.date
+    // let that = this
     if (this.data.check){
-    let result = await db.collection('class').where({
-      classid:e.currentTarget.dataset.id, 
-      date:date
-    }).count({})
-    let num = result.total
-    if (num > 15) 
+    // let result = await db.collection('class').where({
+    //   classid:e.currentTarget.dataset.id, 
+    //   date:date
+    // }).count({})
+    let count = e.currentTarget.dataset.num
+    if (count > 15) 
     {  
       wx.showToast({
       title: '该课程已满员',
@@ -230,8 +216,8 @@ Page({
         success:function() {
           setTimeout(function() {
             //要延时执行的代码
-            wx.navigateBack({
-              delta: 1
+            wx.redirectTo({
+              url: '../home/home',
             })
           }, 1000) //延迟时间
         },
@@ -240,25 +226,10 @@ Page({
   }
 }
 },
-    showModal(e) {
-      var that = this
-      var toggle1 
-      this.setData({
-        modalName: e.currentTarget.dataset.target,
-        toggle:true
-      })
-      setTimeout(function() {
-        that.setData({
-          toggle1: false
-        })
-      }, 1000)
-    },
-    hideModal(e) {
-      this.setData({
-        modalName: null
-      })
-    },
 
-
-
+    navi_hone(){
+        wx.navigateBack({
+            delta: 1
+          })
+    }
 })

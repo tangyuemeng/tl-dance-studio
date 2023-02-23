@@ -1,20 +1,35 @@
 <view class="pink-card-top">
+ <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_hone"/>
  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
-    <view class="blue-bar-top">
-        <text class="week-title">水</text>
-        <text class="date-title">12-1</text>
-    </view>
-
-    <view class="blue-bar-top">
-        <text class="week-title">水</text>
-        <text class="date-title">12-1</text>
-    </view>
-
-    <view class="blue-bar-top">
-        <text class="week-title">水</text>
-        <text class="date-title">12-1</text>
-    </view>
-
- 
+    <view class="blue-bar-top" wx:for="{{arr}}" data-id="{{item.id}}" data-date="{{item.month}}-{{item.date}}" bindtap="tabSelect"> 
+        <text class="week-title middle-text">{{item.day}}</text>
+        <text class="date-title small-text">{{item.month}}-{{item.date}}</text>
+    </view> 
  </scroll-view>
+</view>
+
+<view class="border-h"></view>
+<view class="border-v"></view>
+<text class="pink-blue-text huge-text" style="top: 35vh;left: 12vw; ">Timeline</text>
+
+<scroll-view class="class-list" scroll-y="true">
+    <view class="class-item" wx:for="{{classlist}}" bindtap="check_flag" data-num="{{item.num}}" data-id="{{item.id}}" data-url="{{item.url}}" data-style="{{item.style}}" data-time="{{item.time}}" data-teacher="{{item.teacher}}" data-timestamp="{{item.timestamp}}">
+        <image class="item-image" src="{{item.url}}"></image>
+        <text class="item-title middle-text">{{item.style}}</text>
+        <text class="item-time small-text">{{item.time}}</text>
+        <text class="item-teacher small-text">{{item.teacher}}</text>
+        <text class="item-num small-text">已约 {{item.num}}/16</text>
+    </view>
+</scroll-view>
+
+<view class="loding" style="display: {{isshowloading}};">
+    <view class="square" id="sq1"></view>
+    <view class="square" id="sq2"></view>
+    <view class="square" id="sq3"></view>
+    <view class="square" id="sq4"></view>
+    <view class="square" id="sq5"></view>
+    <view class="square" id="sq6"></view>
+    <view class="square" id="sq7"></view>
+    <view class="square" id="sq8"></view>
+    <view class="square" id="sq9"></view>
 </view>
