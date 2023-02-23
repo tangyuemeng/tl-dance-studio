@@ -35,13 +35,11 @@ Page({
       if (month_str.length == 1){
         if (date.slice(0,1) == month_str){
           this.data.class_count += 1 
-          this.showflag(this.data.class_count)
         }
       }
       else{
         if (date.slice(0,2) == month_str){
           this.data.class_count += 1 
-          this.showflag(this.data.class_count)
         }
       }
     }
@@ -67,5 +65,11 @@ Page({
       })
     }
   },
+
+  navi_home(){
+    wx.navigateBack({
+        delta:1
+    })
+},
  
 })

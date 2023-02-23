@@ -74,7 +74,15 @@
 
 .item-cancel-font{
     position: absolute;
-    left: 4vw;
-    top: 1vh;
+    left: 4.5vw;
+    top: 1.3vh;
     color: #FBC5FF;
+}
+
+.back-icon{
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    top:8vh;
+    left: 6vw;
 }

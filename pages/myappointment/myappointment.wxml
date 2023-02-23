@@ -1,5 +1,5 @@
 <view class="pink-blue-top">
-    <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_hone"/>
+    <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_home"/>
     <text class="huge-text title-top-shadow">Booked Classes</text>
     <text class="huge-text title-top">Booked Classes</text>
 </view>

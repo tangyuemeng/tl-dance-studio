@@ -1,25 +1,18 @@
-<!-- 
-{{class_count}}< -->
-
-<!-- 
-<view class="cu-card ">
-  <view class="cu-item shadow">
-<view class="cu-list menu-avatar bg-white">
- <view class="cu-item solid-bottom" wx:for="{{classlog}}" wx:key  bindtap="deleteclass" data-id="{{item.classid}}" data-timestamp="{{item.timestamp}}" data-date="{{item.date}}">
-      <view class="cu-avatar round lg" style="background-image:url({{item.url}});"></view>
-  <view class="content">
-        <view class="text-black text-lg">{{item.style}}</view>
-        <text class="text-cut text-black">{{item.teacher}}  </text>
-        <text class="text-cut  text-black">{{item.date}}  </text>
-        <text class="text-cut  text-black">{{item.time}}</text>
-      </view>
-      <view class="action">
-        <text class="text-black" wx:if="{{item.checkin}}">已签到</text> 
-        <text class="text-red" wx:if="{{!item.checkin}}">未签到</text> 
-          </view>
-    </view>
+ <view class="pink-blue-top" style="height: 28vh;">
+    <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_home" />
+    <text class="huge-text title-top-shadow">Class records</text>
+    <text class="huge-text title-top">Class records</text>
+    <text class="count-top">{{class_count}}</text>
+    <text class="count-sub small-text blue-text">/month</text>
 </view>
-  </view>
 
-</view> 
- -->
+<scroll-view scroll-y="true" class="bar-list">
+    <view class="item-bar" wx:for="{{classlog}}">
+        <text class="item-title middle-text">{{item.style}}</text>
+        <text class="item-time small-text">{{item.time}}</text>
+        <text class="item-teacher small-text">{{item.teacher}}</text>
+        <text class="item-date small-text">{{item.date}}</text>
+        <text class="small-text pink-blue-text item-checkin" wx:if="{{item.checkin}}">已签到</text> 
+        <text class="small-text item-checkin" wx:if="{{!item.checkin}}">未签到</text> 
+    </view>
+</scroll-view>

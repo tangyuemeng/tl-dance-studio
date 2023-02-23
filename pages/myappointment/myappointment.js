@@ -14,6 +14,11 @@ Page({
     })
   },
 
+  navi_home(){
+    wx.navigateBack({
+        delta:1
+    })
+  },
 
   deleteclass:function(e){
     console.log(app.globalData.userID)

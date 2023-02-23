@@ -18,8 +18,8 @@
  <text class="blue-text huge-text" style="bottom:3vh;left:3vw">Class</text>
  <text class="blue-text small-text-ch" style="bottom:1vh;left:4vw">课程预约</text>
 </view>
-<view class="pink-blue-card-right btn-active">
-    <text class="blue-text huge-text" style="bottom:3vh;left:3vw" bindtap="navi_book">Book</text>
+<view class="pink-blue-card-right btn-active" bindtap="navi_book">
+    <text class="blue-text huge-text" style="bottom:3vh;left:3vw">Book</text>
     <text class="blue-text small-text-ch" style="bottom:1vh;left:3vw">我的预约</text>
 </view>
 <view class="pink-blue-card-bottom btn-active" bindtap="navi_shop">

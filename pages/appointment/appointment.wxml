@@ -1,5 +1,5 @@
 <view class="pink-card-top">
- <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_hone"/>
+ <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_home"/>
  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
     <view class="blue-bar-top" wx:for="{{arr}}" data-id="{{item.id}}" data-date="{{item.month}}-{{item.date}}" bindtap="tabSelect"> 
         <text class="week-title middle-text">{{item.day}}</text>

@@ -227,7 +227,7 @@ Page({
 }
 },
 
-    navi_hone(){
+    navi_home(){
         wx.navigateBack({
             delta: 1
           })

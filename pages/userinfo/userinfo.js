@@ -13,8 +13,8 @@ Page({
     phonenum:null,
     nickname:null,
     list : [
-        {"en":"Logging","ch":"上课记录"},
-        {"en":"Cards","ch":"我的卡包"},
+        {"en":"Logging","ch":"上课记录","navi":"log"},
+        {"en":"Coupon","ch":"我的卡包","navi":"card"},
         {"en":"Service","ch":"在线客服","btn":"btn"},
     ]
   },
@@ -104,9 +104,21 @@ async onLoad () {
     }
 },
 
-navi_home(){
-  wx.redirectTo({
-    url: '/pages/home/home',
-  })
-},
+    navi_home(){
+        wx.redirectTo({
+            url: '/pages/home/home',
+        })
+    },
+
+    navi_log(){
+        wx.navigateTo({
+            url: '/pages/classlog/classlog',
+        })
+    },
+
+    navi_card(){
+        wx.navigateTo({
+            url: '/pages/shop/mygoods',
+        })
+    },
 })

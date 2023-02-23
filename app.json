@@ -1,7 +1,6 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/logs/logs",
         "pages/appointment/appointment",
         "pages/myappointment/myappointment",
         "pages/userinfo/userinfo",
@@ -18,13 +17,5 @@
         "navigationBarTextStyle": "white",
         "navigationStyle": "custom"
     },
-    "usingComponents": {
-        "cu-custom": "/colorui/components/cu-custom"
-    },
-    "sitemapLocation": "sitemap58.json",
-    "permission": {
-        "scope.userLocation": {
-            "desc": "你的位置信息将用于小程序位置接口的效果展示"
-        }
-    }
+    "sitemapLocation": "sitemap58.json"
 }
