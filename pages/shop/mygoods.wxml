@@ -4,8 +4,8 @@
 <scroll-view scroll-y="true" class="list">
     <view class="item-bar" wx:for="{{list}}">
         <image class="coupon-icon" src="{{item.url}}" />
-        <text class="item-title middle-text-ch">{{iten.text}}</text>
-        <text class="item-text small-text-ch">满¥5500使用</text>
+        <text class="item-title small-text-ch">{{item.type}}</text>
+        <text class="item-text small-text">满¥5500使用</text>
         <view class="item-barcode">
             <image class="barcode-icon" src="/images/barcode.png" />
             <view class="circle1"></view>
@@ -13,3 +13,5 @@
         </view>
     </view>
 </scroll-view>
+
+<image class="back-icon" src="/images/back.svg" bindtap="backhome"></image>

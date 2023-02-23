@@ -22,4 +22,10 @@ Page({
       list:list
     })
   },
+
+  backhome(){
+    wx.navigateBack({
+        delta:1
+    })
+}
 })

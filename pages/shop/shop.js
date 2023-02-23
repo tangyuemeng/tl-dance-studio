@@ -82,7 +82,6 @@ async onLoad () {
 
   },
   pointtobuy(e){
-    console.log(e.currentTarget.dataset.title)
     console.log(e.currentTarget.dataset.price)
     console.log(app.globalData.point)
     if (app.globalData.point >= e.currentTarget.dataset.price){
@@ -105,9 +104,7 @@ async onLoad () {
             data : {
             "userID" : app.globalData.userID,
             "type":e.currentTarget.dataset.type,
-            "text":e.currentTarget.dataset.text,
-            "deadtime":e.currentTarget.dataset.deadtime,
-            "title":e.currentTarget.dataset.title,
+            "url":e.currentTarget.dataset.url,
             "price":e.currentTarget.dataset.price,
           }
         })

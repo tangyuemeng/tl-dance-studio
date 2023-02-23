@@ -75,3 +75,11 @@ page {
     background-position: 100% 0;
     animation: shinning 2s infinite;
 }
+
+.coupons{
+    position: absolute;
+    width: 30.3vw;
+    height: 14vh;
+    top: 2vh;
+    left: 4vw;
+}

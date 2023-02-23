@@ -2,25 +2,30 @@
 <text class="shop-title-shadow huge-text">Coupons</text>
 <text class="pink-blue-text huge-text shop-title">Coupons</text>
 
-<view class="pink-blue-card-left btn-active" style="top:22vh" bindtap="pointtobuy" data-title="30分舞房抵用劵" data-price="200">
+<view class="pink-blue-card-left btn-active" style="top:22vh" bindtap="pointtobuy" data-type="30分舞房抵用劵" data-url="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/4.png" data-price="200">
+    <image class="coupons" src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/4.png"></image>
     <text class="blue-text small-text coupon-text">舞房抵用劵</text>
     <text class="blue-text middle-text coupon-price">200P</text>
 </view>
 
-<view class="pink-blue-card-left btn-active" style="top:51vh" bindtap="pointtobuy" data-title="1小时舞房抵用劵" data-price="360">
+<view class="pink-blue-card-left btn-active" style="top:51vh" bindtap="pointtobuy" data-type="1小时舞房抵用劵" data-url="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/5.png" data-price="360">
+    <image class="coupons" src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/5.png"></image>
     <text class="blue-text small-text coupon-text">舞房抵用劵</text>
     <text class="blue-text middle-text coupon-price">360P</text>
 </view>
 
-<view class="pink-blue-card-right btn-active" style="top:12vh" bindtap="pointtobuy" data-title="95折课程抵用劵" data-price="120">
+<view class="pink-blue-card-right btn-active" style="top:12vh" bindtap="pointtobuy" data-type="95折课程抵用劵" data-url="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/2.png" data-price="120">
+    <image class="coupons" src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/2.png"></image>
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text middle-text coupon-price">120P</text>
 </view>
-<view class="pink-blue-card-right btn-active" style="top:41vh" bindtap="pointtobuy" data-title="85折课程抵用劵" data-price="400">
+<view class="pink-blue-card-right btn-active" style="top:41vh" bindtap="pointtobuy" data-type="85折课程抵用劵" data-url="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/1.png" data-price="400">
+    <image class="coupons" src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/1.png"></image>
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text middle-text coupon-price">400P</text>
 </view>
-<view class="pink-blue-card-right btn-active" style="top:70vh" bindtap="pointtobuy" data-title="65折课程抵用劵" data-price="900">
+<view class="pink-blue-card-right btn-active" style="top:70vh" bindtap="pointtobuy" data-type="65折课程抵用劵" data-url="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/3.png" data-price="900">
+    <image class="coupons" src="cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/3.png"></image>
     <text class="blue-text small-text coupon-text">课程抵用劵</text>
     <text class="blue-text middle-text coupon-price">900P</text>
 </view>
