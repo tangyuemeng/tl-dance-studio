@@ -30,12 +30,13 @@ async onLoad () {
   app.globalData.userID = result.data[0].userID
   app.globalData.vip = result.data[0].vip
   app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "未登录"
-  app.globalData.num = result.data[0].num
+  app.globalData.num = result.data[0].cardtype === "受け放題" ? "无限" : result.data[0].num
   app.globalData.nickName = result.data[0].nickName
   app.globalData.name = result.data[0].name
   app.globalData.phonenum = result.data[0].phonenum
   app.globalData.email = result.data[0].email
   app.globalData.point = result.data[0].point ? result.data[0].point : 0
+   var vip = app.globalData.vip
    var userID = app.globalData.userID
    var num = app.globalData.num
    var cardtype = app.globalData.cardtype
@@ -46,6 +47,7 @@ async onLoad () {
    var email = app.globalData.email
    var school = app.globalData.school
    this.setData({
+    vip : vip,
     userID : userID,
     num : num,
     cardtype : cardtype,

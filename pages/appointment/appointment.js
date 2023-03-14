@@ -192,7 +192,7 @@ Page({
             }
           })
             } 
-            that.setData({
+            this.setData({
               check:true
             })
           }

@@ -5,6 +5,22 @@
     top:14vh;
 }
 
+.blue-card-userinfo{
+    position: absolute;
+    width: 90vw;
+    height: 27.8vh;
+    left: 5vw;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.28) 0%, rgba(187, 223, 241, 0.48) 115.23%);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    box-shadow:  4rpx 4rpx 6rpx rgba(96, 120, 133, 0.48);
+    border-radius: 20px;
+    width: 86vw; 
+    height: 18vh; 
+    top: 1vh;
+    left: 1.5vw;
+}
+
 .logo-home {
     position: absolute;
     width: 43vw;
@@ -68,7 +84,7 @@
     right: 1.8vh;
     border-radius: 50%;
     top: 1.8vh;
-    background: linear-gradient(120deg, transparent 30%, #f0f0f0 38%, #f0f0f0 
+    background: linear-gradient(120deg, transparent 30%, #d6f5f5 38%, #d6f5f5 
   40%, transparent 48%);
     background-size: 200% 100%;
     background-position: 100% 0;
