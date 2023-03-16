@@ -36,11 +36,27 @@ Page({
   },
 
   navi_class(){
-    if (app.globalData.vip){
-        wx.navigateTo({
-            url: '/pages/appointment/appointment',
-        })
+      console.log(app.globalData.school)
+    if(app.globalData.school == "大久保店"){
+        if (app.globalData.vip){
+            wx.navigateTo({
+                url: '/pages/appointment/appointment',
+            })
+        }
+        else{
+            wx.showToast({
+                title: '会员卡已过期',
+                icon:"error"
+            })    
+        }
     }
+    else{
+        wx.showToast({
+            title: '当前课卡不支持',
+            icon:"error"
+        }) 
+    }
+
   },
 
   navi_shop(){
@@ -50,9 +66,16 @@ Page({
   },
 
   navi_book(){
-    wx.navigateTo({
-        url: '/pages/myappointment/myappointment',
-      })
-  },
-
+    if(app.globalData.school == "大久保店"){
+        wx.navigateTo({
+            url: '/pages/myappointment/myappointment',
+        })
+        }
+        else{
+            wx.showToast({
+                title: '当前课卡不支持',
+                icon:"error"
+            }) 
+        }
+    },
 })

@@ -26,37 +26,35 @@ Page({
 
 async onLoad () {
   let result = await db.collection('User').get()
-  app.globalData.islogin = true
-  app.globalData.userID = result.data[0].userID
-  app.globalData.vip = result.data[0].vip
-  app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "未登录"
-  app.globalData.num = result.data[0].cardtype === "受け放題" ? "无限" : result.data[0].num
-  app.globalData.nickName = result.data[0].nickName
-  app.globalData.name = result.data[0].name
-  app.globalData.phonenum = result.data[0].phonenum
-  app.globalData.email = result.data[0].email
-  app.globalData.point = result.data[0].point ? result.data[0].point : 0
+  if (result.data.length === 0){
+    app.globalData.islogin = false
+    app.globalData.userID = "********"
+    app.globalData.vip = false
+    app.globalData.cardtype = "****"
+    app.globalData.num = 0
+    app.globalData.point = 0
+  }
+  else{
+    app.globalData.userID = result.data[0].userID
+    app.globalData.vip = result.data[0].vip
+    app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "未登录"
+    app.globalData.num = result.data[0].cardtype === "受け放題" ? "无限" : result.data[0].num
+    app.globalData.point = result.data[0].point ? result.data[0].point : 0
+    app.globalData.campus = result.data[0].campus 
+  }
    var vip = app.globalData.vip
    var userID = app.globalData.userID
    var num = app.globalData.num
    var cardtype = app.globalData.cardtype
-   var nickName = app.globalData.nickName ? app.globalData.nickName : "新规用户"
    var point = app.globalData.point
-   var name = app.globalData.name
-   var phonenum = app.globalData.phonenum
-   var email = app.globalData.email
-   var school = app.globalData.school
+   var campus = app.globalData.campus
    this.setData({
     vip : vip,
     userID : userID,
     num : num,
     cardtype : cardtype,
-    nickName : nickName,
     point : point,
-    email: email,
-    phonenum:phonenum,
-    name:name,
-    school:school
+    campus: this.selectCampus()
    })
   },
 
@@ -105,6 +103,21 @@ async onLoad () {
             })
     }
 },
+    selectCampus(){
+        switch(app.globalData.campus){
+            case "ookubo":
+                return "大久保店"
+                break
+            case "ikebukuro":
+                return "池袋店"  
+                break    
+            case "shinkoiwako":
+                return "新小岩店"    
+                break
+            default:
+                return "error"
+        }
+    },
 
     navi_home(){
         wx.redirectTo({

@@ -10,7 +10,8 @@ App({
     point:0,
     islogin:false,
     day:0,
-    school:""
+    school:"",
+    campus:""
 } , 
   onLaunch: function () {
     if (!wx.cloud) {

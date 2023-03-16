@@ -51,7 +51,6 @@ Page({
 async onLoad () {
     var that = this
     let result = await db.collection('User').get()
-    app.globalData.islogin = true
     app.globalData.userID = result.data[0].userID
     app.globalData.vip = result.data[0].vip
     app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
@@ -94,8 +93,7 @@ async onLoad () {
             wx.showToast({
               title: '兑换成功',
             })
-            db.collection('User').where({
-            }).update({
+            db.collection('User').where({userID:app.globalData.userID}).update({
               data: {
                 point: _.inc(-e.currentTarget.dataset.price)
               },

@@ -1,4 +1,4 @@
-<text class="small-text pink-blue-text small-text-home">Hi,{{userID}}!</text>
+<text class="small-text pink-blue-text small-text-home">Hi,{{userID}}</text>
 <text class="middle-text pink-blue-text middle-text-home">Welcome back!</text>
 <image class="refresh-icon" src="/images/refresh.svg" bindtap="randomClass"/>
 

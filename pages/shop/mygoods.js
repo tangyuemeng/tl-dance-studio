@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad () {
-    let result = await db.collection('shop').get()
+    let result = await db.collection('shop').where({userID:app.globalData.userID}).get()
     let list = result.data
     console.log(list)
     this.setData({

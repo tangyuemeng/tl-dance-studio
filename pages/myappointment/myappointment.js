@@ -51,8 +51,7 @@ Page({
         db.collection('class-copy').where({classid:e.currentTarget.dataset.id,userID:app.globalData.userID}).remove({
         })
         if (app.globalData.cardtype != "受け放題"){
-        db.collection('User').where({
-        }).update({
+        db.collection('User').where({userID:app.globalData.userID}).update({
             data: {
             num: _.inc(1)
             },

@@ -11,6 +11,11 @@ Page({
     let result = await db.collection('User').get()
     if (result.data.length === 0){
       app.globalData.islogin = false
+      app.globalData.userID = "********"
+      app.globalData.vip = false
+      app.globalData.cardtype = "****"
+      app.globalData.num = 0
+      app.globalData.point = 0
     }
     else{
     app.globalData.islogin = true
@@ -18,33 +23,7 @@ Page({
     app.globalData.vip = result.data[0].vip
     app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
     app.globalData.num = result.data[0].num
-    app.globalData.nickName = result.data[0].nickName
-    app.globalData.name = result.data[0].name
-    app.globalData.phonenum = result.data[0].phonenum
-    app.globalData.email = result.data[0].email
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
-    }
-  },
-
-  Onlogin(){
-    if (!app.globalData.islogin){
-        wx.showToast({
-            title: '新会员请先注册',
-            icon : 'error'
-           })
-    }
-    else{
-      if (app.globalData.vip){
-        wx.redirectTo({
-        url: '/pages/home/home', 
-          })
-      }
-      else{
-        wx.showToast({
-          title: '会员卡已过期',
-          icon : 'error'
-         })
-      }
     }
   },
 
@@ -66,19 +45,21 @@ Page({
              "userID" : userID
            }
          })
-         wx.navigateTo({
-            url: '/pages/signup/signup', 
-            })
+         wx.showToast({
+            title: '会员卡创建成功',
+          })
       }
       else{
-        wx.navigateTo({
-            url: '/pages/signup/signup', 
-            })
+          wx.showToast({
+            title: '会员卡创建失败',
+            icon : 'error',
+          })
       }
+      this.hideModal()
   },
 
   loginApi(e){
-      console.log(e.currentTarget.dataset.target)
+    console.log(e.currentTarget.dataset.target)
     switch(e.currentTarget.dataset.target){
         case "ookubo":
             app.globalData.school = "大久保店"
@@ -97,6 +78,18 @@ Page({
         url: '/pages/home/home', 
     })
   },
+
+  changestringlength (e){
+    var result 
+    if (e.length === 1){
+      result = "0" + e
+      return result
+    }
+    else {
+      return e 
+    }
+  },
+
 
   showModal(e) {
     this.setData({
