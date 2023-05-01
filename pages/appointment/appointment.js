@@ -98,7 +98,6 @@ Page({
   },
   
   async tabSelect(e) {
-    var isshowloading
     var classlist
     this.setData({
         isshowloading : "block"
@@ -121,6 +120,10 @@ Page({
   },
 
   async openAppointment(e) {
+    var that = this
+    this.setData({
+        isshowloading : "block"
+    })
     let date = this.data.date
     // let that = this
     if (this.data.check){
@@ -136,7 +139,8 @@ Page({
       icon : 'error'
      })
      this.setData({
-      check:false
+      check:false,
+      isshowloading : "none",
     })
     }
     else{
@@ -192,8 +196,9 @@ Page({
             }
           })
             } 
-            this.setData({
-              check:true
+            that.setData({
+              check:true,
+              isshowloading : "none",
             })
           }
         })
@@ -204,7 +209,8 @@ Page({
        icon : 'error'
        })
        this.setData({
-        check:true
+        check:true,
+        isshowloading : "none",
       })
       }
     }
