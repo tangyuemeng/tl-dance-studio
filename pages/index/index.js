@@ -24,6 +24,7 @@ Page({
     app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
     app.globalData.num = result.data[0].num
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
+    app.globalData.campus = result.data[0].campus 
     }
   },
 

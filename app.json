@@ -7,7 +7,8 @@
         "pages/classlog/classlog",
         "pages/home/home",
         "pages/shop/shop",
-        "pages/shop/mygoods"
+        "pages/shop/mygoods",
+        "pages/balance/balance"
     ],
     "window": {
         "backgroundColor": "#000000",

@@ -66,6 +66,7 @@ Page({
   },
 
   navi_book(){
+    console.log(app.globalData.campus)
     if(app.globalData.school == "大久保店"){
         wx.navigateTo({
             url: '/pages/myappointment/myappointment',

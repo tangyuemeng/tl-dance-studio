@@ -9,7 +9,7 @@
         <text class="middle-text blue-text" style="top: 13vh; right: 3vw; ">{{point}}P</text>
     </view>
     <image class="vip-icon" src="/images/vip.png" bindtap="checkin"/>
-    <image class="barcode-icon" src="/images/barcode.png" />
+    <image class="barcode-icon" src="/images/barcode.png" bindtap="openBalance"/>
 </view>
 
 <text class="pink-blue-text text-userinfo huge-text">INFO.</text>

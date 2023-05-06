@@ -41,6 +41,7 @@ async onLoad () {
     app.globalData.num = result.data[0].cardtype === "受け放題" ? "无限" : result.data[0].num
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
     app.globalData.campus = result.data[0].campus 
+    app.globalData.level = result.data[0].level 
   }
    var vip = app.globalData.vip
    var userID = app.globalData.userID
@@ -116,6 +117,14 @@ async onLoad () {
                 break
             default:
                 return "error"
+        }
+    },
+
+    openBalance(){
+        if (app.globalData.level == 1){
+            wx.navigateTo({
+                url: '/pages/balance/balance',
+            })
         }
     },
 

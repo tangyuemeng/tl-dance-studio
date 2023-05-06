@@ -1,4 +1,19 @@
 /**base.wsxx**/
+.ml-sm{
+    margin-left: 3vw;
+}
+
+.ml-lg{
+    margin-left: 5vw;
+}
+
+.mt-sm{
+    margin-top: 1.5vh;
+}
+
+.mt-lg{
+    margin-top: 4vh;
+}
 /**btn**/
 .pink-blue-text{
     position: absolute;

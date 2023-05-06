@@ -8,6 +8,7 @@ App({
     name:null,
     nickName:null,
     point:0,
+    level:0,
     islogin:false,
     day:0,
     school:"",
