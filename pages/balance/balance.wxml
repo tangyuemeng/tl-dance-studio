@@ -1,8 +1,8 @@
 <!--pages/balance/balance.wxml-->
 <view class="pink-blue-top">
     <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_home"/>
-    <text class="huge-text title-top-shadow">Balance</text>
-    <text class="huge-text title-top">Balance</text>
+    <text class="huge-text title-top-shadow">Balance</text>
+    <text class="huge-text title-top">Balance</text>
 </view>
 
 <view class="bar-list">

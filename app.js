@@ -12,7 +12,8 @@ App({
     islogin:false,
     day:0,
     school:"",
-    campus:""
+    campus:"",
+    isRight:false,
 } , 
   onLaunch: function () {
     if (!wx.cloud) {
