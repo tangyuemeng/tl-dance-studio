@@ -61,6 +61,7 @@ Page({
 
     upload(){
         var that = this
+        if(that.data.id && that.data.content && that.data.count){
         wx.showModal({
             title:"确定提交吗？",
             confirmText: "确定",
@@ -73,11 +74,23 @@ Page({
                   "way":that.data.way,
                   "count":that.data.count,
                   "date":that.data.date,
-                  "content":that.data.content
+                  "content":that.data.content,
+                  "id":that.data.id
                 }
+              })
+              wx.showToast({
+                icon:'success',
+                title: '提交成功',
               })
             }
         }})
+    }
+    else{
+        wx.showToast({
+            icon:'error',
+            title: '请输入完整信息',
+        })
+    }
     },
 
     navi_home(){
