@@ -21,13 +21,13 @@
 </view>
 <view class="pink-blue-card-right btn-active" bindtap="navi_book">
     <text class="blue-text huge-text" style="bottom:3vh;left:3vw">Book</text>
-    <text class="blue-text small-text-ch" style="bottom:1vh;left:3vw">我的预约</text>
+    <text class="blue-text small-text-ch" style="bottom:1vh;left:3vw">{{subtitle}}</text>
 </view>
 <view class="pink-blue-card-bottom btn-active" bindtap="navi_shop">
     <text class="blue-text huge-text" style="bottom:3vh;right:3vw">Store</text>
     <text class="blue-text small-text-ch" style="bottom:1vh;right:3vw">积分商城</text>
 </view>
-<text class="logo-home pink-blue-text middle-text">{{logo}}</text>
+<text class="logo-home pink-blue-text middle-text" bindtap="onSignup">{{logo}}</text>
 <view class="slide-bottom"></view>
 <view class="slide-home slider" style="left: 20vw;"></view>
 <image class="home-icon" src="/images/home.svg"/>

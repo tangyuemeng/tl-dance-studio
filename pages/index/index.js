@@ -10,12 +10,26 @@ Page({
     app.globalData.day = day
     let result = await db.collection('User').get()
     if (result.data.length === 0){
-      app.globalData.islogin = false
-      app.globalData.userID = "********"
-      app.globalData.vip = false
-      app.globalData.cardtype = "****"
-      app.globalData.num = 0
-      app.globalData.point = 0
+        // not ookubo user
+      let result = await db.collection('User-TLK').get()
+      if (result.data.length === 0){
+        app.globalData.islogin = false
+        app.globalData.userID = "********"
+        app.globalData.vip = false
+        app.globalData.cardtype = "****"
+        app.globalData.num = 0
+        app.globalData.point = 0
+      }
+      else{
+        app.globalData.islogin = true
+        app.globalData.userID = result.data[0].userID
+        app.globalData.vip = result.data[0].vip
+        app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
+        app.globalData.num = result.data[0].num
+        app.globalData.allowedNum = result.data[0].allowedNum
+        app.globalData.isWeek = result.data[0].isWeek
+        app.globalData.campus = result.data[0].campus 
+      }
     }
     else{
     app.globalData.islogin = true

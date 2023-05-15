@@ -20,16 +20,19 @@ Page({
     }
     var logo = ""
     var title = ""
+    var subtitle = ""
     if (app.globalData.school != "大久保店"){
         this.setData({
             logo:"TLK",
-            title:"Scheduled Class"
+            title:"Scheduled Class",
+            subtitle:"我的课程"
         })
     }
     else{
         this.setData({
             logo:" BUZZ TL",
-            title:"Popup Class"
+            title:"Popup Class",
+            subtitle:"我的预约"
         })
     }
     var listname = ""   
@@ -95,8 +98,7 @@ Page({
   },
 
   navi_class(){
-      console.log(app.globalData.school)
-    if(app.globalData.isRight){
+    if(app.globalData.campus == "大久保店"){
         if (app.globalData.vip){
             wx.navigateTo({
                 url: '/pages/appointment/appointment',
@@ -118,19 +120,72 @@ Page({
 
   },
 
+  onSignup(){
+    if (!app.globalData.islogin){
+        var date = new Date()     // 获取当前时间日期
+        var month = (date.getMonth() + 1).toString()   // 获取月份
+        var day = date.getDate().toString()//  获取星期
+        var year = date.getFullYear().toString()
+        day = this.changestringlength(day)
+        month = this.changestringlength(month)
+        year = year.substr(2,2)
+        let userID = "TLK" + year + month + day + Math.random().toString().substr(2, 2)
+        app.globalData.userID = userID 
+        app.globalData.islogin = true
+        db.collection('User-TLK').add({
+           data:{
+             "vip": false,
+             "userID" : userID
+           }
+         })
+         wx.showToast({
+            title: '会员卡创建成功',
+          })
+      }
+      else{
+          wx.showToast({
+            title: '会员卡创建失败',
+            icon : 'error',
+          })
+      }
+  },
+
+  changestringlength (e){
+    var result 
+    if (e.length === 1){
+      result = "0" + e
+      return result
+    }
+    else {
+      return e 
+    }
+  },
+
   navi_shop(){
-    wx.navigateTo({
-        url: '/pages/shop/shop',
-      })
+    if(app.globalData.campus == "大久保店"){
+        wx.navigateTo({
+            url: '/pages/shop/shop',
+        })
+    }
+    else{
+        wx.showToast({
+            title: '校区选择错误',
+            icon:"error"
+        }) 
+    }
   },
 
   navi_book(){
-    console.log(app.globalData.campus)
-    if(app.globalData.isRight){
+    if(app.globalData.campus == "大久保店"){
         wx.navigateTo({
             url: '/pages/myappointment/myappointment',
         })
-        }
+    }
+    if(app.globalData.campus == "池袋店" || app.globalData.campus == "新小岩店"){
+        wx.navigateTo({
+            url: '/pages/TLK/mybook',
+        })
+    }
         else{
             wx.showToast({
                 title: '校区选择错误',

@@ -6,7 +6,8 @@
         <text class="middle-text-userinfo blue-text small-text-ch" wx:if="{{vip}}">{{cardtype}}-{{campus}}</text>
         <text class="middle-text-userinfo blue-text small-text-ch" wx:if="{{!vip}}">会员卡已过期</text>
         <text class="middle-text-userinfo blue-text small-text-ch" style="top: 14.2vh;">剩余次数: {{num}}</text>
-        <text class="middle-text blue-text" style="top: 13vh; right: 3vw; ">{{point}}P</text>
+        <text class="middle-text-userinfo blue-text small-text-ch" style="top: 14.2vh;left: 32vw;" wx:if="{{allowedNum}}">请假次数: {{allowedNum}}</text>
+        <text class="middle-text blue-text" style="top: 13vh; right: 3vw; " wx:if="{{point}}">{{point}}P</text>
     </view>
     <image class="vip-icon" src="/images/vip.png" bindtap="checkin"/>
     <image class="barcode-icon" src="/images/barcode.png" bindtap="openBalance"/>

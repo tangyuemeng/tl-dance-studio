@@ -1,0 +1,21 @@
+<view class="pink-blue-top">
+    <image class="back-icon" src="/images/back-blue.svg" bindtap="navi_home"/>
+    <text class="huge-text title-top-shadow">Mybook</text>
+    <text class="huge-text title-top">Mybook</text>
+</view>
+
+
+<scroll-view scroll-y="true" class="bar-list">
+    <view class="item-bar" wx:for="{{array}}">
+        <text class="item-title middle-text">{{item.style}}</text>
+        <text class="item-time small-text">{{item.time}}</text>
+        <text class="item-teacher small-text">{{item.teacher}}</text>
+        <text class="item-date small-text">{{item.date}}</text>
+
+        <view class="item-cancel" bindtap="deleteclass" data-id="{{item.classid}}" data-timestamp="{{item.timestamp}}" data-date="{{item.date}}">
+            <text class="item-cancel-font huge-text">X</text>
+        </view>
+    </view>
+
+    
+</scroll-view>

@@ -25,27 +25,41 @@ Page({
 
 
 async onLoad () {
-  let result = await db.collection('User').get()
-  if (result.data.length === 0){
-    app.globalData.islogin = false
-    app.globalData.userID = "********"
-    app.globalData.vip = false
-    app.globalData.cardtype = "****"
-    app.globalData.num = 0
-    app.globalData.point = 0
-  }
-  else{
+    let result = await db.collection('User').get()
+    if (result.data.length === 0){
+        // not ookubo user
+      let result = await db.collection('User-TLK').get()
+      if (result.data.length === 0){
+        app.globalData.islogin = false
+        app.globalData.userID = "********"
+        app.globalData.vip = false
+        app.globalData.cardtype = "****"
+        app.globalData.num = 0
+        app.globalData.point = 0
+      }
+      else{
+        app.globalData.islogin = true
+        app.globalData.userID = result.data[0].userID
+        app.globalData.vip = result.data[0].vip
+        app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
+        app.globalData.num = result.data[0].num
+        app.globalData.allowedNum = result.data[0].allowedNum
+        app.globalData.campus = result.data[0].campus 
+      }
+    }
+    else{
+    app.globalData.islogin = true
     app.globalData.userID = result.data[0].userID
     app.globalData.vip = result.data[0].vip
-    app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "未登录"
-    app.globalData.num = result.data[0].cardtype === "受け放題" ? "无限" : result.data[0].num
+    app.globalData.cardtype = result.data[0].cardtype ? result.data[0].cardtype : "新规套餐"
+    app.globalData.num = result.data[0].num
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
     app.globalData.campus = result.data[0].campus 
-    app.globalData.level = result.data[0].level 
-  }
+    }
    var vip = app.globalData.vip
    var userID = app.globalData.userID
    var num = app.globalData.num
+   var allowedNum = app.globalData.allowedNum
    var cardtype = app.globalData.cardtype
    var point = app.globalData.point
    var campus = app.globalData.campus
@@ -54,8 +68,9 @@ async onLoad () {
     userID : userID,
     num : num,
     cardtype : cardtype,
+    allowedNum:allowedNum,
     point : point,
-    campus: this.selectCampus()
+    campus: campus
    })
   },
 
@@ -104,21 +119,7 @@ async onLoad () {
             })
     }
 },
-    selectCampus(){
-        switch(app.globalData.campus){
-            case "ookubo":
-                return "大久保店"
-                break
-            case "ikebukuro":
-                return "池袋店"  
-                break    
-            case "shinkoiwako":
-                return "新小岩店"    
-                break
-            default:
-                return "error"
-        }
-    },
+
 
     openBalance(){
         if (app.globalData.level == 1){
@@ -141,8 +142,15 @@ async onLoad () {
     },
 
     navi_card(){
-        wx.navigateTo({
-            url: '/pages/shop/mygoods',
-        })
+        if(app.globalData.campus == "大久保店"){
+            wx.navigateTo({
+                url: '/pages/shop/mygoods',
+            })
+        }else{
+            wx.showToast({
+                title: '校区选择错误',
+                icon:"error"
+            }) 
+        }
     },
 })

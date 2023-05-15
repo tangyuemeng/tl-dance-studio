@@ -8,7 +8,8 @@
         "pages/home/home",
         "pages/shop/shop",
         "pages/shop/mygoods",
-        "pages/balance/balance"
+        "pages/balance/balance",
+        "pages/TLK/mybook"
     ],
     "window": {
         "backgroundColor": "#000000",

@@ -1,0 +1,89 @@
+/* pages/balance/balance.wxss */
+.title-top-shadow{
+    position: absolute;
+    left: 6vw;
+    top:13vh;
+    color: #e4b1df;
+}
+
+.title-top{
+    position: absolute;
+    left: 6vw;
+    top:12vh;
+    color: #2b2b2b;
+}
+
+
+.back-icon{
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    top:8vh;
+    left: 6vw;
+}
+.bar-list{
+    position: absolute;
+    top: 23vh;
+    width: 100vw;
+    height: 75vh;
+    padding-left: 10vw;
+}
+
+.item-bar{
+    position: relative;
+    width: 80vw;
+    height: 12vh;
+    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
+    border-radius: 20px;
+    margin-bottom: 1.4vh;
+}
+
+.item-title{
+    position: absolute;
+    top: 0vh;
+    left: 5vw;
+    color: #2b2b2b;
+}
+
+.item-date{
+    position: absolute;
+    top: 4vh;
+    left: 5vw;
+    color: #2b2b2b;
+}
+
+.item-time{
+    position: absolute;
+    top: 4vh;
+    left: 18vw;
+    color: #2b2b2b;
+}
+
+.item-teacher{
+    position: absolute;
+    top: 8vh;
+    left: 5vw;
+    color: #2b2b2b;
+}
+
+.item-cancel{
+    position: absolute;
+    top: 1vh;
+    width: 16vw;
+    height: 10vh;
+    right: 2vw;
+    background: #2B2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.item-cancel:active{
+    transform: translateY(1vw);
+}
+
+.item-cancel-font{
+    position: absolute;
+    left: 4.5vw;
+    top: 1.3vh;
+    color: #FBC5FF;
+}
