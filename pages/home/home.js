@@ -113,7 +113,7 @@ Page({
     }
     else{
         wx.showToast({
-            title: '校区选择错误',
+            title: '当前校区不支持',
             icon:"error"
         }) 
     }
@@ -169,7 +169,7 @@ Page({
     }
     else{
         wx.showToast({
-            title: '校区选择错误',
+            title: '当前校区不支持',
             icon:"error"
         }) 
     }
@@ -188,7 +188,7 @@ Page({
     }
         else{
             wx.showToast({
-                title: '校区选择错误',
+                title: '当前校区不支持',
                 icon:"error"
             }) 
         }

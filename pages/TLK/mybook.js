@@ -11,9 +11,6 @@ Page({
    async onLoad() {
         var listname = ""   
         switch(app.globalData.school){
-            case "大久保店":
-                listname = "classlist"
-                break
             case "池袋店":
                 listname= "classlist-ikebukuro"  
                 break    
@@ -21,10 +18,14 @@ Page({
                 listname = "classlist-shinkoiwako"    
                 break
             default:
-                listname= "classlist"
+                listname= "classlist-ikebukuro"
         }
         let response = await db.collection(listname).get()
         let array = response.data
+        for (var element of array) {
+            var xqj = element.xqj
+            element.date = this.findNextday(xqj)
+        }
         this.setData({array})
         this.findNextday(1)
     },
@@ -39,7 +40,7 @@ Page({
         let month = currentDate.getMonth()+1 
         let date = currentDate.getDate()
         let showDate = month + '-' + date
-        console.log(showDate)
+        return showDate
     },
     
     navi_home(){
