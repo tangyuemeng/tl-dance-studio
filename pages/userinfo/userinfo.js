@@ -80,12 +80,13 @@ async onLoad () {
     var time = new Date()
     var date = new Date(time.setDate(time.getDate() + 0)).getDate()
     var month = time.getMonth() + 1
+    var day = time.getDay()
     date = month + '-' + date
     var hour = time.getHours()
-    console.log(hour)
     var count = await db.collection('class').where({date:date,userID:app.globalData.userID,checkin:false}).count()
     var result = await db.collection('class').where({date:date,userID:app.globalData.userID,checkin:false}).get()
     let point = 10*count.total
+    if( app.globalData.campus == "大久保店"){
       if (result.data.length == 0 ){
         wx.showToast({
                title: '签到失败',
@@ -119,6 +120,29 @@ async onLoad () {
               },
               
             })
+    }
+    }
+    if(app.globalData.campus == "池袋店" || app.globalData.campus == "新小岩店"){   
+        if (app.globalData.vip){
+            db.collection('record').add({
+                data: {
+                    userID : app.globalData.userID,
+                    xqj : day,
+                    date : date,
+                    campus : app.globalData.campus
+                }
+            })
+            wx.showToast({
+                title: '签到成功',
+                duration:1000,
+            })
+        }
+        else{
+            wx.showToast({
+                title: '会员卡已过期',
+                icon:"error"
+            })    
+        }
     }
 },
 

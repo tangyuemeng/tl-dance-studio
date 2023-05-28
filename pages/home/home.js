@@ -183,9 +183,17 @@ Page({
         })
     }
     if(app.globalData.campus == "池袋店" || app.globalData.campus == "新小岩店"){
-        wx.navigateTo({
-            url: '/pages/TLK/mybook',
-        })
+        if (app.globalData.vip){
+            wx.navigateTo({
+                url: '/pages/TLK/mybook',
+            })
+        }
+        else{
+            wx.showToast({
+                title: '会员卡已过期',
+                icon:"error"
+            })    
+        }
     }
     },
 })

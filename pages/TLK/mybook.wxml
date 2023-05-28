@@ -12,7 +12,7 @@
         <text class="item-teacher small-text">{{item.teacher}}</text>
         <text class="item-date small-text">{{item.date}}</text>
 
-        <view class="item-cancel" bindtap="deleteclass" data-id="{{item.classid}}" data-timestamp="{{item.timestamp}}" data-date="{{item.date}}">
+        <view class="item-cancel" bindtap="deleteclass" data-style="{{item.style}}" data-teacher="{{item.teacher}}" data-time="{{item.time}}" data-date="{{item.date}}">
             <text class="item-cancel-font huge-text">X</text>
         </view>
     </view>
