@@ -58,7 +58,7 @@ Page({
            data:{
              "vip": false,
              "userID" : userID,
-             "userID" : "大久保店"
+             "campus" : "大久保店"
            }
          })
          wx.showToast({
