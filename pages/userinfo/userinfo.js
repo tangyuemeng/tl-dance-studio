@@ -45,6 +45,7 @@ async onLoad () {
         app.globalData.num = result.data[0].num
         app.globalData.allowedNum = result.data[0].allowedNum
         app.globalData.campus = result.data[0].campus 
+        app.globalData.level = result.data[0].level
       }
     }
     else{
@@ -55,6 +56,7 @@ async onLoad () {
     app.globalData.num = result.data[0].num
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
     app.globalData.campus = result.data[0].campus 
+    app.globalData.level = result.data[0].level
     }
    var vip = app.globalData.vip
    var userID = app.globalData.userID

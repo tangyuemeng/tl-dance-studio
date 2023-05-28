@@ -135,7 +135,8 @@ Page({
         db.collection('User-TLK').add({
            data:{
              "vip": false,
-             "userID" : userID
+             "userID" : userID,
+             "campus" : app.globalData.school
            }
          })
          wx.showToast({
@@ -186,11 +187,5 @@ Page({
             url: '/pages/TLK/mybook',
         })
     }
-        else{
-            wx.showToast({
-                title: '当前校区不支持',
-                icon:"error"
-            }) 
-        }
     },
 })

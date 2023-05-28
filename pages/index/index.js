@@ -57,7 +57,8 @@ Page({
         db.collection('User').add({
            data:{
              "vip": false,
-             "userID" : userID
+             "userID" : userID,
+             "userID" : "大久保店"
            }
          })
          wx.showToast({
