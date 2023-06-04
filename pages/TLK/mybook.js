@@ -91,8 +91,12 @@ Page({
         let showDate = month + '-' + date
         return showDate
     },
-    deleteclass:function(e){
-        console.log(app.globalData.userID)
+    async deleteclass(e){
+        let result = await db.collection('abend').where({
+            date : e.currentTarget.dataset.date,
+            campus : app.globalData.campus,
+            userID : app.globalData.userID,
+        }).get()
         var time = new Date()
         var date = new Date(time.setDate(time.getDate() + 0)).getDate()
         var month = time.getMonth() + 1
@@ -107,39 +111,46 @@ Page({
             })
             return
         }
-      
-        wx.showModal({
-            content: '确定请假吗？',
-            confirmText: "确定",
-            cancelText: "取消",
-            success:function(res){
-            if (res.confirm){
-                wx.showToast({
-                    title: '请假成功',
-                    icon : 'success'
-                    })   
-                db.collection('User-TLK').where({userID:app.globalData.userID}).update({
-                    data: {
-                        allowedNum: _.inc(-1)
-                    },
-                })
-                db.collection('abend').add({
-                    data: {
-                        userID : app.globalData.userID,
-                        xqj : day,
-                        date : e.currentTarget.dataset.date,
-                        campus : app.globalData.campus,
-                        teacher : e.currentTarget.dataset.teacher,
-                        style : e.currentTarget.dataset.style,
-                        time : e.currentTarget.dataset.time
-                    }
-                })
-                wx.navigateBack({
-                    delta: 1,
-                })
+        if (result.data.length == 0){
+            wx.showModal({
+                content: '确定请假吗？',
+                confirmText: "确定",
+                cancelText: "取消",
+                success:function(res){
+                if (res.confirm){
+                    wx.showToast({
+                        title: '请假成功',
+                        icon : 'success'
+                        })   
+                    db.collection('User-TLK').where({userID:app.globalData.userID}).update({
+                        data: {
+                            allowedNum: _.inc(-1)
+                        },
+                    })
+                    db.collection('abend').add({
+                        data: {
+                            userID : app.globalData.userID,
+                            xqj : day,
+                            date : e.currentTarget.dataset.date,
+                            campus : app.globalData.campus,
+                            teacher : e.currentTarget.dataset.teacher,
+                            style : e.currentTarget.dataset.style,
+                            time : e.currentTarget.dataset.time
+                        }
+                    })
+                    wx.navigateBack({
+                        delta: 1,
+                    })
+                }
             }
+            })
+            }
+        else{
+            wx.showToast({
+              icon:'error',
+              title: '已经请假',
+            })
         }
-        })
         },
     navi_home(){
         wx.navigateBack({

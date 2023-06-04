@@ -8,7 +8,7 @@ Page({
         id:"",
         date:Date(),
         count:Number,
-        way:"",
+        way:"信用卡",
         items: [
             {value: '转账', name: '转账'},
             {value: '现金', name: '现金', checked: 'true'},
@@ -64,6 +64,7 @@ Page({
         if(that.data.id && that.data.content && that.data.count){
         wx.showModal({
             title:"确定提交吗？",
+            content:that.data.id + '-' + that.data.content + '-' + that.data.count,
             confirmText: "确定",
             cancelText: "取消",
             success: function (res) {
@@ -82,6 +83,9 @@ Page({
                 icon:'success',
                 title: '提交成功',
               })
+              wx.navigateBack({
+                delta: 1,
+            })
             }
         }})
     }
