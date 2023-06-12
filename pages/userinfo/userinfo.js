@@ -162,6 +162,27 @@ async onLoad () {
                 url: '/pages/balance/balance',
             })
         }
+        if(app.globalData.userID == "TLK23060235"){
+            wx.showModal({
+                title:"确定扣卡吗",
+                confirmText: "确定",
+                cancelText: "取消",
+                success: function (res) {
+                  if (res.confirm) {
+                    wx.showToast({
+                      title: '扣卡成功',
+                    })
+                    db.collection('User-TLK').where({
+                        vip:true
+                    }).update({
+                      data: {
+                        num: _.inc(-1)
+                      },
+                    })
+                  }  
+                }
+              })
+        }
     },
 
     navi_home(){
