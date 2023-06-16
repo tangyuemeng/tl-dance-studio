@@ -1,0 +1,23 @@
+/* pages/game/gane.wxss */
+.pc_output{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    background-color: bisque;
+}
+
+.my_choose{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    width: 100vw;
+    height: 50vh;
+    background-color: pink;
+}
+.choose_img{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+}

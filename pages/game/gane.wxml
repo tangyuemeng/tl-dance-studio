@@ -1,0 +1,12 @@
+<!--pages/game/gane.wxml-->
+<view class="pc_output">
+    <image class="choose_img" src="{{url}}" style="top: 16vh; left: 38vw;"/>
+    <text class="middle-text" style="position:absolute; top: 26vh; left: 39vw;">{{title}}</text>
+</view>
+
+
+<view class="my_choose">
+    <image class="choose_img" src="/images/2.png" style="top: 16vh; left: 10vw;" bindtap="getresult" data-result="1"/>
+    <image class="choose_img" src="/images/3.png" style="top: 16vh; left: 38vw;" bindtap="getresult" data-result="0" />
+    <image class="choose_img" src="/images/4.png" style="top: 16vh; right: 10vw;" bindtap="getresult" data-result="2" />
+</view>
