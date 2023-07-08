@@ -10,14 +10,12 @@ const _ = db.command
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
 
-    await db.collection('balance').add({ 
-        data : {
-        "userID": "app.globalData.userID",
-        "way":"that.data.way",
-        "count":"that.data.count",
-        "date":"that.data.date",
-        "content":"that.data.content",
-        "id":"that.data.id"
+    await db.collection('User-TLK').where({
+        vip:true,
+        campus:event.campus
+    }).update({
+      data: {
+        num: _.inc(-1)
       },
       success(){
         console.log('success')

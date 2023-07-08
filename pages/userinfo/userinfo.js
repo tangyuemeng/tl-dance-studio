@@ -157,11 +157,13 @@ async onLoad () {
 
 
     openBalance(){
+        var that = this
         if (app.globalData.level == 1){
             wx.navigateTo({
                 url: '/pages/balance/balance',
             })
         }
+        //TLK23060235
         if(app.globalData.userID == "TLK23060235"){
             wx.showModal({
                 title:"确定扣卡吗",
@@ -169,16 +171,15 @@ async onLoad () {
                 cancelText: "取消",
                 success: function (res) {
                   if (res.confirm) {
-                    wx.showToast({
-                      title: '扣卡成功',
-                    })
-                    db.collection('User-TLK').where({
-                        vip:true
-                    }).update({
-                      data: {
-                        num: _.inc(-1)
-                      },
-                    })
+                    wx.showActionSheet({
+                        itemList: ['池袋店', '新小岩店'],
+                        success (res) {
+                         that.update_class(res.tapIndex)
+                        },
+                        fail (res) {
+                          console.log(res.errMsg)
+                        }
+                      })
                   }  
                 }
               })
@@ -209,4 +210,26 @@ async onLoad () {
             }) 
         }
     },
+
+    update_class(e){
+        var campus = ""
+        if (e == 0) {
+            campus = "池袋店"
+        } else {
+            campus = "新小岩店"
+        }
+        wx.cloud.callFunction({
+            name: 'TLK_update',
+            data: {
+                campus:campus
+              },
+            success(){
+                console.log('success')
+              },
+              fail:err => {
+                  console.log('error')
+              }
+        })
+    }
+
 })
