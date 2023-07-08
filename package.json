@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "lottie-miniprogram": "^1.0.12"
+    "lottie-miniprogram": "^1.0.12",
+    "wx-server-sdk": "^2.6.3"
   }
 }
