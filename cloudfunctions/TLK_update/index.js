@@ -12,7 +12,8 @@ exports.main = async (event, context) => {
 
     await db.collection('User-TLK').where({
         vip:true,
-        campus:event.campus
+        campus:event.campus,
+        isWeek:event.isWeek
     }).update({
       data: {
         num: _.inc(-1)

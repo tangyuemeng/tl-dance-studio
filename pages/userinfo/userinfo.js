@@ -165,6 +165,7 @@ async onLoad () {
         }
         //TLK23060235
         if(app.globalData.userID == "TLK23060235"){
+            var selectedCampus = 0
             wx.showModal({
                 title:"确定扣卡吗",
                 confirmText: "确定",
@@ -174,7 +175,14 @@ async onLoad () {
                     wx.showActionSheet({
                         itemList: ['池袋店', '新小岩店'],
                         success (res) {
-                         that.update_class(res.tapIndex)
+                        selectedCampus = res.tapIndex
+                        console.log(selectedCampus)
+                         wx.showActionSheet({
+                            itemList: ['平日班', '周末班'],
+                            success (res) {
+                                that.update_class(selectedCampus,res.tapIndex) 
+                            }
+                        })
                         },
                         fail (res) {
                           console.log(res.errMsg)
@@ -211,8 +219,9 @@ async onLoad () {
         }
     },
 
-    update_class(e){
+    update_class(e,week){
         var campus = ""
+        var isweek = week + 1
         if (e == 0) {
             campus = "池袋店"
         } else {
@@ -221,7 +230,8 @@ async onLoad () {
         wx.cloud.callFunction({
             name: 'TLK_update',
             data: {
-                campus:campus
+                campus:campus,
+                isWeek:isweek
               },
             success(){
                 console.log('success')
