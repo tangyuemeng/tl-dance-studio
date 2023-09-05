@@ -2,5 +2,9 @@
   "dependencies": {
     "lottie-miniprogram": "^1.0.12",
     "wx-server-sdk": "^2.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
