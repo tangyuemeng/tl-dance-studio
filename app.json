@@ -1,24 +1,24 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/appointment/appointment",
-        "pages/myappointment/myappointment",
-        "pages/userinfo/userinfo",
-        "pages/classlog/classlog",
-        "pages/home/home",
-        "pages/shop/shop",
-        "pages/shop/mygoods",
-        "pages/balance/balance",
-        "pages/TLK/mybook",
-        "pages/signup/signup"
-    ],
-    "window": {
-        "backgroundColor": "#000000",
-        "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#9381ff",
-        "navigationBarTitleText": "BUZZ TL",
-        "navigationBarTextStyle": "white",
-        "navigationStyle": "custom"
-    },
-    "sitemapLocation": "sitemap58.json"
+  "pages": [
+    "pages/index/index",
+    "pages/appointment/appointment",
+    "pages/myappointment/myappointment",
+    "pages/userinfo/userinfo",
+    "pages/classlog/classlog",
+    "pages/home/home",
+    "pages/shop/shop",
+    "pages/shop/mygoods",
+    "pages/balance/balance",
+    "pages/TLK/mybook",
+    "pages/signup/signup"
+  ],
+  "window": {
+    "backgroundColor": "#000000",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#9381ff",
+    "navigationBarTitleText": "BUZZ TL",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap58.json"
 }

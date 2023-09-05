@@ -1,105 +1,105 @@
 // pages/balance/balance.js
-const app = getApp()
-const db = wx.cloud.database()
-const _ = db.command
+const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command;
 Page({
-    data: {
-        content:"",
-        id:"",
-        date:Date(),
-        count:Number,
-        way:"信用卡",
-        items: [
-            {value: '转账', name: '转账'},
-            {value: '现金', name: '现金', checked: 'true'},
-            {value: 'Paypay', name: 'Paypay'},
-            {value: '微信', name: '微信'},
-            {value: '支付宝', name: '支付宝'},
-            {value: '信用卡', name: '信用卡'},
-          ]
-    },
+  data: {
+    content: "",
+    id: "",
+    date: Date(),
+    count: Number,
+    way: "信用卡",
+    items: [
+      { value: "转账", name: "转账" },
+      { value: "现金", name: "现金", checked: "true" },
+      { value: "Paypay", name: "Paypay" },
+      { value: "微信", name: "微信" },
+      { value: "支付宝", name: "支付宝" },
+      { value: "信用卡", name: "信用卡" },
+    ],
+  },
 
-    onLoad(){
-        let date = new Date()
-        let year = date.getFullYear()
-        let month = date.getMonth()+1
-        let day = date.getDate()
-        this.setData({
-            date:year+'-'+month+'-'+day
-        })
-    },
-
-    radioChange(e) {
-        const items = this.data.items
-        for (let i = 0, len = items.length; i < len; ++i) {
-          items[i].checked = items[i].value === e.detail.value
-        }
-        this.setData({
-          items,
-          way:e.detail.value
-        })
-        console.log(this.data.way )
-      },
-
-    idInput: function (e) {
+  onLoad() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
     this.setData({
-        id: e.detail.value
-    })
-    },
+      date: year + "-" + month + "-" + day,
+    });
+  },
 
-    contentInput: function (e) {
+  radioChange(e) {
+    const items = this.data.items;
+    for (let i = 0, len = items.length; i < len; ++i) {
+      items[i].checked = items[i].value === e.detail.value;
+    }
     this.setData({
-        content: e.detail.value
-    })
-    },
+      items,
+      way: e.detail.value,
+    });
+    console.log(this.data.way);
+  },
 
-    countInput: function (e) {
-        this.setData({
-            count: e.detail.value
-        })
-    },
+  idInput: function (e) {
+    this.setData({
+      id: e.detail.value,
+    });
+  },
 
-    upload(){
-        var that = this
-        if(that.data.id && that.data.content && that.data.count){
-        wx.showModal({
-            title:"确定提交吗？",
-            content:that.data.id + '-' + that.data.content + '-' + that.data.count,
-            confirmText: "确定",
-            cancelText: "取消",
-            success: function (res) {
-              if (res.confirm) {
-                db.collection('balance').add({ 
-                  data : {
-                  "userID": app.globalData.userID,
-                  "way":that.data.way,
-                  "count":that.data.count,
-                  "date":that.data.date,
-                  "content":that.data.content,
-                  "id":that.data.id
-                }
-              })
-              wx.showToast({
-                icon:'success',
-                title: '提交成功',
-              })
-              wx.navigateBack({
-                delta: 1,
-            })
-            }
-        }})
+  contentInput: function (e) {
+    this.setData({
+      content: e.detail.value,
+    });
+  },
+
+  countInput: function (e) {
+    this.setData({
+      count: e.detail.value,
+    });
+  },
+
+  upload() {
+    var that = this;
+    if (that.data.id && that.data.content && that.data.count) {
+      wx.showModal({
+        title: "确定提交吗？",
+        content: that.data.id + "-" + that.data.content + "-" + that.data.count,
+        confirmText: "确定",
+        cancelText: "取消",
+        success: function (res) {
+          if (res.confirm) {
+            db.collection("balance").add({
+              data: {
+                userID: app.globalData.userID,
+                way: that.data.way,
+                count: that.data.count,
+                date: that.data.date,
+                content: that.data.content,
+                id: that.data.id,
+              },
+            });
+            wx.showToast({
+              icon: "success",
+              title: "提交成功",
+            });
+            wx.navigateBack({
+              delta: 1,
+            });
+          }
+        },
+      });
+    } else {
+      wx.showToast({
+        icon: "error",
+        title: "请输入完整信息",
+      });
     }
-    else{
-        wx.showToast({
-            icon:'error',
-            title: '请输入完整信息',
-        })
-    }
-    },
+  },
 
-    navi_home(){
-        wx.navigateBack({
-            delta:1
-        })
-      },
-})
+  navi_home() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  },
+});

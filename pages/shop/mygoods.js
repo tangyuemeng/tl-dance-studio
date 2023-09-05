@@ -1,31 +1,31 @@
 // miniprogram/pages/shop/mygoods.js
-const app = getApp()
-const db = wx.cloud.database()
-const _ = db.command
+const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command;
 Page({
-
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad () {
-    let result = await db.collection('shop').where({userID:app.globalData.userID}).get()
-    let list = result.data
-    console.log(list)
+  async onLoad() {
+    let result = await db
+      .collection("shop")
+      .where({ userID: app.globalData.userID })
+      .get();
+    let list = result.data;
+    console.log(list);
     this.setData({
-      list:list
-    })
+      list: list,
+    });
   },
 
-  backhome(){
+  backhome() {
     wx.navigateBack({
-        delta:1
-    })
-}
-})
+      delta: 1,
+    });
+  },
+});

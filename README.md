@@ -1,10 +1,9 @@
 # BUZZ TL miniapp
-The reservation application of BUZZ TL 
 
+The reservation application of BUZZ TL
 
 ![image](https://github.com/tangyuemeng/tl-dance-studio/blob/develop/screenshots/TL%20DANCE%20STUDIO.png)
 <br><br>
-
 
 ## 1. Summary
 
@@ -20,30 +19,26 @@ The reservation application of BUZZ TL
 
 ### Frontend
 
--   WXML(HTML)
--   WXSS(CSS)
--   Canva
--   Figma
+- WXML(HTML)
+- WXSS(CSS)
+- Canva
+- Figma
 
 ### Backend
 
--   CloudBase
-
+- CloudBase
 
 ### Infrastructure
 
--   Firebase
+- Firebase
 
 ### Other
 
--   GitHub
+- GitHub
 
 <br><br>
 
-
-
-
 ## Developer
 
--   YUEMENG TANG
--   tangyuemeng@toki.waseda.jp
+- YUEMENG TANG
+- tangyuemeng@toki.waseda.jp

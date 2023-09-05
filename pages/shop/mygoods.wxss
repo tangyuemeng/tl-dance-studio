@@ -1,110 +1,121 @@
-.shop-title{
-    left: 7vw;
-    top: 11vh;
- }
-
-
-.shop-title-shadow{
-    position: absolute;
-    left: 7vw;
-    top: 12vh;
-    
-    
-    /* PINKBLUE */
-    
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.6) 0%, rgba(187, 223, 241, 0.48) 115.23%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  
+.shop-title {
+  left: 7vw;
+  top: 11vh;
 }
 
-.list{
-    position: absolute;
-    top: 20vh;
-    height: 70vh;
-    width: 100vw;
-    padding-left: 10vw;
+.shop-title-shadow {
+  position: absolute;
+  left: 7vw;
+  top: 12vh;
+
+  /* PINKBLUE */
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(
+      109.18deg,
+      rgba(43, 43, 43, 0.6) 0%,
+      rgba(187, 223, 241, 0.48) 115.23%
+    );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.item-bar{
-    position: relative;
-    width: 80vw;
-    height: 30vh;
-    /* PINKBLUE */
-    background: linear-gradient(95.55deg, #FBC5FF 45.57%, rgba(187, 223, 241, 0.71) 129.64%);
-    border-radius: 20px 20px 0px 0px;
-    margin-bottom: 5vh;
+.list {
+  position: absolute;
+  top: 20vh;
+  height: 70vh;
+  width: 100vw;
+  padding-left: 10vw;
 }
 
-.coupon-icon{
-    position: absolute;
-    width: 30vw;
-    height: 30vw;
-    top: 2vh;
-    right: 5vw;
+.item-bar {
+  position: relative;
+  width: 80vw;
+  height: 30vh;
+  /* PINKBLUE */
+  background: linear-gradient(
+    95.55deg,
+    #fbc5ff 45.57%,
+    rgba(187, 223, 241, 0.71) 129.64%
+  );
+  border-radius: 20px 20px 0px 0px;
+  margin-bottom: 5vh;
 }
 
-.item-text{
-    position: absolute;
-    left: 5vw;
-    top: 11.5vh;
-    font-size: 10px;
+.coupon-icon {
+  position: absolute;
+  width: 30vw;
+  height: 30vw;
+  top: 2vh;
+  right: 5vw;
 }
 
-.item-title{
-    position: absolute;
-    left: 5vw;
-    top: 14vh;
-    font-size: 22px;
+.item-text {
+  position: absolute;
+  left: 5vw;
+  top: 11.5vh;
+  font-size: 10px;
 }
 
-.item-barcode{
-    position: absolute;
-    width: 80vw;
-    height: 12vh;
-    bottom: 0;
-    background: rgba(241, 237, 237, 0.96);
+.item-title {
+  position: absolute;
+  left: 5vw;
+  top: 14vh;
+  font-size: 22px;
 }
 
-.circle1{
-    position: absolute;
-    width: 12vw;
-    height: 12vw;
-    border-radius: 50%;
-    bottom: 3vh;
-    left: -6vw;
-    background-color: #2b2b2b;
+.item-barcode {
+  position: absolute;
+  width: 80vw;
+  height: 12vh;
+  bottom: 0;
+  background: rgba(241, 237, 237, 0.96);
 }
 
-.circle2{
-    position: absolute;
-    width: 12vw;
-    height: 12vw;
-    border-radius: 50%;
-    bottom: 3vh;
-    right: -6vw;
-    background-color: #2b2b2b; 
+.circle1 {
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  bottom: 3vh;
+  left: -6vw;
+  background-color: #2b2b2b;
 }
 
-.barcode-icon{
-    position: absolute;
-    width: 60vw;
-    height: 30vh;
-    top: -9vh;
-    left: 9vw;
+.circle2 {
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  bottom: 3vh;
+  right: -6vw;
+  background-color: #2b2b2b;
 }
 
-.back-icon{
-    position: absolute;
-    width: 16vw;
-    height: 16vw;
-    left: 5vw;
-    bottom: 8vh;
-    border-radius: 50%;
-    background: linear-gradient(120deg, transparent 30%, #9aadac 38%, #9aadac
-    40%, transparent 48%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    animation: shinning 2s infinite;
+.barcode-icon {
+  position: absolute;
+  width: 60vw;
+  height: 30vh;
+  top: -9vh;
+  left: 9vw;
+}
+
+.back-icon {
+  position: absolute;
+  width: 16vw;
+  height: 16vw;
+  left: 5vw;
+  bottom: 8vh;
+  border-radius: 50%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    #9aadac 38%,
+    #9aadac 40%,
+    transparent 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: shinning 2s infinite;
 }
