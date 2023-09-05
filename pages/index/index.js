@@ -29,6 +29,7 @@ Page({
         app.globalData.allowedNum = result.data[0].allowedNum
         app.globalData.isWeek = result.data[0].isWeek
         app.globalData.campus = result.data[0].campus 
+        app.globalData.name = result.data[0].name ? result.data[0].name : ""
       }
     }
     else{
@@ -39,6 +40,7 @@ Page({
     app.globalData.num = result.data[0].num
     app.globalData.point = result.data[0].point ? result.data[0].point : 0
     app.globalData.campus = result.data[0].campus 
+    app.globalData.name = result.data[0].name ? result.data[0].name : ""
     }
   },
 
@@ -117,6 +119,14 @@ Page({
     this.setData({
       modalName: "",
     })
+  },
+
+  naviSignup(){
+    if (!app.globalData.islogin){
+        wx.navigateTo({
+            url: '../signup/signup',
+        })
+    }
   },
 })
 

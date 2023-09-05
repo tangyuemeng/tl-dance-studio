@@ -135,7 +135,8 @@ Page({
                             campus : app.globalData.campus,
                             teacher : e.currentTarget.dataset.teacher,
                             style : e.currentTarget.dataset.style,
-                            time : e.currentTarget.dataset.time
+                            time : e.currentTarget.dataset.time,
+                            name:app.globalData.name
                         }
                     })
                     wx.navigateBack({

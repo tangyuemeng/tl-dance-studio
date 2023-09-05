@@ -131,7 +131,8 @@ async onLoad () {
                         userID : app.globalData.userID,
                         xqj : day,
                         date : date,
-                        campus : app.globalData.campus
+                        campus : app.globalData.campus,
+                        name: app.globalData.name
                     }
                 })
                 wx.showToast({

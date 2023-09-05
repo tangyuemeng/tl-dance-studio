@@ -9,7 +9,8 @@
         "pages/shop/shop",
         "pages/shop/mygoods",
         "pages/balance/balance",
-        "pages/TLK/mybook"
+        "pages/TLK/mybook",
+        "pages/signup/signup"
     ],
     "window": {
         "backgroundColor": "#000000",
