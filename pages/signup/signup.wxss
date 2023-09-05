@@ -1,1 +1,61 @@
 /* pages/signup/signup.wxss */
+/* pages/balance/balance.wxss */
+.title-top-shadow{
+    position: absolute;
+    left: 6vw;
+    top:13vh;
+    color: #e4b1df;
+}
+
+.title-top{
+    position: absolute;
+    left: 6vw;
+    top:12vh;
+    color: #2b2b2b;
+}
+
+.bar-list{
+    position: absolute;
+    top: 22vh;
+    width: 100vw;
+    height: 75vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.input-bar{
+    border-bottom: 2px solid #e4b1df;
+    width: 90vw;
+    height: 4vh;
+    padding-left: 3vw;
+}
+
+
+.back-icon{
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    top:8vh;
+    left: 6vw;
+}
+
+.item-upload {
+    display: flex;
+    margin-top: 5vh;
+    margin-left: 32vw;
+    width: 36vw;
+    height: 7vh;
+    background: #2B2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.item-upload:active{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(109.18deg, rgba(43, 43, 43, 0.6) 0%, rgba(187, 223, 241, 0.48) 115.23%);
+    transform: translateY(1vw);
+}
