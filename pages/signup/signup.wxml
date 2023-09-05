@@ -7,13 +7,13 @@
 
 <view class="bar-list" >
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">姓名</view>
-    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="idInput" placeholder="例:打嗝小喵"/>
+    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="nameInput" placeholder="例:打嗝小喵"/>
 
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">电话</view>
-    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="idInput" placeholder="例:000-1234-4566"/>
+    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="phoneInput" placeholder="例:000-1234-4566"/>
 
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">首月套餐</view>
-    <radio-group class="mt-sm" bindchange="radioChange" style="display:flex; flex-wrap: wrap; width:100vw" >
+    <radio-group class="mt-sm" bindchange="radioChange1" style="display:flex; flex-wrap: wrap; width:100vw" >
         <label style="display: flex;width: 45vw; margin-left: 5vw;" wx:for="{{items}}" wx:key="{{item.value}}">
           <view style="color: #f5f5f5;">
             <radio value="{{item.value}}" color="#e4b1df" checked="true"/>
@@ -23,7 +23,7 @@
       </radio-group>
 
       <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">次月套餐</view>
-    <radio-group class="mt-sm" bindchange="radioChange" style="display:flex; flex-wrap: wrap; width:100vw" >
+    <radio-group class="mt-sm" bindchange="radioChange2" style="display:flex; flex-wrap: wrap; width:100vw" >
         <label style="display: flex;width: 45vw; margin-left: 5vw;" wx:for="{{items}}" wx:key="{{item.value}}">
           <view style="color: #f5f5f5;">
             <radio value="{{item.value}}" color="#e4b1df" checked="true"/>
@@ -33,11 +33,11 @@
       </radio-group>
 
       <view class="ml-lg mt-lg small-text-ch" style="text-align: justify;color: #e4b1df;">
-        <radio value="{{}}" color="#e4b1df"/>
+        <radio value="{{checked}}" color="#e4b1df" bindtap="changeCheck"/>
         我已阅读并同意
         <view style="text-decoration: underline;" bindtap="downloadAndOpenFile">BUZZ TL会员隐私声明与条款 </view>
       </view>
 </view>
 
-<button class="round-btn-pink btn-active mt-lg" bindtap="showModal" style="top: 84vh;" data-target="bottomSheet">Submit</button>
+<button class="round-btn-pink btn-active mt-lg" bindtap="onSignup" style="top: 84vh;" data-target="bottomSheet">Submit</button>
 

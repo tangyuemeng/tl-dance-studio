@@ -120,7 +120,7 @@ Page({
 
   naviSignup() {
     // 判断该用户是否已经登陆过
-    if (app.globalData.islogin) {
+    if (!app.globalData.islogin) {
       wx.navigateTo({
         url: "../signup/signup",
       });

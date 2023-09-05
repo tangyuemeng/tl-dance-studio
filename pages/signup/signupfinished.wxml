@@ -1,0 +1,3 @@
+<view class="ml-lg mt-sm huge-text" style="position: absolute;color: #e4b1df; top: 20vh;width: 80vw; left: 8vw;">Finished !</view>
+
+<button class="round-btn-pink btn-active mt-lg" bindtap="backHome" style="top: 80vh;" data-target="bottomSheet">Restart</button>
