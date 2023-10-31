@@ -13,7 +13,7 @@
 <text class="pink-blue-text huge-text" style="top: 35vh;left: 12vw; ">Timeline</text>
 
 <scroll-view class="class-list" scroll-y="true">
-    <view class="class-item" wx:for="{{classlist}}" bindtap="check_flag" data-num="{{item.num}}" data-id="{{item.id}}" data-url="{{item.url}}" data-style="{{item.style}}" data-time="{{item.time}}" data-teacher="{{item.teacher}}" data-timestamp="{{item.timestamp}}">
+    <view class="class-item" wx:for="{{classlist}}" bindtap="check_flag" data-num="{{item.num}}" data-id="{{item.id}}" data-url="{{item.url}}" data-style="{{item.style}}" data-time="{{item.time}}" data-teacher="{{item.teacher}}" data-timestamp="{{item.timestamp}}" data-level="{{item.level}}">
         <image class="item-image" src="{{item.url}}"></image>
         <text class="item-title middle-text">{{item.style}}</text>
         <text class="item-time small-text">{{item.time}}</text>

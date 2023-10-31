@@ -20,7 +20,8 @@ Page({
     });
     let result = await db.collection("User").get();
     let num = result.data[0].num;
-    if (app.globalData.cardtype != "受け放題") {
+  
+    if (app.globalData.cardtype != "受け放題" && app.globalData.cardtype != "平日放题" && app.globalData.cardtype != "土日放题" && app.globalData.cardtype != "ZERO放题") {
       if (num <= 0) {
         wx.showToast({
           title: "当月次数已用完",
@@ -131,17 +132,38 @@ Page({
   },
 
   async openAppointment(e) {
+    let id = Number(e.currentTarget.dataset.id)
+    if (app.globalData.cardtype === "ZERO放题" && e.currentTarget.dataset.level === 1){
+        wx.showToast({
+            title: "超出套餐范围",
+            icon: "error",
+          });
+        return
+    }
+
+    if (app.globalData.cardtype === "平日放题" && id > 9){
+        wx.showToast({
+            title: "超出套餐范围",
+            icon: "error",
+          });
+        return
+    }
+
+    if (app.globalData.cardtype === "土日放题" && id < 10){
+        wx.showToast({
+            title: "超出套餐范围",
+            icon: "error",
+          });
+        return
+    }
+    
     var that = this;
     this.setData({
       isshowloading: "block",
     });
     let date = this.data.date;
-    // let that = this
+
     if (this.data.check) {
-      // let result = await db.collection('class').where({
-      //   classid:e.currentTarget.dataset.id,
-      //   date:date
-      // }).count({})
       let count = e.currentTarget.dataset.num;
       if (count > 15) {
         wx.showToast({
@@ -155,7 +177,7 @@ Page({
       } else {
         let result = await db.collection("User").get();
         let num = result.data[0].num;
-        if (num > 0 || app.globalData.cardtype === "受け放題") {
+        if (num > 0 || app.globalData.cardtype === "受け放題" || app.globalData.cardtype === "平日放题" || app.globalData.cardtype === "土日放题" || app.globalData.cardtype === "ZERO放题") {
           let classlist = await db
             .collection("class")
             .where({
@@ -163,7 +185,6 @@ Page({
               userID: app.globalData.userID,
             })
             .get();
-          console.log(classlist);
           if (classlist.data.length == 0) {
             wx.showModal({
               title: "确定预约吗？",
@@ -174,7 +195,7 @@ Page({
                   wx.showToast({
                     title: "预约成功",
                   });
-                  if (app.globalData.cardtype != "受け放題") {
+                  if (app.globalData.cardtype != "受け放題" && app.globalData.cardtype != "平日放题" && app.globalData.cardtype != "土日放题" && app.globalData.cardtype != "ZERO放题") {
                     db.collection("User")
                       .where({})
                       .update({
