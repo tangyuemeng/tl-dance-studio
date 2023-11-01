@@ -38,7 +38,6 @@ Page({
       items,
       firstCourse: e.detail.value,
     });
-    console.log(this.data.firstCourse);
   },
 
   radioChange2(e) {

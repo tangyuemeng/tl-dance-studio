@@ -59,7 +59,7 @@ Page({
               userID: app.globalData.userID,
             })
             .remove({});
-          if (app.globalData.cardtype != "受け放題") {
+          if (app.globalData.cardtype != "受け放題" && app.globalData.cardtype != "平日放题" && app.globalData.cardtype != "土日放题" && app.globalData.cardtype != "ZERO放题") {
             db.collection("User")
               .where({ userID: app.globalData.userID })
               .update({
