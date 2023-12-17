@@ -46,7 +46,6 @@ Page({
 
 
     loginApi(e) {
-        console.log(e.currentTarget.dataset.target);
         switch (e.currentTarget.dataset.target) {
             case "ookubo":
                 app.globalData.school = "大久保店";
@@ -65,15 +64,6 @@ Page({
         });
     },
 
-    changestringlength(e) {
-        var result;
-        if (e.length === 1) {
-            result = "0" + e;
-            return result;
-        } else {
-            return e;
-        }
-    },
 
     showModal(e) {
         this.setData({
@@ -90,7 +80,6 @@ Page({
     naviSignup() {
         // 判断该用户是否已经登陆过
         if (!app.globalData.islogin) {
-
             wx.showActionSheet({
                 itemList: ["BUZZ TL", "TLK"],
                 success(res) {

@@ -1,4 +1,5 @@
-﻿<text class="logo pink-blue-text huge-text" bindtap="naviSignup">BUZZ TL</text>
+﻿<!-- LOGO-->
+<text class="logo pink-blue-text huge-text" bindtap="naviSignup">BUZZ TL</text>
 <button class="round-btn-pink btn-active {{modalName=='bottomSheet'?'hideModal':'showModal'}}" bindtap="showModal" data-target="bottomSheet">Get start...</button>
 
 
