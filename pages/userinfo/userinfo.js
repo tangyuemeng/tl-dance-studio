@@ -181,8 +181,8 @@ Page({
         url: "/pages/balance/balance",
       });
     }
-    //TLK23060235
-    if (app.globalData.userID == "TLK23060235") {
+
+    if (app.globalData.level == 2) {
       var selectedCampus = 0;
       wx.showModal({
         title: "确定扣卡吗",

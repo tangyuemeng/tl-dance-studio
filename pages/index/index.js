@@ -44,37 +44,6 @@ Page({
     }
   },
 
-  Onsignup() {
-    if (!app.globalData.islogin) {
-      var date = new Date(); // 获取当前时间日期
-      var month = (date.getMonth() + 1).toString(); // 获取月份
-      var day = date.getDate().toString(); //  获取星期
-      var year = date.getFullYear().toString();
-      day = this.changestringlength(day);
-      month = this.changestringlength(month);
-      year = year.substr(2, 2);
-      let userID =
-        "TL" + year + month + day + Math.random().toString().substr(2, 2);
-      app.globalData.userID = userID;
-      app.globalData.islogin = true;
-      db.collection("User").add({
-        data: {
-          vip: false,
-          userID: userID,
-          campus: "大久保店",
-        },
-      });
-      wx.showToast({
-        title: "会员卡创建成功",
-      });
-    } else {
-      wx.showToast({
-        title: "会员卡创建失败",
-        icon: "error",
-      });
-    }
-    this.hideModal();
-  },
 
   loginApi(e) {
     console.log(e.currentTarget.dataset.target);
@@ -120,10 +89,25 @@ Page({
 
   naviSignup() {
     // 判断该用户是否已经登陆过
-    if (!app.globalData.islogin) {
-      wx.navigateTo({
-        url: "../signup/signup",
+    // if (!app.globalData.islogin) {
+
+    wx.showActionSheet({
+        itemList: ["BUZZ TL", "TLK"],
+        success(res) {
+          if (res.tapIndex == 0) {
+            wx.navigateTo({
+                url: "../Signup/signup",
+              })
+          } else {
+            wx.navigateTo({
+                url: "../Signup/signuptlk",
+              })
+          }
+        },
+        fail(res) {
+          console.log(res.errMsg);
+        },
       });
-    }
+    //}
   },
 });
