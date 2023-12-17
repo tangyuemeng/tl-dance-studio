@@ -8,15 +8,20 @@ Page({
    */
   data: {
     name: "",
-    phone: "",
+    campus: "",
     course: "",
     checked: false,
     items: [
-      { value: "3000", name: "次卡" },
-      { value: "10000", name: "月卡", checked: "true" },
-      { value: "25000", name: "季卡" },
-      { value: "45000", name: "半年卡" },
+      { value: "次卡", name: "次卡" },
+      { value: "月卡", name: "月卡", checked: "true" },
+      { value: "季卡", name: "季卡" },
+      { value: "半年卡", name: "半年卡" },
     ],
+    campusItems: [
+        { value: "新小岩店", name: "新小岩店" },
+        { value: "池袋店", name: "池袋店", checked: "true" },
+        { value: "西川口店", name: "西川口店" },
+      ],
   },
 
   /**
@@ -35,6 +40,17 @@ Page({
     });
   },
 
+  radioChangeCampus(e) {
+    const campusItems = this.data.campusItems;
+    for (let i = 0, len = campusItems.length; i < len; ++i) {
+        campusItems[i].checked = campusItems[i].value === e.detail.value;
+    }
+    this.setData({
+      campusItems,
+      campus: e.detail.value,
+    });
+  },
+
 
   nameInput: function (e) {
     this.setData({
@@ -42,11 +58,6 @@ Page({
     });
   },
 
-  phoneInput: function (e) {
-    this.setData({
-      phone: e.detail.value,
-    });
-  },
 
   downloadAndOpenFile: function () {
     // 云存储中的文件路径，需要根据你的实际路径进行设置
@@ -89,15 +100,16 @@ Page({
   onSignup() {
     if (
       this.data.name != "" &&
-      this.data.phone != "" &&
       this.data.course != "" &&
+      this.data.campus != "" &&
       this.data.checked
     ) {
       this.createNewId();
-      db.collection("newuser").add({
+      db.collection("newuser-TLK").add({
         data: {
           userID: app.globalData.userID,
           name: this.data.name,
+          campus: this.data.campus,
           course: this.data.course,
         },
       });
@@ -140,7 +152,7 @@ Page({
           vip: false,
           userID: userID,
           name: this.data.name,
-          campus: "大久保店",
+          campus: this.data.campus,
         },
       });
     }

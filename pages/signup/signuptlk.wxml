@@ -8,6 +8,16 @@
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">昵称</view>
     <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="nameInput" placeholder="例:昵称"/>
 
+    <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">校区</view>
+    <radio-group class="mt-sm" bindchange="radioChangeCampus" style="display:flex; flex-wrap: wrap; width:100vw" >
+        <label style="display: flex;width: 45vw; margin-left: 5vw;" wx:for="{{campusItems}}" wx:key="{{item.value}}">
+          <view style="color: #f5f5f5;">
+            <radio value="{{item.value}}" color="#e4b1df" checked="true"/>
+          </view>
+          <view class="small-text-ch" style="text-align: justify;color: #f5f5f5;">{{item.name}}</view>
+        </label>
+      </radio-group>
+
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">套餐</view>
     <radio-group class="mt-sm" bindchange="radioChange" style="display:flex; flex-wrap: wrap; width:100vw" >
         <label style="display: flex;width: 45vw; margin-left: 5vw;" wx:for="{{items}}" wx:key="{{item.value}}">

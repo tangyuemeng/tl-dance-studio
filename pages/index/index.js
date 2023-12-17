@@ -96,11 +96,11 @@ Page({
         success(res) {
           if (res.tapIndex == 0) {
             wx.navigateTo({
-                url: "../Signup/signup",
+                url: "../signup/signup",
               })
           } else {
             wx.navigateTo({
-                url: "../Signup/signuptlk",
+                url: "../signup/signuptlk",
               })
           }
         },
