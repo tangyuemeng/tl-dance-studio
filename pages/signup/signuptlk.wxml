@@ -6,10 +6,7 @@
 
 <scroll-view scroll-y="true" class="bar-list">
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">昵称</view>
-    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="nameInput" placeholder="例:打嗝小喵"/>
-
-    <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">账号</view>
-    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="phoneInput" placeholder="例:000-1234-4566"/>
+    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #f5f5f5;" maxlength="100" bindinput="nameInput" placeholder="例:昵称"/>
 
     <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #e4b1df;">套餐</view>
     <radio-group class="mt-sm" bindchange="radioChange" style="display:flex; flex-wrap: wrap; width:100vw" >

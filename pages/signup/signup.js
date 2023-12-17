@@ -8,7 +8,6 @@ Page({
    */
   data: {
     name: "",
-    phone: "",
     firstCourse: "",
     secondCourse: "",
     checked: false,
@@ -57,12 +56,6 @@ Page({
     });
   },
 
-  phoneInput: function (e) {
-    this.setData({
-      phone: e.detail.value,
-    });
-  },
-
   downloadAndOpenFile: function () {
     // 云存储中的文件路径，需要根据你的实际路径进行设置
     const cloudFilePath =
@@ -104,7 +97,6 @@ Page({
   onSignup() {
     if (
       this.data.name != "" &&
-      this.data.phone != "" &&
       this.data.firstCourse != "" &&
       this.data.secondCourse != "" &&
       this.data.checked
