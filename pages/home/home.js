@@ -127,9 +127,16 @@ Page({
 
   navi_shop() {
     if (app.globalData.campus == "大久保店") {
-      wx.navigateTo({
-        url: "/pages/shop/shop",
-      });
+        if (app.globalData.vip) {
+            wx.navigateTo({
+                url: "/pages/shop/shop",
+            });
+            } else {
+            wx.showToast({
+                title: "会员卡已过期",
+                icon: "error",
+            });
+        }
     } else {
       wx.showToast({
         title: "当前校区不支持",
@@ -140,9 +147,16 @@ Page({
 
   navi_book() {
     if (app.globalData.campus == "大久保店") {
-      wx.navigateTo({
-        url: "/pages/myappointment/myappointment",
-      });
+      if (app.globalData.vip) {
+        wx.navigateTo({
+            url: "/pages/myappointment/myappointment",
+        });
+        } else {
+        wx.showToast({
+            title: "会员卡已过期",
+            icon: "error",
+        });
+    }
     }
     if (
       app.globalData.campus == "池袋店" ||
