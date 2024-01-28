@@ -16,6 +16,7 @@ App({
     school: "",
     campus: "",
     isRight: false,
+    isPaused: false,
   },
   onLaunch: function () {
     if (!wx.cloud) {

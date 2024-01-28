@@ -41,6 +41,7 @@ Page({
             app.globalData.point = result.data[0].point ? result.data[0].point : 0;
             app.globalData.campus = result.data[0].campus;
             app.globalData.name = result.data[0].name ? result.data[0].name : "";
+            app.globalData.isPaused = result.data[0].isPaused;
         }
     },
 

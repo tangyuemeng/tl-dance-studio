@@ -57,6 +57,7 @@ Page({
       app.globalData.point = result.data[0].point ? result.data[0].point : 0;
       app.globalData.campus = result.data[0].campus;
       app.globalData.level = result.data[0].level;
+      app.globalData.isPaused = result.data[0].isPaused;
     }
     var vip = app.globalData.vip;
     var userID = app.globalData.userID;
@@ -65,6 +66,7 @@ Page({
     var cardtype = app.globalData.cardtype;
     var point = app.globalData.point;
     var campus = app.globalData.campus;
+    var isPaused = app.globalData.isPaused;
     this.setData({
       vip: vip,
       userID: userID,
@@ -73,6 +75,7 @@ Page({
       allowedNum: allowedNum,
       point: point,
       campus: campus,
+      isPaused: isPaused
     });
   },
 
