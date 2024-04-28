@@ -12,7 +12,9 @@
         "pages/TLK/mybook",
         "pages/signup/signup",
         "pages/signup/signupfinished",
-        "pages/signup/signuptlk"
+        "pages/signup/signuptlk",
+        "pages/danceEvent/event",
+        "pages/danceEvent/number"
     ],
     "window": {
         "backgroundColor": "#000000",

@@ -1,0 +1,40 @@
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+.base-color {
+    background: linear-gradient(
+        95.55deg,
+        #8e3b3c 45.57%,
+        #d8cbc5 129.64%
+    );
+}
+  
+  .title-top {
+    position: absolute;
+    left: 5vw;
+    top: 8vh;
+    color: #d8cbc5;
+  }
+  
+
+  .bar-list {
+    position: absolute;
+    top: 16vh;
+    width: 100vw;
+    height: 84vh;
+  }
+
+  .item-bar {
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+    margin-top: -20vw;
+    margin-bottom: -30vw;
+  }
+
+  .item-bar:active {
+    transform: translateY(122);
+  }

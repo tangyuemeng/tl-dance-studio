@@ -78,6 +78,12 @@ Page({
         });
     },
 
+    hideTemporaryModal(e){
+        this.setData({
+            temporaryModelName: e.currentTarget.dataset.target,
+        });
+    },
+
     naviSignup() {
         // 判断该用户是否已经登陆过
         if (!app.globalData.islogin) {
@@ -100,4 +106,10 @@ Page({
             });
         }
     },
+
+    naviDanceEvent() {
+        wx.navigateTo({
+            url: "../danceEvent/event",
+        })
+    }
 });

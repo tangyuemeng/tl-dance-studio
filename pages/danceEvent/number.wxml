@@ -1,0 +1,3 @@
+<view class="pink-blue-top base-color" style="height: 14vh;">
+    <text class="middle-text-ch title-top" bindtap="navi_home">《 Number</text>
+</view>

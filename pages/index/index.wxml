@@ -9,3 +9,14 @@
     <button class="round-btn-black" bindtap="loginApi" data-target="ikebukuro">IKEBUKURO</button>
     <button class="round-btn-black" bindtap="loginApi" data-target="shinkoiwako">SHIN-KOIWAKO</button>
 </view>
+
+<view class="temporary-model {{temporaryModelName=='temporaryModel'?'hideModal':'showModal'}} animation-{{temporaryModelName=='temporaryModel'?'scale-down-center':'scale-up-center'}}">
+    <text class="middle-text-ch white-text" style="top:3vh;left: 4vw;">BUZZ TL三周年公演「追」</text>
+    <text class="middle-text-ch white-text" style="top:14vh;left: 28vw;">招募开启</text>
+    <button class="round-btn-pink" style="height: 5vh; width: 30vw; top: 23vh; padding: 0; right: 6vw; position: absolute;" bindtap="naviDanceEvent">
+        <text class="small-text-ch black-text">立即报名</text>
+    </button>
+    <button class="round-btn-black" style="height: 5vh; width: 30vw; top: 23vh; padding: 0; left: 6vw; position: absolute;" data-target="temporaryModel" bindtap="hideTemporaryModal">
+        <text class="small-text-ch white-text" style="position: relative;">我在想想</text>
+    </button>
+</view>
