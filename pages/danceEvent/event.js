@@ -18,7 +18,6 @@ Page({
         this.setData({
             list: result.data
         })
-        console.log(result.data)
     },
 
     navi_home() {
@@ -27,7 +26,9 @@ Page({
         });
   },
 
-    navi_number() {
+    navi_number(e) {
+        app.globalData.numberTitle = e.currentTarget.dataset.title
+        app.globalData.numberInfo = e.currentTarget.dataset.info
         wx.navigateTo({
           url: './number',
         })

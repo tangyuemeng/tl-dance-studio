@@ -18,3 +18,17 @@ page {
     top: 8vh;
     color: #d8cbc5;
   }
+
+  .bar-list{
+      position: absolute;
+      top: 15vh;
+      width: 100vw;
+      height: 84vh;
+  }
+
+  .input-bar {
+    border-bottom: 2px solid #8e3b3c;
+    width: 90vw;
+    height: 4vh;
+    padding-left: 3vw;
+  }

@@ -266,15 +266,9 @@
 .temporary-model {
     position: absolute;
     width: 80vw;
-    height: 30vh;
+    height: 80vw;
     left: 10vw;
     top:32vh;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      linear-gradient(
-        109.18deg,
-        rgba(43, 43, 43, 0.6) 0%,
-        rgba(187, 223, 241, 0.48) 115.23%
-      );
     backdrop-filter: blur(2px);
     /* Note: backdrop-filter has minimal browser support */
     box-shadow: 4rpx 4rpx 6rpx rgba(130, 147, 156, 0.48);

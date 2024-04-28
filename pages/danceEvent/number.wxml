@@ -1,3 +1,17 @@
 <view class="pink-blue-top base-color" style="height: 14vh;">
-    <text class="middle-text-ch title-top" bindtap="navi_home">《 Number</text>
+    <text class="middle-text-ch title-top" bindtap="navi_home">⬅ {{title}} Number</text>
 </view>
+
+<scroll-view scroll-y="true" class="bar-list">
+    <image src="{{info}}" style="width: 100vw; height: 100vw;" wx:if="{{info}}"></image>
+    <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #2b2b2b;">昵称(必填)</view>
+    <input class="ml-sm small-text-ch input-bar"  style="text-align: justify; font-size: 16px;color: #2b2b2b;" maxlength="100" bindinput="nameInput" placeholder="例:昵称"/>
+
+
+    <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #8e3b3c;" wx:if="{{info}}">注： 确认报名后请与相关导师取得联系</view>
+    <view class="ml-lg mt-sm small-text-ch" style="text-align: justify;color: #8e3b3c; margin-bottom: 4vh;">注： 每人限报2个节目</view>
+    <button class="round-btn-pink btn-active" style="height: 5vh; width: 60vw; padding: 0; top:0; right: 0vw; position: relative; background: #8e3b3c;" bindtap="submit">
+        <text class="small-text-ch black-text" style="color: #d8cbc5;">确认报名</text>
+    </button>
+
+</scroll-view>

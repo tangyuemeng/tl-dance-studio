@@ -1,8 +1,8 @@
 <view class="pink-blue-top base-color" style="height: 14vh;">
-    <text class="middle-text-ch title-top" bindtap="navi_home">《 Number</text>
+    <text class="middle-text-ch title-top" bindtap="navi_home">⬅ Number</text>
 </view>
 
 <scroll-view scroll-y="true" class="bar-list">
-    <image class="item-bar" src="{{item.image}}" wx:for="{{list}}" bindtap="navi_number" data-title="{{item.title}}">
+    <image class="item-bar" src="{{item.image}}" wx:for="{{list}}" bindtap="navi_number" data-title="{{item.title}}" data-info="{{item.info}}" style="height: {{index == 7 ? 38 : 50}}vw; margin-top:{{index == 7 ? 4 : 0}}vh">
     </image>
 </scroll-view>

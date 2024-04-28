@@ -24,15 +24,17 @@ page {
     position: absolute;
     top: 16vh;
     width: 100vw;
-    height: 84vh;
+    height: 78vh;
+    padding-bottom: 6vh;
   }
 
   .item-bar {
     position: relative;
+    margin: auto;
     width: 100vw;
-    height: 100vw;
-    margin-top: -20vw;
-    margin-bottom: -30vw;
+    height: 50vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
   }
 
   .item-bar:active {

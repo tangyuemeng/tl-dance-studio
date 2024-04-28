@@ -17,6 +17,8 @@ App({
     campus: "",
     isRight: false,
     isPaused: false,
+    numberTitle:"",
+    numberInfo:""
   },
   onLaunch: function () {
     if (!wx.cloud) {
