@@ -15,15 +15,15 @@
 
   
   <!-- 模块 -->
-<view class="pink-blue-card-left btn-active" bindtap="navi_class">
+<view class="pink-blue-card-left btn-active" bindtap="naviClass">
  <text class="blue-text huge-text" style="bottom:3vh;left:3vw">Class</text>
  <text class="blue-text small-text-ch" style="bottom:1vh;left:4vw">课程预约</text>
 </view>
-<view class="pink-blue-card-right btn-active" bindtap="navi_book">
+<view class="pink-blue-card-right btn-active" bindtap="naviBook">
     <text class="blue-text huge-text" style="bottom:3vh;left:3vw">Book</text>
     <text class="blue-text small-text-ch" style="bottom:1vh;left:3vw">{{subtitle}}</text>
 </view>
-<view class="pink-blue-card-bottom btn-active" bindtap="navi_shop">
+<view class="pink-blue-card-bottom btn-active" bindtap="naviShop">
     <text class="blue-text huge-text" style="bottom:3vh;right:3vw">Store</text>
     <text class="blue-text small-text-ch" style="bottom:1vh;right:3vw">积分商城</text>
 </view>
@@ -31,4 +31,4 @@
 <view class="slide-bottom"></view>
 <view class="slide-home slider" style="left: 20vw;"></view>
 <image class="home-icon" src="/images/home.svg"/>
-<image class="setting-icon" src="/images/sliders.svg" bindtap="navi_setting"/>
+<image class="setting-icon" src="/images/sliders.svg" bindtap="naviSetting"/>

@@ -18,7 +18,7 @@ App({
     isRight: false,
     isPaused: false,
     numberTitle:"",
-    numberInfo:""
+    numberInfo:"",
   },
   onLaunch: function () {
     if (!wx.cloud) {

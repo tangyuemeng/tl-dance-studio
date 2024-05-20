@@ -173,9 +173,9 @@
 .bottomSheet {
   position: absolute;
   width: 100vw;
-  height: 45vh;
+  height: 32vh;
   left: 0px;
-  top: 55vh;
+  top: 68vh;
 
   /* PINKBLUE */
 

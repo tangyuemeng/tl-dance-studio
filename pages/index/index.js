@@ -8,7 +8,7 @@ Page({
         app.globalData.day = day;
         let result = await db.collection("User").get();
         if (result.data.length === 0) {
-            // 非TL会员
+            // TLK会员
             let result = await db.collection("User-TLK").get();
             if (result.data.length === 0) {
                 app.globalData.islogin = false;
@@ -17,6 +17,7 @@ Page({
                 app.globalData.cardtype = "****";
                 app.globalData.num = 0;
                 app.globalData.point = 0;
+                app.globalData.school = "BUZZ TL"
             } else {
                 app.globalData.islogin = true;
                 app.globalData.userID = result.data[0].userID;
@@ -29,6 +30,7 @@ Page({
                 app.globalData.isWeek = result.data[0].isWeek;
                 app.globalData.campus = result.data[0].campus;
                 app.globalData.name = result.data[0].name ? result.data[0].name : "";
+                app.globalData.school = "TLK"
             }
         } else {
             app.globalData.islogin = true;
@@ -42,27 +44,38 @@ Page({
             app.globalData.campus = result.data[0].campus;
             app.globalData.name = result.data[0].name ? result.data[0].name : "";
             app.globalData.isPaused = result.data[0].isPaused;
+            app.globalData.school = "BUZZ TL"
         }
     },
 
 
     loginApi(e) {
         switch (e.currentTarget.dataset.target) {
-            case "ookubo":
-                app.globalData.school = "大久保店";
+            case "BUZZ TL":
+                if (app.globalData.school == "BUZZ TL") { 
+                    wx.redirectTo({
+                        url: "/pages/home/home",
+                    });
+                } else {
+                    wx.showToast({
+                        title: "校区选择错误",
+                        icon: "error",
+                    });
+                }
                 break;
-            case "ikebukuro":
-                app.globalData.school = "池袋店";
+            case "TLK":
+                if (app.globalData.school == "TLK") { 
+                    wx.redirectTo({
+                        url: "/pages/TLK/home/home",
+                    });
+                } else {
+                    wx.showToast({
+                        title: "校区选择错误",
+                        icon: "error",
+                    });
+                }
                 break;
-            case "shinkoiwako":
-                app.globalData.school = "新小岩店";
-                break;
-            default:
-                app.globalData.school = "error";
         }
-        wx.redirectTo({
-            url: "/pages/home/home",
-        });
     },
 
 
@@ -106,10 +119,10 @@ Page({
             });
         }
     },
-
-    naviDanceEvent() {
-        wx.navigateTo({
-            url: "../danceEvent/event",
-        })
-    }
+    // 公演报名接口
+    // naviDanceEvent() {
+    //     wx.navigateTo({
+    //         url: "../danceEvent/event",
+    //     })
+    // }
 });

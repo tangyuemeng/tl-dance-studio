@@ -5,17 +5,16 @@
 
 <!-- 底部弹窗-->
 <view class="bottomSheet {{modalName=='bottomSheet'?'showModal':'hideModal'}} animation-{{modalName=='bottomSheet'?'slideContentUp':'slideContentDown'}}">
-    <button class="round-btn-black" bindtap="loginApi" data-target="ookubo">OOKUBO</button>
-    <button class="round-btn-black" bindtap="loginApi" data-target="ikebukuro">IKEBUKURO</button>
-    <button class="round-btn-black" bindtap="loginApi" data-target="shinkoiwako">SHIN-KOIWAKO</button>
+    <button class="round-btn-black" bindtap="loginApi" data-target="BUZZ TL">BUZZ TL</button>
+    <button class="round-btn-black" bindtap="loginApi" data-target="TLK">TLK</button>
 </view>
 
 <!-- 模态窗口 -->
-<image class="temporary-model {{temporaryModelName=='temporaryModel'?'hideModal':'showModal'}} animation-{{temporaryModelName=='temporaryModel'?'scale-down-center':'scale-up-center'}}" src="../../images/model.png">
+<!-- <image class="temporary-model {{temporaryModelName=='temporaryModel'?'hideModal':'showModal'}} animation-{{temporaryModelName=='temporaryModel'?'scale-down-center':'scale-up-center'}}" src="../../images/model.png">
     <button class="round-btn-pink" style="height: 5vh; width: 30vw; top: 65vw; padding: 0; right: 6vw; position: absolute; background: #8e3b3c;" bindtap="naviDanceEvent">
         <text class="small-text-ch black-text" style="color: #d8cbc5;">立即报名</text>
     </button>
     <button class="round-btn-black" style="height: 5vh; width: 30vw; top: 65vw; padding: 0; left: 6vw; position: absolute;" data-target="temporaryModel" bindtap="hideTemporaryModal">
         <text class="small-text-ch white-text" style="position: relative; color: #d8cbc5;">我在想想</text>
     </button>
-</image>
+</image> -->
