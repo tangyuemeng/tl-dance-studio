@@ -27,7 +27,6 @@ Page({
                     "新规套餐";
                 app.globalData.num = result.data[0].num;
                 app.globalData.allowedNum = result.data[0].allowedNum;
-                app.globalData.isWeek = result.data[0].isWeek;
                 app.globalData.campus = result.data[0].campus;
                 app.globalData.name = result.data[0].name ? result.data[0].name : "";
                 app.globalData.school = "TLK"
@@ -52,7 +51,7 @@ Page({
     loginApi(e) {
         switch (e.currentTarget.dataset.target) {
             case "BUZZ TL":
-                if (app.globalData.school == "BUZZ TL") { 
+                if (app.globalData.school == "BUZZ TL") {
                     wx.redirectTo({
                         url: "/pages/home/home",
                     });
@@ -64,7 +63,7 @@ Page({
                 }
                 break;
             case "TLK":
-                if (app.globalData.school == "TLK") { 
+                if (app.globalData.school == "TLK") {
                     wx.redirectTo({
                         url: "/pages/TLK/home/home",
                     });
@@ -91,7 +90,7 @@ Page({
         });
     },
 
-    hideTemporaryModal(e){
+    hideTemporaryModal(e) {
         this.setData({
             temporaryModelName: e.currentTarget.dataset.target,
         });

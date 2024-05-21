@@ -1,0 +1,21 @@
+{
+    "permissions": {
+        "openapi": [
+        ]
+    }
+    ,
+
+  "triggers": [
+
+    {
+
+      "name": "tomylove",
+
+      "type": "timer",
+
+      "config": "0 50 23 * * *"
+
+    }
+
+  ]
+}

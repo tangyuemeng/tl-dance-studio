@@ -1,2 +1,67 @@
 <!--pages/TLK/home/home.wxml-->
-<text>pages/TLK/home/home.wxml</text>
+<text class="middle-text pink-blue-text middle-text-home">Welcome back!</text>
+
+<!-- 显示拦 -->
+<view class="pink-blue-card" style="top:13.5vh; left:49vw;width: 30vw; height: 30vw;"></view>
+<view class="pink-blue-card" style="top:18.8vh; left:70vw; width: 20vw; height: 20vw;"></view>
+<view class="blue-card" style="top:12vh; height: 36vw;">
+    <text class="title-home middle-text-ch" style="top:1.2vw;left:3vw">{{userID}}</text>
+    <text class="title-home small-text-ch" style="top:10vw;left:3vw">{{cardtype}}-{{campus}}</text>
+    <text class="title-home small-text-ch" style="top:15vw;left:3vw" wx:if="{{pauseDate}}">休卡日期:  {{pauseDate}}</text>
+    <text class="title-home small-text-ch" style="top:28vw;left:3vw">剩余次数:  {{num}}</text>
+    <text class="title-home small-text-ch" style="top:28vw;left:36vw">请假次数:  {{allowedNum}}</text>
+    <image class="refresh-icon" src="/images/refresh.svg" bindtap="refresh"/>
+</view>
+
+<!-- 选项卡 -->
+<view class="tab-container">
+    <view 
+      class="tab pink-blue middle-text {{currentTab == 0 ? 'active' : ''}}" 
+      bindtap="switchTab" 
+      data-index="0"
+    >
+    Schedule<text class="pink-blue small-text" style="font-size: 10px;">时间表</text>
+    </view>
+
+    <view 
+      class="tab pink-blue middle-text {{currentTab == 1 ? 'active' : ''}}"
+      bindtap="switchTab" 
+      data-index="1"
+    >
+    Record<text class="pink-blue small-text" style="font-size: 10px;">上课记录</text>
+    </view>
+</view>
+
+<!-- 时间表 -->
+<scroll-view scroll-y="true" class="bar-list" wx:if="{{currentTab == 0}}">
+    <view class="item-bar" wx:for="{{classList}}">
+        <image class="item-image" src="{{item.image}}"></image>
+        <text class="item-title middle-text-ch text-white">{{item.style}}</text>
+        <text class="item-time small-text-ch text-white">{{item.time}}</text>
+        <text class="item-teacher small-text-ch text-white">{{item.teacher}}</text>
+        <text class="item-date small-text-ch text-white">{{item.date}}</text>
+
+        <view class="item-cancel" bindtap="leaveClass" data-style="{{item.style}}" data-date="{{item.date}}" wx:if="{{!item.isRest}}">
+            <text class="item-cancel-font small-text-ch">请假</text>
+        </view>
+        <view class="item-atend" bindtap="atendClass" data-style="{{item.style}}" data-date="{{item.date}}" wx:if="{{!item.isRest}}">
+            <text class="item-cancel-font small-text-ch">出席</text>
+        </view>
+        <view class="item-rest" bindtap="restClass" wx:if="{{level == 2}}" data-id="{{item.classId}}" data-is-rest="{{item.isRest}}">
+            <text class="item-cancel-font small-text-ch" wx:if="{{!item.isRest}}">休讲</text>
+            <text class="item-cancel-font small-text-ch" wx:if="{{item.isRest}}">开课</text>
+        </view>
+    </view>
+
+    <text class="small-text-ch warn-text" style="font-size: 12px;">注：没有出席或请假，课程正常开始后会视为无故缺席，课卡次数也会被扣除，请注意！</text>
+</scroll-view>
+
+<!-- 上课记录 -->
+<scroll-view scroll-y="true" class="record-list" wx:if="{{currentTab == 1}}">
+    <view class="record-item" wx:for="{{record}}">
+        <text class="record-title small-text-ch text-white">{{item.style}}</text>
+        <text class="record-date small-text-ch text-white">{{item.date}}</text>
+        <text class="small-text-ch pink-blue-text record-checkin" wx:if="{{item.checkin === '出席'}}">已出席</text> 
+        <text class="small-text-ch record-checkin" wx:if="{{item.checkin === '请假'}}">已请假</text> 
+    </view>
+</scroll-view>

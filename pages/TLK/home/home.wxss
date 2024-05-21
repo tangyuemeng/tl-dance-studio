@@ -1,1 +1,244 @@
-/* pages/TLK/home/home.wxss */
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #2b2b2b;
+  }
+  
+.title-home {
+position: absolute;
+left: 6.3vw;
+top: 9vh;
+color: #f5f5f5;
+}
+
+.middle-text-home {
+position: absolute;
+left: 5vw;
+top: 6vh;
+}
+
+.refresh-icon {
+position: absolute;
+background-color: transparent;
+width: 8vw;
+height: 8vw;
+right: 3vw;
+top: 1vh;
+filter: invert(96%) sepia(54%) saturate(2940%) hue-rotate(202deg)
+    brightness(100%) contrast(107%);
+}
+
+.refresh-icon:active {
+transform: rotate(360deg);
+transition: 0.5s;
+}
+
+.tab-container{
+position: absolute;
+display: flex;
+width: 100%;
+justify-content: space-around;
+top: 31vh;
+}
+
+.tab {
+padding: 0px 20px;
+cursor: pointer;
+border-bottom: 2px solid transparent;
+}
+
+.active {
+font-size: 30px;
+background: linear-gradient(
+    95.55deg,
+    rgba(187, 223, 241, 0.71) 45.57%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-bottom: 2px solid rgba(187, 223, 241, 0.71);
+}
+
+.pink-blue{
+background: linear-gradient(
+    95.55deg,
+    #fbc5ff 45.57%,
+    rgba(187, 223, 241, 0.71) 129.64%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bar-list{
+    position: absolute;
+    top:40vh;
+    width: 100vw;
+    height: 55vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 5vh;
+}
+
+.item-bar {
+position: relative;
+width: 90vw;
+height: 14vh;
+background: #2b2b2b;
+border: 3px solid #fbc5ff;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+margin-bottom: 2vh;
+}
+
+.item-teacher {
+position: absolute;
+top: 6.5vh;
+left: 14vh;
+}
+
+.text-white{
+color: #f5f5f5;
+}
+
+.item-cancel {
+position: absolute;
+display: flex;
+justify-content: center; /* 水平居中 */
+align-items: center;     /* 垂直居中 */
+top: 8vh;
+width: 16vw;
+height: 5vh;
+right: 2vw;
+background: rgba(187, 223, 241, 0.71);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+align-items: center;
+}
+
+.item-cancel:active {
+transform: translateY(1vw);
+}
+
+.item-atend {
+position: absolute;
+display: flex;
+justify-content: center; /* 水平居中 */
+align-items: center;     /* 垂直居中 */
+top: 8vh;
+width: 16vw;
+height: 5vh;
+right: 20vw;
+background: #fbc5ff;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+align-items: center;
+}
+
+.item-atend:active {
+transform: translateY(1vw);
+}
+
+.item-rest {
+position: absolute;
+display: flex;
+justify-content: center; /* 水平居中 */
+align-items: center;     /* 垂直居中 */
+top: 2vh;
+width: 16vw;
+height: 5vh;
+right: 2vw;
+background: #f5f5f5;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+align-items: center;
+}
+
+.item-rest:active {
+transform: translateY(1vw);
+}
+
+.item-cancel-font {
+position: relative;
+color: #2b2b2b;
+}
+
+.item-title {
+position: absolute;
+top: 1vh;
+left: 14vh;
+}
+
+.item-date {
+position: absolute;
+top: 4.5vh;
+left: 14vh;
+}
+
+.item-time {
+position: absolute;
+top: 4.5vh;
+left: 19vh;
+}
+
+.item-image {
+position: absolute;
+width: 12vh;
+height: 12vh;
+top: 1vh;
+left: 2vw;
+border-radius: 20px;
+}
+
+.warn-text{
+    width: 90vw;
+    display: inline-flex;
+    white-space: normal;
+    color: rgba(187, 223, 241, 0.71);
+}
+
+.record-list{
+    position: absolute;
+    top:40vh;
+    width: 100vw;
+    height: 55vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 5vh;
+}
+
+.record-item {
+    position: relative;
+    width: 90vw;
+    height: 8vh;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(
+        109.18deg,
+        rgba(43, 43, 43, 0.6) 0%,
+        rgba(187, 223, 241, 0.48) 115.23%
+    );
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    margin-bottom: 1.4vh;
+}
+
+.record-title {
+    position: absolute;
+    top: 1vh;
+    left: 5vw;
+    color: #f5f5f5;
+  }
+  
+  .record-date {
+    position: absolute;
+    bottom: 1vh;
+    left: 5vw;
+    color: #f5f5f5;
+  }
+
+  .record-checkin {
+    position: absolute;
+    bottom: 1vh;
+    right: 5vw;
+    color: #f5f5f5;
+  }

@@ -4,21 +4,22 @@ App({
     vip: true,
     userID: null,
     num: 0,
-    allowedNum: 0,
     cardtype: null,
     name: null,
     nickName: null,
-    isWeek: 0,
     point: 0,
     level: 0,
     islogin: false,
     day: 0,
     school: "",
     campus: "",
-    isRight: false,
     isPaused: false,
     numberTitle:"",
     numberInfo:"",
+    // TLK专用
+    allowedNum: 0,
+    pauseDate: Date(),
+    classes: []
   },
   onLaunch: function () {
     if (!wx.cloud) {
