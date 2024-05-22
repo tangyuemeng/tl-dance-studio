@@ -62,7 +62,7 @@ Page({
   downloadAndOpenFile: function () {
     // 云存储中的文件路径，需要根据你的实际路径进行设置
     const cloudFilePath =
-      "cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/会员登记表 (1).pdf";
+      "cloud://tl-dance-studio-4gg36ntka3d1473f.746c-tl-dance-studio-4gg36ntka3d1473f-1304999845/会员登记表.pdf	";
 
     // 使用云开发的下载文件 API 下载文件
     wx.cloud.downloadFile({
