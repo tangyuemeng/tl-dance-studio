@@ -55,11 +55,14 @@ Page({
             app.globalData.classes = result.data[0].classes;
             app.globalData.level = result.data[0].level;
         }
-        var pauseDate = this.formatDate(app.globalData.pauseDate)
+        if (app.globalData.pauseDate) {
+            var pauseDate = this.formatDate(app.globalData.pauseDate)
+        }
         let listResult = await db.collection("classlist-TLK").get();
-        var classList = this.transformClass(listResult.data, app.globalData.classes)
-        classList = this.transformDate(classList)
-        console.log(classList)
+        if (app.globalData.classes) {
+            var classList = this.transformClass(listResult.data, app.globalData.classes)
+            classList = this.transformDate(classList)
+        }
         this.setData({
             userID: app.globalData.userID,
             cardtype: app.globalData.cardtype,
