@@ -56,7 +56,7 @@ Page({
             app.globalData.level = result.data[0].level;
         }
         if (app.globalData.pauseDate) {
-            var pauseDate = this.formatDate(app.globalData.pauseDate)
+            var pauseDate = app.globalData.pauseDate
         }
         let listResult = await db.collection("classlist-TLK").get();
         if (app.globalData.classes) {
@@ -84,13 +84,6 @@ Page({
         })
     },
 
-    formatDate(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}/${month}/${day}`;
-    },
-
     transformClass(classlist, classes) {
         // 过滤 classlist 数组，找到 classid 属性与 classes 数组中的某个字符串相同的项
         const filteredClassList = classlist.filter(item => classes.includes(item.classId));
@@ -104,6 +97,24 @@ Page({
             item.date = this.findNextday(item.xqj);
         });
         return classlist
+    },
+
+    isMoreThanTwoDaysBefore(targetDateStr) {
+        // 获取当前年份
+        const currentYear = new Date().getFullYear();
+        // 构造完整的目标日期字符串
+        const fullTargetDateStr = `${currentYear}-${targetDateStr}`;
+        // 将字符串转换为目标日期对象
+        const targetDate = new Date(fullTargetDateStr);
+        // 获取当前日期的日期对象（不包括时间部分）
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        // 计算日期差异（以毫秒为单位）
+        const differenceInTime = targetDate.getTime() - today.getTime();
+        // 将差异转换为天数
+        const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+        // 检查当前日期是否早于目标日期两天以上
+        return differenceInDays > 2;
     },
 
     findNextday(num) {
@@ -173,6 +184,14 @@ Page({
     },
 
     async leaveClass(e) {
+        if (!this.isMoreThanTwoDaysBefore(e.currentTarget.dataset.date)) {
+            wx.showToast({
+                title: "超过请假时间",
+                icon: "error",
+            });
+            return
+        }
+
         if (app.globalData.allowedNum > 0) {
             let result = await db.collection("record-TLK")
                 .where({

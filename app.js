@@ -18,7 +18,7 @@ App({
     numberInfo:"",
     // TLK专用
     allowedNum: 0,
-    pauseDate: Date(),
+    pauseDate: "",
     classes: []
   },
   onLaunch: function () {
