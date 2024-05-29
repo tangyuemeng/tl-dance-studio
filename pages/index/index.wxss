@@ -5,3 +5,16 @@ page {
     height: 100%;
     background-color: #2b2b2b;
 }
+
+.btn-buget{
+    position: absolute;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+    top: 0.6vh;
+    width: 16vw;
+    height: 5vh;
+    right: 11vw;
+    color: rgba(187, 223, 241, 0.71);
+    align-items: center;
+}

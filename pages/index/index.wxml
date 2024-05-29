@@ -7,6 +7,11 @@
 <view class="bottomSheet {{modalName=='bottomSheet'?'showModal':'hideModal'}} animation-{{modalName=='bottomSheet'?'slideContentUp':'slideContentDown'}}">
     <button class="round-btn-black" bindtap="loginApi" data-target="BUZZ TL">BUZZ TL</button>
     <button class="round-btn-black" bindtap="loginApi" data-target="TLK">TLK</button>
+    <button class="round-btn-black" bindtap="naviQueueMe" data-target="TLK">QueueMe
+        <view class="btn-buget">
+            <text class="small-text-ch">New~</text>
+        </view>
+    </button>
 </view>
 
 <!-- 模态窗口 -->

@@ -14,7 +14,9 @@
         "pages/signup/signuptlk",
         "pages/danceEvent/event",
         "pages/danceEvent/number",
-        "pages/TLK/home/home"
+        "pages/TLK/home/home",
+        "pages/queueme/queueme",
+        "pages/queueme/welcome"
     ],
     "window": {
         "backgroundColor": "#000000",

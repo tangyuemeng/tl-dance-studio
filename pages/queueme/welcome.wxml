@@ -1,0 +1,18 @@
+<!--pages/queueme/welcome.wxml-->
+
+<view class="container">
+    <view class="middle-text-ch pink-blue"> 您的人数</view>
+    <view class="counter">
+        <button class="counter-btn pink-blue-bg middle-text-ch" bindtap="decrement">-</button>
+            <text class="middle-text-ch" style="width: 80px; color: #ffffff; margin: 0px 12px;">{{count}}</text>
+        <button class="counter-btn pink-blue-bg middle-text-ch" bindtap="increment">+</button>
+    </view>
+    <view class="middle-text-ch pink-blue mt-sm">您的音乐</view>
+    <button class="upload" bindtap="upload">
+        <text class="small-text-ch" style="color: #ffffff; margin: 0px 12px;">点击上传</text>
+    </button>
+
+    <view class="ready pink-blue-bg {{filePath && count > 0 ? 'show' : 'hide'}}" bindtap="ready">
+        <text class="small-text-ch" style="color: #2b2b2b; margin: 0px 12px;">准备就绪</text>
+    </view>
+</view>

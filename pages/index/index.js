@@ -124,4 +124,10 @@ Page({
     //         url: "../danceEvent/event",
     //     })
     // }
+
+    naviQueueMe(){
+        wx.redirectTo({
+          url: '/pages/queueme/welcome',
+        })
+    }
 });

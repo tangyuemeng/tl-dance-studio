@@ -1,0 +1,58 @@
+<!--pages/queueme/queueme.wxml-->
+<view class="container">
+    <!-- 棋盘 -->
+    <text class="pink-blue small-text-ch" style="margin-bottom: 12px;">观众</text>
+    <view class="border">
+        <view class="base">
+            <!-- Horizontal lines -->
+            <block wx:for="{{7}}" wx:key="index">
+                <view class="line horizontal" style="top: {{42 * index}}px;"></view>
+            </block>
+            <!-- Vertical lines -->
+            <block wx:for="{{10}}" wx:key="index">
+                <view class="line vertical" style="left: {{42 * index}}px;"></view>
+            </block>
+        </view>
+        <view class="grid">
+            <block wx:for="{{points}}" wx:key="index">
+                <view class="point {{item.active ?'pink-blue-bg':''}} small-text-ch" style="font-size: 10pt;" data-row="{{item.row}}" data-col="{{item.col}}" bindtap="handlePointTap">{{item.id}}</view>
+            </block>
+        </view>
+    </view>
+    <text class="pink-blue small-text-ch" style="margin-top: 12px;">背面</text>
+    <view class="count-ball pink-blue-bg {{count > 0 ? 'show' : 'hide'}}">
+        <text class="middle-text-ch" style="color: #2B2B2B;">{{count}}</text>
+    </view>
+    <!-- 棋盘 -->
+
+    <!-- 播放器 -->
+    <view class="player">
+        <slider class="slider" min="0" max="{{duration}}" value="{{currentTime}}" bindchange="seekAudio" activeColor="#fbc5ff" backgroundColor="rgba(211, 211, 211, 0.1)" block-size="20" block-color="#fbc5ff" bindchanging="onSliderChanging">
+        </slider>
+        <view class="time">
+            <text class="small-text-ch pink-blue">{{formatCurrentTime}}</text>
+            <text class="small-text-ch pink-blue">{{formatDuration}}</text>
+        </view>
+        <view class="btn">
+            <button class="playBtn pink-blue-bg" bindtap="playAudio">
+                <view class="round">
+                    <text class="small-text-ch pink-blue" style="position: absolute; top: -1px; left: 25px;">▶</text>
+                </view>
+                <text class="small-text-ch" style="color: #2B2B2B;">PLAY</text>
+            </button>
+            <button class="playBtn pink-blue-bg" bindtap="pauseAudio">
+                <view class="round">
+                    <text class="small-text-ch pink-blue" style="position: absolute;left: 17px;">⏸</text>
+                </view>
+                <text class="small-text-ch" style="color: #2B2B2B;">PAUSE</text>
+            </button>
+            <button class="playBtn pink-blue-bg" bindtap="addQueue">
+                <view class="round">
+                    <text class="small-text-ch pink-blue" style="position: absolute;left: 28px;">+</text>
+                </view>
+                <text class="small-text-ch" style="color: #2B2B2B;">ADD</text>
+            </button>
+        </view>
+    </view>
+    <!-- 播放器 -->
+</view>
