@@ -9,13 +9,15 @@ Page({
         totalCount: 0,
         filePath: "",
         points: [],
-        selectedPoints: [],
-        savedQueue:[],
+        savedQueue: [],
         currentTime: 0, // 当前播放时间
         formatCurrentTime: "0:00", // 当前播放时间
         duration: 0, // 音频总时长
         formatDuration: "0:00", // 音频总时长
-        isSliderChanging: false // 用于标识是否正在拖动滑块
+        isSliderChanging: false, // 用于标识是否正在拖动滑块
+        activeIndex: null,
+        startX: 0,
+        startY: 0
     },
 
     onLoad(options) {
@@ -33,21 +35,8 @@ Page({
         }
         this.initAudioPlayer()
         this.generatePoints()
-        this.data.selectedPoints = this.initSelectedPoints(options.count)
-        console.log(this.data.totalCount)
     },
 
-    initSelectedPoints(count) {
-        const points = []
-        for (let id = 1; id <= count; id++) {
-            points.push({
-                id,
-                row: null,
-                col: null
-            })
-        }
-        return points
-    },
 
     initAudioPlayer() {
         this.innerAudioContext = wx.createInnerAudioContext({
@@ -74,6 +63,12 @@ Page({
                     formatCurrentTime: this.formatTime(this.innerAudioContext.currentTime)
                 });
             }
+
+            this.data.savedQueue.forEach((queue, index) => {
+                if (Math.abs(this.innerAudioContext.currentTime - queue.time) < 0.5) { // 考虑到时间可能不会精确匹配，允许一些误差
+                    this.renderSelect(index)
+                }
+            });
         });
     },
 
@@ -116,109 +111,112 @@ Page({
     },
 
     generatePoints() {
-        const points = [];
-        for (let row = 0; row < 11; row++) {
-            for (let col = 0; col < 17; col++) {
-                points.push({
-                    row,
-                    col,
-                    id: "",
-                    active: false
-                });
-            }
+        const count = this.data.totalCount
+        for (let id = 0; id < count; id++) {
+            this.data.points.push({
+                index: id,
+                x: 354.5,
+                y: - 9.75,
+            })
         }
+        const points = this.data.points
         this.setData({
             points
-        });
-    },
-
-    handlePointTap(event) {
-        const {
-            row,
-            col
-        } = event.currentTarget.dataset;
-        const targetPoint = this.data.selectedPoints.find(point => point.row === row && point.col === col);
-        if (targetPoint) {
-            this.deletePoint(targetPoint)
-        } else {
-            this.addPoint(row, col)
-        }
-    },
-
-    addPoint(row, col) {
-        if (this.data.count == 0) {
-            return
-        }
-        this.triggerEvent('change', {
-            count: this.data.count - 1,
-        });
-        this.setData({
-            count: this.data.count - 1
         })
-        const nullPoints = this.data.selectedPoints.filter(point => point.row === null && point.col === null);
-        // 找出 id 最小的项
-        const targetPoint = nullPoints.reduce((minPoint, currentPoint) => {
-            return (currentPoint.id < minPoint.id) ? currentPoint : minPoint;
-        }, nullPoints[0]);
-        targetPoint.row = row
-        targetPoint.col = col
-        this.renderSelected()
     },
 
-    deletePoint(point) {
-        if (this.data.count == this.data.totalCount) {
-            return
-        }
-        this.triggerEvent('change', {
-            count: this.data.count + 1,
-        });
-        this.setData({
-            count: this.data.count + 1
-        })
-        this.renderDelete(point)
-
-        const targetPoint = this.data.selectedPoints.find(ap => ap.id === point.id)
-        targetPoint.row = null
-        targetPoint.col = null
-    },
-
-    renderSelected() {
-        const selectedPoints = this.data.selectedPoints;
-        const points = this.data.points.map(point => ({
-            ...point
-        })); // 复制一份 allpoints
-
-        selectedPoints.forEach(point => {
-            const match = points.find(ap => ap.row === point.row && ap.col === point.col);
-            if (match) {
-                match.active = true;
-                match.id = point.id
-            }
-        });
-        this.setData({
-            points
-        });
-    },
-
-    renderDelete(targetPoint) {
-        const points = this.data.points.map(point => ({
-            ...point
-        }));
-        const match = points.find(ap => ap.row === targetPoint.row && ap.col === targetPoint.col);
-        if (match) {
-            match.active = false;
-            match.id = ""
-        }
-        this.setData({
-            points
-        });
-    },
 
     addQueue(){
-        var selected = this.data.selectedPoints.map(item => ({ ...item }));
+        const copiedPoints = this.data.points.map(point => ({ ...point }));
         this.data.savedQueue.push({
             time: this.data.currentTime,
-            selected: selected
+            queue:copiedPoints
         })
+        this.setData({
+            savedQueue: this.data.savedQueue
+        })
+    },
+
+    onSelect(e) {
+        const index = e.currentTarget.dataset.index
+        this.renderSelect(index)
+    },
+
+    renderSelect(index){
+        const time = this.data.savedQueue[index].time
+        const points = this.data.savedQueue[index].queue
+        this.data.currentTime = time
+        this.setData({
+            onSelect: index,
+            currentTime: time,
+            formatCurrentTime: this.formatTime(time),
+            points: points
+        })
+    },
+
+    touchStart: function (e) {
+        const index = e.currentTarget.dataset.index;
+        const point = this.data.points[index];
+        // console.log(point)
+        // 记录起始触摸点的坐标
+        this.setData({
+            activeIndex: index,
+            startX: e.touches[0].clientX,
+            startY: e.touches[0].clientY
+        });
+    },
+
+    touchMove: function (e) {
+        const index = this.data.activeIndex;
+        if (index === null) return;
+
+        // 计算移动的距离
+        const deltaX = e.touches[0].clientX - this.data.startX;
+        const deltaY = e.touches[0].clientY - this.data.startY;
+
+        // 计算新的坐标
+        let newX = this.data.points[index].x + deltaX;
+        let newY = this.data.points[index].y + deltaY;
+
+        const maxX = 350;
+        const maxY = 210;
+        newX = Math.max(0, Math.min(newX, maxX));
+        newY = Math.max(0, Math.min(newY, maxY));
+
+        // 更新点的坐标
+        const keyX = `points[${index}].x`;
+        const keyY = `points[${index}].y`;
+        this.setData({
+            [keyX]: newX,
+            [keyY]: newY,
+            startX: e.touches[0].clientX,
+            startY: e.touches[0].clientY
+        });
+    },
+
+    touchEnd: function (e) {
+        const index = this.data.activeIndex;
+        if (index !== null) {
+          // 吸附到最近的网格线上
+          const gridSize = 23.375;
+          const maxX = 374 - gridSize;
+          const maxY = 252 - gridSize;
+          let point = this.data.points[index];
+          
+          let snappedX = Math.round(point.x / gridSize) * gridSize - 9.75;
+          let snappedY = Math.round(point.y / gridSize) * gridSize - 9.75;
+          
+          // 限制吸附后的坐标在父视图内
+          snappedX = Math.max(13.625, Math.min(snappedX, maxX));
+          snappedY = Math.max(13.625, Math.min(snappedY, maxY));
+    
+          const keyX = `points[${index}].x`;
+          const keyY = `points[${index}].y`;
+          this.setData({
+            [keyX]: snappedX,
+            [keyY]: snappedY,
+            activeIndex: null
+          });
+        }
     }
 })

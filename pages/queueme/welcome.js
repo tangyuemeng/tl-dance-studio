@@ -55,7 +55,7 @@ Page({
     },
 
     ready(){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/queueme/queueme?count=' + this.data.count + '&filePath=' + this.data.filePath,
         })
     }

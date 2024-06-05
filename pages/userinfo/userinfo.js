@@ -77,14 +77,6 @@ Page({
       .collection("class")
       .where({ date: date, userID: app.globalData.userID, checkin: false })
       .get();
-    let record = await db
-      .collection("record")
-      .where({
-        date: date,
-        userID: app.globalData.userID,
-        campus: app.globalData.campus,
-      })
-      .get();
     let point = 10 * count.total;
     if (result.data.length == 0) {
     wx.showToast({
