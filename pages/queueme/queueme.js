@@ -5,8 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        count: 0,
         totalCount: 0,
+        col:12,
+        row:8,
+        squareSize:32,
+        pointSize: 16,
         filePath: "",
         points: [],
         savedQueue: [],
@@ -23,20 +26,27 @@ Page({
     onLoad(options) {
         if (options.count && options.filePath) {
             this.setData({
-                count: options.count,
                 totalCount: options.count,
                 filePath: options.filePath
             });
             this.triggerEvent('change', {
-                count: this.data.count,
                 totalCount: this.data.totalCount,
                 filePath: this.data.filePath
             });
         }
+        this.initBaseView()
         this.initAudioPlayer()
         this.generatePoints()
     },
 
+    initBaseView(){
+        this.setData({
+            col:this.data.col,
+            row:this.data.row,
+            squareSize: this.data.squareSize,
+            pointSize: this.data.pointSize
+        })
+    },
 
     initAudioPlayer() {
         this.innerAudioContext = wx.createInnerAudioContext({
@@ -115,8 +125,8 @@ Page({
         for (let id = 0; id < count; id++) {
             this.data.points.push({
                 index: id,
-                x: 354.5,
-                y: - 9.75,
+                x: this.data.squareSize * this.data.col - this.data.pointSize,
+                y: this.data.pointSize / 2,
             })
         }
         const points = this.data.points
@@ -178,8 +188,8 @@ Page({
         let newX = this.data.points[index].x + deltaX;
         let newY = this.data.points[index].y + deltaY;
 
-        const maxX = 350;
-        const maxY = 210;
+        const maxX = this.data.squareSize * this.data.col - this.data.pointSize;
+        const maxY = this.data.squareSize * this.data.row - this.data.pointSize;
         newX = Math.max(0, Math.min(newX, maxX));
         newY = Math.max(0, Math.min(newY, maxY));
 
@@ -198,17 +208,17 @@ Page({
         const index = this.data.activeIndex;
         if (index !== null) {
           // 吸附到最近的网格线上
-          const gridSize = 23.375;
-          const maxX = 374 - gridSize;
-          const maxY = 252 - gridSize;
+          const gridSize = this.data.squareSize / 2;
+          const maxX = this.data.col * this.data.squareSize - gridSize;
+          const maxY = this.data.row * this.data.squareSize  - gridSize;
           let point = this.data.points[index];
           
-          let snappedX = Math.round(point.x / gridSize) * gridSize - 9.75;
-          let snappedY = Math.round(point.y / gridSize) * gridSize - 9.75;
+          let snappedX = Math.round(point.x / gridSize) * gridSize - this.data.pointSize / 2;
+          let snappedY = Math.round(point.y / gridSize) * gridSize - this.data.pointSize / 2;
           
           // 限制吸附后的坐标在父视图内
-          snappedX = Math.max(13.625, Math.min(snappedX, maxX));
-          snappedY = Math.max(13.625, Math.min(snappedY, maxY));
+          snappedX = Math.max(0, Math.min(snappedX, maxX));
+          snappedY = Math.max(0, Math.min(snappedY, maxY));
     
           const keyX = `points[${index}].x`;
           const keyY = `points[${index}].y`;
@@ -218,5 +228,5 @@ Page({
             activeIndex: null
           });
         }
-    }
+    },
 })

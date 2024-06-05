@@ -1,37 +1,35 @@
 <!--pages/queueme/queueme.wxml-->
 <view class="container">
-    <!-- <view class="count-ball pink-blue-bg mt-lg {{count > 0 ? 'show' : 'hide'}}">
-        <text class="middle-text-ch" style="color: #2B2B2B;">{{count}}</text>
-    </view> -->
-
     <!-- 棋盘 -->
-    <text class="pink-blue small-text-ch" style="margin-bottom: 12px;">观众</text>
-
-    <view class="base">
-
-        <view class="point pink-blue-bg small-text-ch {{activeIndex == item.index ? 'selected':''}}" wx:for="{{points}}" style="left: {{item.x}}px; top: {{item.y}}px; font-size: 12px;" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" data-index="{{item.index}}" animation="{{animations[index]}}">{{item.index}}</view>
+    <text class="pink-blue small-text-ch" style="margin: 48px 12px 8px;">观众</text>
+    <view class="base shadow" style="width: {{squareSize * col}}px; height: {{ squareSize * row}}px;">
+        <view class="point pink-blue-bg small-text-ch {{activeIndex == item.index ? 'selected':''}}" wx:for="{{points}}" style="left: {{item.x}}px; top: {{item.y}}px; font-size: 12px; width: {{pointSize}}px; height: {{pointSize}}px;" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" data-index="{{item.index}}" animation="{{animations[index]}}">{{item.index}}</view>
 
         <!-- Horizontal lines -->
-        <block wx:for="{{6}}" wx:key="index">
-            <view class="line horizontal" style="top: {{46.75 * index}}px;"></view>
+        <block wx:for="{{row - 1}}" wx:key="index">
+            <view class="line horizontal" style="top: {{squareSize * (index + 1)}}px;"></view>
         </block>
         <!-- Vertical lines -->
-        <block wx:for="{{9}}" wx:key="index">
-            <view class="line vertical" style="left: {{46.75 * index}}px;"></view>
+        <block wx:for="{{col - 1}}" wx:key="index">
+            <view class="line vertical" style="left: {{squareSize * (index + 1)}}px;"></view>
         </block>
+        <!-- Center mark -->
+        <view class="horizontal" style="background-color: #fbc5ff; position: absolute; height: 2px; width: 10px; top: {{squareSize * row / 2 - 1}}px ; left:  {{squareSize * col / 2 - 5}}px; z-index: -1;"></view>
+        <view class="vertical" style="background-color: #fbc5ff; position: absolute; height: 10px; width: 2px; top: {{squareSize * row / 2 - 5}}px ; left:  {{squareSize * col / 2 - 1}}px; z-index: -1;"></view>
+        <!-- Back stage -->
+        <view style="position: absolute; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 20px 0px 0 20px;" ></view>
+        <view style="position: absolute; right: 0; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 0px 20px 20px 0px;" ></view>
+        <view></view>
     </view>
-
-
-
-    <text class="pink-blue small-text-ch" style="margin-top: 12px;">背面</text>
+    <text class="pink-blue small-text-ch" style="margin-top: 8px;">背面</text>
     <!-- 棋盘 -->
 
     <!-- 队列 -->
     <scroll-view class="queue-list" scroll-x enable-flex style="flex-direction: row;">
-        <view class="queue {{onSelect == index ? 'pink-blue-bg' : ''}}" bindtap="onSelect" data-index="{{index}}" wx:key="index" wx:for="{{savedQueue.length}}" wx:for-item="item" wx:for-index="index">
+        <view class="queue shadow {{onSelect == index ? 'pink-blue-bg' : ''}}" bindtap="onSelect" data-index="{{index}}" wx:key="index" wx:for="{{savedQueue.length}}" wx:for-item="item" wx:for-index="index">
             <text class="small-text-ch" style="color: #ffffff;">Queue{{index}}</text>
         </view>
-        <view class="queue-add" bindtap="addQueue">
+        <view class="queue-add shadow" bindtap="addQueue">
             <text class="small-text-ch" style="color: #ffffff;">添加Queue</text>
         </view>
     </scroll-view>
@@ -50,7 +48,7 @@
                     <text class="small-text-ch pink-blue" style="position: absolute; top: 12px; left: 55px;">▶</text>
                 </view> -->
                 <text style="color: #2b2b2b;">▶</text>
-          
+
             </button>
             <!-- <button class="playBtn pink-blue-bg right-btn" bindtap="pauseAudio">
                 <view class="round">
