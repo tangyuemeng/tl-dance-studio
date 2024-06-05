@@ -3,7 +3,7 @@
     <!-- 棋盘 -->
     <text class="pink-blue small-text-ch" style="margin: 48px 12px 8px;">观众</text>
     <view class="base shadow" style="width: {{squareSize * col}}px; height: {{ squareSize * row}}px;">
-        <view class="point pink-blue-bg small-text-ch {{activeIndex == item.index ? 'selected':''}}" wx:for="{{points}}" style="left: {{item.x}}px; top: {{item.y}}px; font-size: 12px; width: {{pointSize}}px; height: {{pointSize}}px;" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" data-index="{{item.index}}" animation="{{animations[index]}}">{{item.index}}</view>
+        <view id="point" class="point pink-blue-bg small-text-ch {{activeIndex == item.index ? 'selected':''}}" wx:for="{{points}}" style="left: {{item.x}}px; top: {{item.y}}px; font-size: 12px; width: {{pointSize}}px; height: {{pointSize}}px; transition: {{enableAnimation ? 'left 500ms ease-in-out, top 500ms ease-in-out' : 'none'}};" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" data-index="{{item.index}}">{{item.index}}</view>
 
         <!-- Horizontal lines -->
         <block wx:for="{{row - 1}}" wx:key="index">

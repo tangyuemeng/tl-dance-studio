@@ -6,9 +6,9 @@ Page({
      */
     data: {
         totalCount: 0,
-        col:12,
-        row:8,
-        squareSize:32,
+        col: 12,
+        row: 8,
+        squareSize: 32,
         pointSize: 16,
         filePath: "",
         points: [],
@@ -39,10 +39,10 @@ Page({
         this.generatePoints()
     },
 
-    initBaseView(){
+    initBaseView() {
         this.setData({
-            col:this.data.col,
-            row:this.data.row,
+            col: this.data.col,
+            row: this.data.row,
             squareSize: this.data.squareSize,
             pointSize: this.data.pointSize
         })
@@ -136,11 +136,13 @@ Page({
     },
 
 
-    addQueue(){
-        const copiedPoints = this.data.points.map(point => ({ ...point }));
+    addQueue() {
+        const copiedPoints = this.data.points.map(point => ({
+            ...point
+        }));
         this.data.savedQueue.push({
             time: this.data.currentTime,
-            queue:copiedPoints
+            queue: copiedPoints
         })
         this.setData({
             savedQueue: this.data.savedQueue
@@ -152,24 +154,24 @@ Page({
         this.renderSelect(index)
     },
 
-    renderSelect(index){
+    renderSelect(index) {
         const time = this.data.savedQueue[index].time
         const points = this.data.savedQueue[index].queue
         this.data.currentTime = time
         this.setData({
+            enableAnimation: true,
             onSelect: index,
             currentTime: time,
             formatCurrentTime: this.formatTime(time),
-            points: points
+            points: points,
         })
     },
 
     touchStart: function (e) {
         const index = e.currentTarget.dataset.index;
-        const point = this.data.points[index];
-        // console.log(point)
         // 记录起始触摸点的坐标
         this.setData({
+            enableAnimation: false,
             activeIndex: index,
             startX: e.touches[0].clientX,
             startY: e.touches[0].clientY
@@ -204,29 +206,29 @@ Page({
         });
     },
 
-    touchEnd: function (e) {
+    touchEnd: function () {
         const index = this.data.activeIndex;
         if (index !== null) {
-          // 吸附到最近的网格线上
-          const gridSize = this.data.squareSize / 2;
-          const maxX = this.data.col * this.data.squareSize - gridSize;
-          const maxY = this.data.row * this.data.squareSize  - gridSize;
-          let point = this.data.points[index];
-          
-          let snappedX = Math.round(point.x / gridSize) * gridSize - this.data.pointSize / 2;
-          let snappedY = Math.round(point.y / gridSize) * gridSize - this.data.pointSize / 2;
-          
-          // 限制吸附后的坐标在父视图内
-          snappedX = Math.max(0, Math.min(snappedX, maxX));
-          snappedY = Math.max(0, Math.min(snappedY, maxY));
-    
-          const keyX = `points[${index}].x`;
-          const keyY = `points[${index}].y`;
-          this.setData({
-            [keyX]: snappedX,
-            [keyY]: snappedY,
-            activeIndex: null
-          });
+            // 吸附到最近的网格线上
+            const gridSize = this.data.squareSize / 2;
+            const maxX = this.data.col * this.data.squareSize - gridSize;
+            const maxY = this.data.row * this.data.squareSize - gridSize;
+            let point = this.data.points[index];
+
+            let snappedX = Math.round(point.x / gridSize) * gridSize - this.data.pointSize / 2;
+            let snappedY = Math.round(point.y / gridSize) * gridSize - this.data.pointSize / 2;
+
+            // 限制吸附后的坐标在父视图内
+            snappedX = Math.max(0, Math.min(snappedX, maxX));
+            snappedY = Math.max(0, Math.min(snappedY, maxY));
+
+            const keyX = `points[${index}].x`;
+            const keyY = `points[${index}].y`;
+            this.setData({
+                [keyX]: snappedX,
+                [keyY]: snappedY,
+                activeIndex: null
+            });
         }
     },
 })
