@@ -40,10 +40,9 @@ height: 100%;
 
 .player {
     width: 90vw;
-    height: 200px;
     align-items: center;
     justify-content: center;
-    margin: 24px;
+    margin: 24px 0;
 }
 
 .slider{
@@ -57,38 +56,21 @@ height: 100%;
 }
 
 .playBtn {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    font-size:25px;
+    width: 90vw;
+    height: 56px;
+    border-radius: 60px 10px 40px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
 
-.round{
-    display: flex;
-    width: 24px;
-    height: 24px;
-    background-color: #2b2b2b;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: #fbc5ff;
-    margin-bottom: 1px;
-    margin-right: 3px;
-}
-  
 .btn {
     display: flex;
     width: 90vw;
-    gap: 10px;
+    gap: 6vw;
     align-items: center;
     justify-content: center;
-    margin-top: 12px;
+    margin: 12px 0;
 }
 
 .count-ball{
@@ -102,20 +84,16 @@ height: 100%;
 
 .queue-list {
     display: flex;
-    height: 56px;
-    margin: 48px 2px 0px;
-} 
-
-.queue-list {
-    display: flex;
     white-space: nowrap;
     width: 98vw;
-    height: 6vh;
+    height: 50px;
+    margin: 32px 2px 0px;
 }
 
 .queue{
     display: flex;
     width: 100px;
+    height: 42px;
     align-items: center;
     justify-content: center;
     border: 2px solid #fbc5ff;
@@ -128,6 +106,7 @@ height: 100%;
 .queue-add{
     display: flex;
     width: 100px;
+    height: 42px;
     align-items: center;
     justify-content: center;
     border: 2px solid rgba(187, 223, 241, 0.7);
@@ -135,6 +114,46 @@ height: 100%;
     border-radius: 20px;
     margin: 0px 4px;
     padding: 0px 12px;
+}
+
+.distance {
+    color: white;
+    font-size: 11px;
+    font-family: "Prompt";
+    font-weight: 100;
+    opacity: 0.7;
+    position: absolute;
+}
+
+.active {
+
+}
+
+.active:active{
+    box-shadow: 4px 8px 8px rgba(187, 223, 241, 0.2);
+    transform: translateY(1vw);
+}
+
+.subBtn {
+    width: 42vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.miniBtn{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -12px 16px 16px 16px;
+}
+
+.withborder {
+    border: 2px solid rgba(187, 223, 241, 0.7);
 }
 
 

@@ -1,7 +1,7 @@
 <!--pages/queueme/queueme.wxml-->
 <view class="container">
     <!-- 棋盘 -->
-    <text class="pink-blue small-text-ch" style="margin: 48px 12px 8px;">观众</text>
+    <text class="pink-blue small-text-ch" style="margin: 48px 12px 8px;">{{isVerse ? '观众' : '背面'}}</text>
     <view class="base shadow" style="width: {{squareSize * col}}px; height: {{ squareSize * row}}px;">
         <view id="point" class="point pink-blue-bg small-text-ch {{activeIndex == item.index ? 'selected':''}}" wx:for="{{points}}" style="left: {{item.x}}px; top: {{item.y}}px; font-size: 12px; width: {{pointSize}}px; height: {{pointSize}}px; transition: {{enableAnimation ? 'left 500ms ease-in-out, top 500ms ease-in-out' : 'none'}};" catchtouchstart="touchStart" catchtouchmove="touchMove" catchtouchend="touchEnd" data-index="{{item.index}}">{{item.index}}</view>
 
@@ -17,16 +17,20 @@
         <view class="horizontal" style="background-color: #fbc5ff; position: absolute; height: 2px; width: 10px; top: {{squareSize * row / 2 - 1}}px ; left:  {{squareSize * col / 2 - 5}}px; z-index: -1;"></view>
         <view class="vertical" style="background-color: #fbc5ff; position: absolute; height: 10px; width: 2px; top: {{squareSize * row / 2 - 5}}px ; left:  {{squareSize * col / 2 - 1}}px; z-index: -1;"></view>
         <!-- Back stage -->
-        <view style="position: absolute; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 20px 0px 0 20px;" ></view>
-        <view style="position: absolute; right: 0; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 0px 20px 20px 0px;" ></view>
+        <view style="position: absolute; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 20px 0px 0 20px;" wx:if="{{isShowBackStage}}"></view>
+        <view style="position: absolute; right: 0; width: {{squareSize * 2}}px; height: {{squareSize * row}}px; background-color: rgba(211, 211, 211, 0.1); z-index: -1; border-radius: 0px 20px 20px 0px;" wx:if="{{isShowBackStage}}"></view>
         <view></view>
     </view>
-    <text class="pink-blue small-text-ch" style="margin-top: 8px;">背面</text>
+    <!-- Distance -->
+    <view style="height: 8px;" wx:if="{{isShowDistance}}">
+        <text class="distance" style="left: {{squareSize * (index + 1 )}}px;" wx:for="{{distances}}">{{item}}</text>
+    </view>
+    <text class="pink-blue small-text-ch" style="margin-top: 8px;">{{isVerse ? '背面' : '观众'}}</text>
     <!-- 棋盘 -->
 
     <!-- 队列 -->
     <scroll-view class="queue-list" scroll-x enable-flex style="flex-direction: row;">
-        <view class="queue shadow {{onSelect == index ? 'pink-blue-bg' : ''}}" bindtap="onSelect" data-index="{{index}}" wx:key="index" wx:for="{{savedQueue.length}}" wx:for-item="item" wx:for-index="index">
+        <view class="queue shadow {{onSelect == index ? 'pink-blue-bg' : ''}}" bindtap="onSelect" bindlongpress="onLongPress" data-index="{{index}}" wx:key="index" wx:for="{{savedQueue.length}}" wx:for-item="item" wx:for-index="index">
             <text class="small-text-ch" style="color: #ffffff;">Queue{{index}}</text>
         </view>
         <view class="queue-add shadow" bindtap="addQueue">
@@ -42,21 +46,30 @@
             <text class="small-text-ch pink-blue">{{formatCurrentTime}}</text>
             <text class="small-text-ch pink-blue">{{formatDuration}}</text>
         </view>
+
         <view class="btn">
-            <button class="playBtn pink-blue-bg" bindtap="playAudio">
-                <!-- <view class="round">
-                    <text class="small-text-ch pink-blue" style="position: absolute; top: 12px; left: 55px;">▶</text>
-                </view> -->
-                <text style="color: #2b2b2b;">▶</text>
+            <view class="miniBtn shadow active {{isShowDistance ? 'withborder' : ''}}"  bindtap="change" data-item="distance">
+                <text class="small-text-ch" style="color: #ffffff; font-size: 10px;">显示距离</text>
+            </view>
+            <view class="miniBtn shadow active {{isShowBackStage ? 'withborder' : ''}}" bindtap="change" data-item="backstage">
+                <text class="small-text-ch" style="color: #ffffff; font-size: 10px;">显示后台</text>
+            </view>
+            <view class="miniBtn shadow active {{isVerse ? 'withborder' : ''}}" bindtap="change" data-item="verse">
+                <text class="small-text-ch" style="color: #ffffff; font-size: 10px;">反转舞台</text>
+            </view>
+        </view>
 
-            </button>
-            <!-- <button class="playBtn pink-blue-bg right-btn" bindtap="pauseAudio">
-                <view class="round">
-                    <text class="small-text-ch pink-blue" style="position: absolute;left: 48px;">⏸</text>
-                </view>
-        
-            </button> -->
+        <view class="btn">
+            <view class="subBtn shadow pink-blue-bg active" style="border-radius: 10px 40px 10px 40px;" bindtap="pauseAudio">
+                <text class="small-text" style="color: #2b2b2b;">Pause</text>
+            </view>
+            <view class="subBtn shadow pink-blue-bg active" style="border-radius: 40px 10px 40px 10px;" bindtap="replayAudio">
+                <text class="small-text" style="color: #2b2b2b;">Replay</text>
+            </view>
+        </view>
 
+        <view class="playBtn pink-blue-bg active shadow" bindtap="playAudio">
+            <text class="middle-text" style="color: #2b2b2b;">Play</text>
         </view>
     </view>
     <!-- 播放器 -->

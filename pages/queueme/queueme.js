@@ -20,7 +20,10 @@ Page({
         isSliderChanging: false, // 用于标识是否正在拖动滑块
         activeIndex: null,
         startX: 0,
-        startY: 0
+        startY: 0,
+        isShowDistance: true,
+        isShowBackStage: true,
+        isVerse: true,
     },
 
     onLoad(options) {
@@ -37,6 +40,7 @@ Page({
         this.initBaseView()
         this.initAudioPlayer()
         this.generatePoints()
+        this.initDistance()
     },
 
     initBaseView() {
@@ -45,6 +49,20 @@ Page({
             row: this.data.row,
             squareSize: this.data.squareSize,
             pointSize: this.data.pointSize
+        })
+    },
+
+    initDistance() {
+        const descending = Array.from({
+            length: 6
+        }, (_, i) => 5 - i);
+        // 生成从 1 到 5 的数组
+        const ascending = Array.from({
+            length: 5
+        }, (_, i) => i + 1);
+        // 合并两个数组
+        this.setData({
+            distances: descending.concat(ascending)
         })
     },
 
@@ -86,6 +104,15 @@ Page({
         this.innerAudioContext.play();
     },
 
+    replayAudio(){
+        this.innerAudioContext.seek(0);
+        this.setData({
+            formatCurrentTime: this.formatTime(0),
+            currentTime: 0,
+        });
+        this.innerAudioContext.play();
+    },
+
     pauseAudio() {
         this.innerAudioContext.pause();
     },
@@ -123,11 +150,25 @@ Page({
     generatePoints() {
         const count = this.data.totalCount
         for (let id = 0; id < count; id++) {
-            this.data.points.push({
-                index: id,
-                x: this.data.squareSize * this.data.col - this.data.pointSize,
-                y: this.data.pointSize / 2,
-            })
+            if (id < 9) {
+                this.data.points.push({
+                    index: id,
+                    x: this.data.squareSize * (2 + id % 9) - this.data.pointSize / 2,
+                    y: this.data.squareSize - this.data.pointSize / 2,
+                })
+            } else if (id < 18) {
+                this.data.points.push({
+                    index: id,
+                    x: this.data.squareSize * (2 + id % 9) - this.data.pointSize / 2,
+                    y: this.data.squareSize * 2 - this.data.pointSize / 2,
+                })
+            } else if (id < 24) {
+                this.data.points.push({
+                    index: id,
+                    x: this.data.squareSize * (2 + id % 9) - this.data.pointSize / 2,
+                    y: this.data.squareSize * 3 - this.data.pointSize / 2,
+                })
+            }
         }
         const points = this.data.points
         this.setData({
@@ -152,6 +193,11 @@ Page({
     onSelect(e) {
         const index = e.currentTarget.dataset.index
         this.renderSelect(index)
+    },
+
+    onLongPress(e){
+        const index = e.currentTarget.dataset.index
+        console.log(index)
     },
 
     renderSelect(index) {
@@ -229,6 +275,30 @@ Page({
                 [keyY]: snappedY,
                 activeIndex: null
             });
+        }
+    },
+
+    change(e) {
+        const item = e.currentTarget.dataset.item
+        switch (item) {
+            case "distance":
+                this.data.isShowDistance = !this.data.isShowDistance
+                this.setData({
+                    isShowDistance: this.data.isShowDistance
+                })
+                break
+            case "backstage":
+                this.data.isShowBackStage = !this.data.isShowBackStage
+                this.setData({
+                    isShowBackStage: this.data.isShowBackStage
+                })
+                break
+            case "verse":
+                this.data.isVerse = !this.data.isVerse
+                this.setData({
+                    isVerse: this.data.isVerse
+                })
+                break
         }
     },
 })
