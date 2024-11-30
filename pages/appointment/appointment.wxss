@@ -117,6 +117,10 @@ page {
   margin-bottom: 2vh;
 }
 
+.class-item.isTiktok {
+  height: 20vh;
+}
+
 .class-item:active {
   box-shadow: 4px 12px 12px rgba(241, 128, 245, 0.25);
   transform: translateY(1vw);
@@ -157,6 +161,35 @@ page {
   top: 10vh;
   left: 33vw;
   color: #f5f5f5;
+}
+
+.item-tiktok {
+  position: absolute;
+  border: 2px solid rgba(187, 223, 241, 0.7);
+  border-radius: 20px;
+  top: 15vh;
+  color: #f5f5f5;
+  margin-left: 2.6vw;
+  padding: 0 10vw 0 10vw;
+}
+
+.item-tiktok::after {
+  content: "❤"; /* 爱心 */
+  position: absolute;
+  top: -16px; /* 调整爱心位置 */
+  right: -8px;
+  color: #fbc5ff; /* 爱心颜色 */
+  font-size: 24px;
+  padding: 5px;
+}
+
+.item-tiktok-content {
+  position: absolute;
+  color: #fbc5ff;
+  margin-left: 2.6vw;
+  top: 15.3vh;
+  right: -0vw;
+  padding: 0 10vw 0 10vw;
 }
 
 .loding {
